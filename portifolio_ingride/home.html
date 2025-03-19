@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Landing Page - Ingride Souza</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Exemplo de import de fonte do Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+      color: #333;
+      background-color: #fff;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #f8f8f8;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    header .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #666;
+    }
+
+    /* Seção Hero */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 2rem;
+      gap: 2rem;
+    }
+
+    .hero .photo {
+      flex: 0 0 220px;
+      text-align: center;
+    }
+
+    .hero .photo img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 100%;
+      border: 2px solid #ccc;
+    }
+
+    .hero .info {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .hero .info h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+
+    .hero .info h2 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+
+    .hero .info p {
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    /* Seção Skills */
+    .skills-section {
+      background-color: #fff;
+      padding: 2rem;
+    }
+
+    .skills-section .section-title-bg {
+      position: absolute;
+      font-size: 5rem;
+      font-weight: 700;
+      color: #f0f0f0;
+      pointer-events: none;
+      user-select: none;
+      transform: rotate(-90deg);
+    }
+
+    .skills-content {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .skills-content h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .skills-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .skill-box {
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .skill-box h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .skill-box ul {
+      margin-left: 1.2rem;
+      list-style: disc;
+    }
+
+    .skill-box ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Seção Experience */
+    .experience-section {
+      position: relative;
+      background-color: #f9f9f9;
+      padding: 2rem;
+    }
+
+    .experience-section .section-title-bg {
+      position: absolute;
+      top: 2rem;
+      left: -1rem;
+      font-size: 5rem;
+      font-weight: 700;
+      color: #f0f0f0;
+      pointer-events: none;
+      user-select: none;
+      transform: rotate(-90deg);
+    }
+
+    .experience-content {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .experience-content h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    /* Timeline */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .timeline-item {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 1rem 1.5rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .timeline-item h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+    }
+
+    .timeline-item span {
+      font-size: 0.9rem;
+      color: #999;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-item p {
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+
+    .timeline-item ul {
+      margin-left: 1.5rem;
+      list-style: disc;
+      color: #333;
+      margin-top: 0.5rem;
+    }
+
+    .timeline-item ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Seção College (Educação) */
+    .college-section {
+      background-color: #111;
+      color: #fff;
+      padding: 2rem;
+    }
+
+    .college-section .section-title-bg {
+      position: absolute;
+      top: 2rem;
+      left: -1rem;
+      font-size: 5rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.05);
+      pointer-events: none;
+      user-select: none;
+      transform: rotate(-90deg);
+    }
+
+    .college-content {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .college-content h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .education-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .education-item {
+      background-color: #222;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .education-item h3 {
+      margin-bottom: 0.3rem;
+      font-size: 1.1rem;
+      color: #eee;
+      font-weight: 600;
+    }
+
+    .education-item span {
+      display: block;
+      font-size: 0.9rem;
+      color: #ccc;
+      margin-bottom: 0.5rem;
+    }
+
+    .education-item p {
+      font-size: 0.9rem;
+      color: #ccc;
+      line-height: 1.4;
+    }
+
+    /* Seção Contact */
+    .contact-section {
+      padding: 2rem;
+    }
+
+    .contact-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .contact-info {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+      line-height: 1.8;
+    }
+
+    .contact-info p {
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-info a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #f8f8f8;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="logo">Ingride Souza</div>
+    <nav>
+      <ul>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#college">Educação</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Seção Hero -->
+  <section class="hero">
+    <div class="photo">
+      <!-- Substitua pelo caminho da sua foto -->
+      <img src="./assets/image/profile.jpeg" alt="Foto de Ingride Souza" />
+    </div>
+    <div class="info">
+      <h1>Full Stack Developer</h1>
+      <h2>Salvador, Bahia, Brasil</h2>
+      <p>
+        Olá, eu sou <strong>Ingride Souza</strong> e tenho 19 anos.
+        Minha jornada nos estudos é movida pela paixão por programação e
+        tecnologia. Atualmente, estou cursando Análise e Desenvolvimento
+        de Sistemas na UniRuy Wyden, com previsão de término em 2025.2.
+      </p>
+      <p>
+        Sempre busco melhorar meus conhecimentos além da sala de aula.
+        Recentemente, concluí um curso de Programação Full Stack na
+        Infinity School, onde aprendi tanto sobre desenvolvimento Front-End
+        quanto Back-End, o que foi essencial para meu crescimento
+        profissional. Meu foco é me destacar como desenvolvedora Full Stack,
+        explorando novas ferramentas e tecnologias.
+      </p>
+    </div>
+  </section>
+
+  <!-- Seção Skills -->
+  <section class="skills-section" id="skills">
+    <div class="skills-content">
+      <h2>Skills</h2>
+      <div class="skills-wrapper">
+
+        <!-- Soft Skills -->
+        <div class="skill-box">
+          <h3>Soft Skills</h3>
+          <ul>
+            <li>Trabalho em equipe</li>
+            <li>Comunicação clara</li>
+            <li>Aprendizado rápido</li>
+            <li>Proatividade</li>
+            <li>Atenção aos detalhes</li>
+            <li>Inteligência emocional</li>
+          </ul>
+        </div>
+
+        <!-- Hard Skills -->
+        <div class="skill-box">
+          <h3>Hard Skills</h3>
+          <ul>
+            <li>Proficient in JavaScript</li>
+            <li>Git Version Control System</li>
+            <li>HTML5, CSS3 e Bootstrap</li>
+            <li>Advanced Python Programming</li>
+            <li>SQL Database Management</li>
+            <li>FLASK Framework Development</li>
+            <li>Chatbot Development and Deployment</li>
+            <li>Artificial Intelligence (AI) Fundamentals</li>
+            <li>TypeScript</li>
+            <li>Software Architecture</li>
+          </ul>
+        </div>
+
+        <!-- Competências / Threads, Chatbots, Automação -->
+        <div class="skill-box">
+          <h3>Principais Competências</h3>
+          <ul>
+            <li>Threads</li>
+            <li>Chatbots</li>
+            <li>Automação de processos</li>
+          </ul>
+        </div>
+
+        <!-- Ferramentas -->
+        <div class="skill-box">
+          <h3>Ferramentas</h3>
+          <ul>
+            <li>Visual Studio Code (VS Code)</li>
+            <li>Workbench</li>
+            <li>PyCharm (IDE)</li>
+            <li>WordPress CMS</li>
+          </ul>
+        </div>
+
+        <!-- Certificações -->
+        <div class="skill-box">
+          <h3>Certificações</h3>
+          <ul>
+            <li>Workshop - Criando o seu primeiro site</li>
+            <li>Microsoft Excel 2016 - Intermediário</li>
+            <li>Node.js</li>
+            <li>Customer Service: Problem-Solving and Troubleshooting</li>
+            <li>Desvendando SQL</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Experience -->
+  <section class="experience-section" id="experience">
+    <div class="section-title-bg">EXPERIENCE</div>
+    <div class="experience-content">
+      <h2>Experience</h2>
+      <!-- Timeline -->
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <h3>setembro de 2024 - Presente</h3>
+          <span>Leiaute Propaganda - Desenvolvedor(a) de software</span>
+          <p>
+            Atuação no desenvolvimento de software, contribuindo com soluções
+            em Front-End e Back-End, além de suporte na automação de processos
+            e chatbots.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>maio de 2024 - setembro de 2024</h3>
+          <span>INFINITY SCHOOL - Visual Art Creative Center - Monitor(a)</span>
+          <p>
+            Suporte a alunos nos conteúdos de programação Full Stack, auxílio
+            em resolução de problemas e orientação em projetos práticos.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>agosto de 2021 - setembro de 2022</h3>
+          <span>Borde Arte, Gráfica e Bordados - Estagiário(a)</span>
+          <p>
+            Atendimento ao cliente por WhatsApp e presencialmente, responsável
+            pela emissão de orçamentos e acompanhamento de produção dos pedidos.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>maio de 2018 - dezembro de 2018</h3>
+          <span>Magazine Mayta - Estagiário(a)</span>
+          <p>
+            Atendimento ao público, recebimento de pagamentos e cadastramento
+            das mercadorias no sistema.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção College (Educação) -->
+  <section class="college-section" id="college">
+    <div class="section-title-bg">EDUCATION</div>
+    <div class="college-content">
+      <h2>Educação</h2>
+
+      <div class="education-wrapper">
+
+        <div class="education-item">
+          <h3>UniFavip Wyden</h3>
+          <span>Graduação em Análise e Desenvolvimento de Sistemas</span>
+          <p>março de 2023 - novembro de 2025</p>
+        </div>
+
+        <div class="education-item">
+          <h3>INFINITY SCHOOL - Visual Art Creative Center</h3>
+          <span>Curso em Programação Full Stack</span>
+          <p>agosto de 2023 - fevereiro de 2024</p>
+        </div>
+
+        <div class="education-item">
+          <h3>Colégio Estadual Luiz Eduardo Magalhães</h3>
+          <span>Ensino Médio</span>
+          <p>janeiro de 2020 - dezembro de 2022</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Contact -->
+  <section class="contact-section" id="contact">
+    <h2>Contact</h2>
+    <div class="contact-info">
+      <p><strong>Telefone:</strong> <a href="tel:71981170909">71 98117-0909</a></p>
+      <p><strong>Email:</strong> <a href="mailto:ingridesouza040@gmail.com">ingridesouza040@gmail.com</a></p>
+      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ingride-souza-a21a4518a">linkedin.com/in/ingride-souza-a21a4518a</a></p>
+      <p><strong>GitHub:</strong> <a href="https://github.com/ingridesouza">github.com/ingridesouza</a></p>
+      <p><strong>Portfólio:</strong> <a href="https://ingridesouza-portifolio.netlify.app">ingridesouza-portifolio.netlify.app</a></p>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    &copy; 2025 - Desenvolvido por Ingride Souza
+  </footer>
+
+</body>
+</html>
