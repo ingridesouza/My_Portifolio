@@ -165,82 +165,115 @@
       margin-bottom: 0.5rem;
     }
 
-    /* Seção Experience */
-    .experience-section {
-      position: relative;
-      background-color: #f9f9f9;
-      padding: 2rem;
-    }
-
-    .experience-section .section-title-bg {
-      position: absolute;
-      top: 2rem;
-      left: -1rem;
-      font-size: 5rem;
-      font-weight: 700;
-      color: #f0f0f0;
-      pointer-events: none;
-      user-select: none;
-      transform: rotate(-90deg);
-    }
-
-    .experience-content {
-      max-width: 900px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 2;
-    }
-
-    .experience-content h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      text-align: center;
-    }
-
-    /* Timeline */
-    .timeline {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-
-    .timeline-item {
-      background-color: #fff;
-      border-radius: 8px;
-      padding: 1rem 1.5rem;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-
-    .timeline-item h3 {
-      font-size: 1.2rem;
-      margin-bottom: 0.3rem;
-      font-weight: 600;
-    }
-
-    .timeline-item span {
-      font-size: 0.9rem;
-      color: #999;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-
-    .timeline-item p {
-      margin-bottom: 0.5rem;
-      line-height: 1.5;
-    }
-
-    .timeline-item ul {
-      margin-left: 1.5rem;
-      list-style: disc;
-      color: #333;
-      margin-top: 0.5rem;
-    }
-
-    .timeline-item ul li {
-      margin-bottom: 0.5rem;
-    }
+    /* Seção EXPERIENCE */
+.experience-section {
+    position: relative;
+    background-color: #f9f9f9;
+    padding: 2rem;
+  }
+  
+  /* Texto vertical (caso já esteja usando em .section-title-bg) */
+  .experience-section .section-title-bg {
+    position: absolute;
+    top: 2rem;
+    left: -1rem;
+    font-size: 5rem;
+    font-weight: 700;
+    color: #f0f0f0;
+    pointer-events: none;
+    user-select: none;
+    /* Se quiser deixar na vertical sem rotação, use writing-mode. 
+       Caso prefira rotacionar 90 graus, mantenha ou ajuste o transform. */
+    transform: rotate(-90deg);
+  }
+  
+  .experience-content {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .experience-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  
+  /* ---------- TIMELINE ---------- */
+  .timeline {
+    position: relative;
+    margin: 2rem 0;
+    /* Você pode ajustar o padding se quiser mais espaço */
+  }
+  
+  /* Linha vertical */
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 30px; /* posição da linha */
+    top: 0;
+    bottom: 0;
+    width: 2px; /* espessura da linha */
+    background: #ccc; /* cor da linha */
+  }
+  
+  /* Cada item da timeline */
+  .timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+    padding-left: 70px; /* espaço para caber a linha e o "date" */
+  }
+  
+  /* Data/ano/intervalo de tempo */
+  .timeline-date {
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+    color: #555;
+    /* Ajuste o top conforme necessário */
+    top: 0;
+    min-width: 50px;
+  }
+  
+  /* Ponto (círculo) que fica sobre a linha vertical */
+  .timeline-dot {
+    position: absolute;
+    left: 22px; /* centraliza o ponto na linha (depende do left do ::before) */
+    top: 6px;   /* ajuste para alinhar verticalmente ao date ou título */
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #333; /* cor do ponto */
+  }
+  
+  /* Cartão de conteúdo */
+  .timeline-card {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  /* Títulos e textos dentro do cartão */
+  .timeline-card h3 {
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+  }
+  
+  .timeline-card p {
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+  }
+  
+  .timeline-card ul {
+    list-style: disc;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
 
     /* Seção College (Educação) */
     .college-section {
@@ -463,54 +496,63 @@
     </div>
   </section>
 
-  <!-- Seção Experience -->
   <section class="experience-section" id="experience">
+    <!-- Texto vertical (se já estiver usando) -->
     <div class="section-title-bg">EXPERIENCE</div>
+    
     <div class="experience-content">
       <h2>Experience</h2>
-      <!-- Timeline -->
+  
       <div class="timeline">
-
+        <!-- Item 1 -->
         <div class="timeline-item">
-          <h3>setembro de 2024 - Presente</h3>
-          <span>Leiaute Propaganda - Desenvolvedor(a) de software</span>
-          <p>
-            Atuação no desenvolvimento de software, contribuindo com soluções
-            em Front-End e Back-End, além de suporte na automação de processos
-            e chatbots.
-          </p>
+          <!-- Ano/Período -->
+          <div class="timeline-date">2024-2025</div>
+          <!-- Ponto indicador na linha -->
+          <div class="timeline-dot"></div>
+          <!-- Cartão com o conteúdo -->
+          <div class="timeline-card">
+            <h3>Leiaute Propaganda</h3>
+            <p><strong>Desenvolvedora de software</strong></p>
+            <p>
+                Atuação no desenvolvimento de software, contribuindo com soluções em Front-End e Back-End, além de suporte na automação de processos e chatbots. 
+            </p>
+            <p>
+              Tecnologias e ferramentas:
+            </p>
+            <ul>
+              <li>Python</li>
+              <li>JavaScript</li>
+              <li>SQL</li>
+              <li>Selenium</li>
+              <li>TypeScript</li>
+              <li>Inteligência Artificial</li>
+              <li>Zapier</li>
+              <li>Wordpress</li>
+              <li>Git Version Control</li>
+            </ul>
+          </div>
         </div>
-
+  
+        <!-- Item 2 -->
         <div class="timeline-item">
-          <h3>maio de 2024 - setembro de 2024</h3>
-          <span>INFINITY SCHOOL - Visual Art Creative Center - Monitor(a)</span>
-          <p>
-            Suporte a alunos nos conteúdos de programação Full Stack, auxílio
-            em resolução de problemas e orientação em projetos práticos.
-          </p>
+          <div class="timeline-date">2024</div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <h3>INFINITY SCHOOL - Visual Art Creative Center</h3>
+            <p><strong>Monitora</strong></p>
+            <p>
+                Suporte a alunos nos conteúdos de programação Full Stack, auxílio em resolução de problemas e orientação em projetos práticos.
+            </p>
+          </div>
         </div>
-
-        <div class="timeline-item">
-          <h3>agosto de 2021 - setembro de 2022</h3>
-          <span>Borde Arte, Gráfica e Bordados - Estagiário(a)</span>
-          <p>
-            Atendimento ao cliente por WhatsApp e presencialmente, responsável
-            pela emissão de orçamentos e acompanhamento de produção dos pedidos.
-          </p>
-        </div>
-
-        <div class="timeline-item">
-          <h3>maio de 2018 - dezembro de 2018</h3>
-          <span>Magazine Mayta - Estagiário(a)</span>
-          <p>
-            Atendimento ao público, recebimento de pagamentos e cadastramento
-            das mercadorias no sistema.
-          </p>
-        </div>
-
+  
+        <!-- Adicione mais .timeline-item conforme necessário -->
       </div>
     </div>
   </section>
+  
+
 
   <!-- Seção College (Educação) -->
   <section class="college-section" id="college">
