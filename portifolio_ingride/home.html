@@ -26,6 +26,7 @@
       background-color: #fff;
     }
 
+    /* Cabeçalho */
     header {
       display: flex;
       justify-content: space-between;
@@ -37,27 +38,36 @@
       top: 0;
       z-index: 999;
     }
-
     header .logo {
       font-size: 1.5rem;
       font-weight: 700;
     }
-
     nav ul {
       list-style: none;
       display: flex;
       gap: 2rem;
     }
-
     nav ul li a {
       text-decoration: none;
       color: #333;
       font-weight: 500;
       transition: color 0.3s;
     }
-
     nav ul li a:hover {
       color: #666;
+    }
+
+    /* Título vertical base (aplicado a todas as seções) */
+    .section-title-bg {
+      position: absolute;
+      left: 2rem;               /* Alinhamento horizontal fixo */
+      top: 50%;                 /* Centraliza verticalmente */
+      transform: translateY(-50%) rotate(-90deg);
+      font-size: 5rem;
+      font-weight: 700;
+      pointer-events: none;
+      user-select: none;
+      color: rgba(0,0,0,0.05);  /* cor padrão para fundos claros */
     }
 
     /* Seção Hero */
@@ -68,12 +78,10 @@
       padding: 2rem;
       gap: 2rem;
     }
-
     .hero .photo {
       flex: 0 0 220px;
       text-align: center;
     }
-
     .hero .photo img {
       width: 200px;
       height: 200px;
@@ -81,53 +89,40 @@
       border-radius: 100%;
       border: 2px solid #ccc;
     }
-
     .hero .info {
       flex: 1;
       min-width: 280px;
     }
-
     .hero .info h1 {
       font-size: 2.2rem;
       margin-bottom: 0.5rem;
       font-weight: 700;
     }
-
     .hero .info h2 {
       font-size: 1.2rem;
       font-weight: 500;
       color: #555;
       margin-bottom: 1rem;
     }
-
     .hero .info p {
       line-height: 1.6;
       margin-bottom: 1rem;
     }
 
-    /* Seção Skills */
+    /************************
+     * Seção SKILLS
+     ************************/
     .skills-section {
+      position: relative; /* Para título vertical */
       background-color: #fff;
       padding: 2rem;
     }
-
-    .skills-section .section-title-bg {
-      position: absolute;
-      font-size: 5rem;
-      font-weight: 700;
-      color: #f0f0f0;
-      pointer-events: none;
-      user-select: none;
-      transform: rotate(-90deg);
-    }
-
     .skills-content {
       max-width: 900px;
       margin: 0 auto;
       position: relative;
       z-index: 2;
     }
-
     .skills-content h2 {
       font-size: 2rem;
       margin-bottom: 1rem;
@@ -135,244 +130,56 @@
       text-transform: uppercase;
       text-align: center;
     }
-
     .skills-wrapper {
       display: flex;
       flex-direction: column;
       gap: 2rem;
       margin-top: 2rem;
     }
-
     .skill-box {
       background-color: #f9f9f9;
       border-radius: 8px;
       padding: 1.5rem;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
-
     .skill-box h3 {
       font-size: 1.3rem;
       margin-bottom: 0.5rem;
       font-weight: 600;
     }
-
     .skill-box ul {
       margin-left: 1.2rem;
       list-style: disc;
     }
-
     .skill-box ul li {
       margin-bottom: 0.5rem;
     }
 
-    /* Seção EXPERIENCE */
-.experience-section {
-    position: relative;
-    background-color: #f9f9f9;
-    padding: 2rem;
-  }
-  
-  /* Texto vertical (caso já esteja usando em .section-title-bg) */
-  .experience-section .section-title-bg {
-    position: absolute;
-    top: 2rem;
-    left: -1rem;
-    font-size: 5rem;
-    font-weight: 700;
-    color: #f0f0f0;
-    pointer-events: none;
-    user-select: none;
-    /* Se quiser deixar na vertical sem rotação, use writing-mode. 
-       Caso prefira rotacionar 90 graus, mantenha ou ajuste o transform. */
-    transform: rotate(-90deg);
-  }
-  
-  .experience-content {
-    max-width: 900px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 2;
-  }
-  
-  .experience-content h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    text-align: center;
-  }
-  
-  /* ---------- TIMELINE ---------- */
-  .timeline {
-    position: relative;
-    margin: 2rem 0;
-    /* Você pode ajustar o padding se quiser mais espaço */
-  }
-  
-  /* Linha vertical */
-  .timeline::before {
-    content: "";
-    position: absolute;
-    left: 30px; /* posição da linha */
-    top: 0;
-    bottom: 0;
-    width: 2px; /* espessura da linha */
-    background: #ccc; /* cor da linha */
-  }
-  
-  /* Cada item da timeline */
-  .timeline-item {
-    position: relative;
-    margin-bottom: 2rem;
-    padding-left: 70px; /* espaço para caber a linha e o "date" */
-  }
-  
-  /* Data/ano/intervalo de tempo */
-  .timeline-date {
-    position: absolute;
-    left: 0;
-    font-weight: 700;
-    color: #555;
-    /* Ajuste o top conforme necessário */
-    top: 0;
-    min-width: 50px;
-  }
-  
-  /* Ponto (círculo) que fica sobre a linha vertical */
-  .timeline-dot {
-    position: absolute;
-    left: 22px; /* centraliza o ponto na linha (depende do left do ::before) */
-    top: 6px;   /* ajuste para alinhar verticalmente ao date ou título */
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background: #333; /* cor do ponto */
-  }
-  
-  /* Cartão de conteúdo */
-  .timeline-card {
-    background: #fff;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
-  
-  /* Títulos e textos dentro do cartão */
-  .timeline-card h3 {
-    margin-bottom: 0.3rem;
-    font-weight: 600;
-  }
-  
-  .timeline-card p {
-    margin-bottom: 0.5rem;
-    line-height: 1.4;
-  }
-  
-  .timeline-card ul {
-    list-style: disc;
-    margin-left: 1.5rem;
-    margin-bottom: 1rem;
-  }
-  
-
-    /************************
- * Seção College (Educação)
- ************************/
-.college-section {
-    position: relative;
-    background-color: #111; /* fundo escuro */
-    color: #fff;
-    padding: 4rem 2rem;     /* mais espaço para lembrar o modelo */
-    min-height: 50vh;       /* altura mínima opcional */
-    display: flex;          /* permite alinhar verticalmente, se quiser */
-    align-items: center;    /* centraliza verticalmente */
-  }
-  
-  .college-section .section-title-bg {
-    position: absolute;
-    top: 2rem;
-    left: 2rem;
-    font-size: 5rem;
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.05);
-    pointer-events: none;
-    user-select: none;
-    transform: rotate(-90deg); 
-    /* Se quiser ajustar a posição, altere "left" e "top" */
-  }
-  
-  .college-content {
-    max-width: 900px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 2;
-    /* Se quiser, pode usar display flex/column */
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-  
-  .college-content p {
-    line-height: 1.6;
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .degree-info,
-  .intensive-courses {
-    background-color: #222;
-    padding: 1rem;
-    border-radius: 8px;
-  }
-  
-  .degree-info h3 {
-    font-size: 1rem;
-    font-weight: 700;
-    color: #f44336; /* cor de destaque (vermelho) - mude conforme preferir */
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
-  }
-  
-  .degree-title {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #fff;
-    margin-bottom: 0.2rem;
-  }
-  
-  .institution {
-    font-size: 0.95rem;
-    color: #bbb;
-    margin-bottom: 0.2rem;
-  }
-  
-  .study-period {
-    font-size: 0.85rem;
-    color: #888;
-  }
-  
-  .intensive-courses h4 {
-    font-size: 1rem;
-    font-weight: 700;
-    color: #f44336; /* mesma cor de destaque */
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
-  }
-  
-  .intensive-courses p {
-    font-size: 0.9rem;
-    color: #ccc;
-    margin-bottom: 0.5rem;
-    line-height: 1.4;
-  }
-  
-
-    /* Seção Contact */
-    .contact-section {
-      padding: 2rem;
+    /* Título vertical SKILLS */
+    .skills-section .section-title-bg {
+      /* Pode manter a cor padrão para fundo claro */
+      content: "SKILLS"; /* Se preferir, pode colocar no HTML. */
     }
 
-    .contact-section h2 {
+    /************************
+     * Seção EXPERIENCE
+     ************************/
+    .experience-section {
+      position: relative; /* Para título vertical */
+      background-color: #f9f9f9;
+      padding: 2rem;
+    }
+    .experience-section .section-title-bg {
+      /* Mesmo estilo base, mas substitui o texto no HTML. */
+      color: rgba(0,0,0,0.05); /* Para fundo claro */
+    }
+    .experience-content {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+    .experience-content h2 {
       font-size: 2rem;
       margin-bottom: 1rem;
       font-weight: 700;
@@ -380,23 +187,163 @@
       text-align: center;
     }
 
+    /* TIMELINE */
+    .timeline {
+      position: relative;
+      margin: 2rem 0;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 30px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #ccc;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+      padding-left: 70px;
+    }
+    .timeline-date {
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+      color: #555;
+      top: 0;
+      min-width: 50px;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: 22px;
+      top: 6px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #333;
+    }
+    .timeline-card {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .timeline-card h3 {
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+    }
+    .timeline-card p {
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+    .timeline-card ul {
+      list-style: disc;
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    /************************
+     * Seção COLLEGE
+     ************************/
+    .college-section {
+      position: relative; /* Para título vertical */
+      background-color: #111; /* fundo escuro */
+      color: #fff;
+      padding: 4rem 2rem;
+      min-height: 50vh;
+      display: flex;
+      align-items: center;
+    }
+    /* Sobrescreve a cor do texto vertical para fundo escuro */
+    .college-section .section-title-bg {
+      color: rgba(255,255,255,0.05);
+    }
+    .college-content {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .college-content p {
+      line-height: 1.6;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .degree-info,
+    .intensive-courses {
+      background-color: #222;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+    .degree-info h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #f44336; 
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+    .degree-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.2rem;
+    }
+    .institution {
+      font-size: 0.95rem;
+      color: #bbb;
+      margin-bottom: 0.2rem;
+    }
+    .study-period {
+      font-size: 0.85rem;
+      color: #888;
+    }
+    .intensive-courses h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #f44336;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+    .intensive-courses p {
+      font-size: 0.9rem;
+      color: #ccc;
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+
+    /************************
+     * Seção Contact
+     ************************/
+    .contact-section {
+      position: relative; /* se quiser título vertical, adicione .section-title-bg e estilo */
+      padding: 2rem;
+    }
+    .contact-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-align: center;
+    }
     .contact-info {
       max-width: 600px;
       margin: 0 auto;
       text-align: center;
       line-height: 1.8;
     }
-
     .contact-info p {
       margin-bottom: 0.5rem;
     }
-
     .contact-info a {
       color: #0066cc;
       text-decoration: none;
     }
 
-    /* Footer */
+    /* Rodapé */
     footer {
       text-align: center;
       padding: 1rem;
@@ -449,6 +396,8 @@
 
   <!-- Seção Skills -->
   <section class="skills-section" id="skills">
+    <!-- Título vertical -->
+    <div class="section-title-bg">SKILLS</div>
     <div class="skills-content">
       <h2>Skills</h2>
       <div class="skills-wrapper">
@@ -520,30 +469,27 @@
     </div>
   </section>
 
+  <!-- Seção Experience -->
   <section class="experience-section" id="experience">
-    <!-- Texto vertical (se já estiver usando) -->
+    <!-- Título vertical -->
     <div class="section-title-bg">EXPERIENCE</div>
-    
+
     <div class="experience-content">
       <h2>Experience</h2>
-  
       <div class="timeline">
         <!-- Item 1 -->
         <div class="timeline-item">
-          <!-- Ano/Período -->
           <div class="timeline-date">2024-2025</div>
-          <!-- Ponto indicador na linha -->
           <div class="timeline-dot"></div>
-          <!-- Cartão com o conteúdo -->
           <div class="timeline-card">
             <h3>Leiaute Propaganda</h3>
             <p><strong>Desenvolvedora de software</strong></p>
             <p>
-                Atuação no desenvolvimento de software, contribuindo com soluções em Front-End e Back-End, além de suporte na automação de processos e chatbots. 
+              Atuação no desenvolvimento de software, contribuindo com soluções 
+              em Front-End e Back-End, além de suporte na automação de processos 
+              e chatbots.
             </p>
-            <p>
-              Tecnologias e ferramentas:
-            </p>
+            <p>Tecnologias e ferramentas:</p>
             <ul>
               <li>Python</li>
               <li>JavaScript</li>
@@ -557,7 +503,7 @@
             </ul>
           </div>
         </div>
-  
+
         <!-- Item 2 -->
         <div class="timeline-item">
           <div class="timeline-date">2024</div>
@@ -566,21 +512,18 @@
             <h3>INFINITY SCHOOL - Visual Art Creative Center</h3>
             <p><strong>Monitora</strong></p>
             <p>
-                Suporte a alunos nos conteúdos de programação Full Stack, auxílio em resolução de problemas e orientação em projetos práticos.
+              Suporte a alunos nos conteúdos de programação Full Stack, auxílio 
+              em resolução de problemas e orientação em projetos práticos.
             </p>
           </div>
         </div>
-  
-        <!-- Adicione mais .timeline-item conforme necessário -->
       </div>
     </div>
   </section>
-  
 
-
-  <!-- Seção College (Educação) -->
-<section class="college-section" id="college">
-    <!-- Texto vertical -->
+  <!-- Seção College -->
+  <section class="college-section" id="college">
+    <!-- Título vertical -->
     <div class="section-title-bg">COLLEGE</div>
     
     <div class="college-content">
@@ -591,7 +534,7 @@
         meus conhecimentos na área de tecnologia. Além dos estudos acadêmicos, 
         busco cursos intensivos de programação para me manter atualizada.
       </p>
-  
+
       <!-- Bloco que representa o "BACHELOR'S DEGREE" -->
       <div class="degree-info">
         <h3>BACHELOR'S DEGREE</h3>
@@ -599,7 +542,7 @@
         <div class="institution">UniFavip Wyden</div>
         <p class="study-period">Março de 2023 - Novembro de 2025</p>
       </div>
-  
+
       <!-- Bloco que representa "INTENSIVE COURSES" -->
       <div class="intensive-courses">
         <h4>INTENSIVE COURSES</h4>
@@ -613,7 +556,6 @@
       </div>
     </div>
   </section>
-  
 
   <!-- Seção Contact -->
   <section class="contact-section" id="contact">
@@ -621,9 +563,19 @@
     <div class="contact-info">
       <p><strong>Telefone:</strong> <a href="tel:71981170909">71 98117-0909</a></p>
       <p><strong>Email:</strong> <a href="mailto:ingridesouza040@gmail.com">ingridesouza040@gmail.com</a></p>
-      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ingride-souza-a21a4518a">linkedin.com/in/ingride-souza-a21a4518a</a></p>
-      <p><strong>GitHub:</strong> <a href="https://github.com/ingridesouza">github.com/ingridesouza</a></p>
-      <p><strong>Portfólio:</strong> <a href="https://ingridesouza-portifolio.netlify.app">ingridesouza-portifolio.netlify.app</a></p>
+      <p><strong>LinkedIn:</strong> 
+        <a href="https://www.linkedin.com/in/ingride-souza-a21a4518a">
+          linkedin.com/in/ingride-souza-a21a4518a
+        </a>
+      </p>
+      <p><strong>GitHub:</strong> 
+        <a href="https://github.com/ingridesouza">github.com/ingridesouza</a>
+      </p>
+      <p><strong>Portfólio:</strong> 
+        <a href="https://ingridesouza-portifolio.netlify.app">
+          ingridesouza-portifolio.netlify.app
+        </a>
+      </p>
     </div>
   </section>
 
