@@ -14,15 +14,16 @@
 
   <style>
     /* Reset básico */
-    html {
-        scroll-behavior: smooth;
-      }
-      
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-family: 'Montserrat', sans-serif;
+    }
+
+    /* Rolagem suave */
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -61,6 +62,19 @@
       color: #666;
     }
 
+    /* Título vertical base (aplicado às seções) */
+    .section-title-bg {
+      position: absolute;
+      left: 2rem;
+      top: 50%;
+      transform: translateY(-50%) rotate(-90deg);
+      font-size: 5rem;
+      font-weight: 700;
+      pointer-events: none;
+      user-select: none;
+      color: rgba(0,0,0,0.05);
+    }
+
     /************************
      * Seção Hero (início)
      ************************/
@@ -79,7 +93,7 @@
       height: 180px;
       object-fit: cover;
       border-radius: 50%;
-      border: 2px solid #ccc; 
+      border: 2px solid #ccc;
     }
     .hero .info {
       flex: 1;
@@ -97,29 +111,39 @@
       color: #555;
     }
 
-    /* Título vertical base (para as outras seções) */
-    .section-title-bg {
-      position: absolute;
-      left: 2rem;               
-      top: 50%;                 
-      transform: translateY(-50%) rotate(-90deg);
-      font-size: 5rem;
-      font-weight: 700;
-      pointer-events: none;
-      user-select: none;
-      color: rgba(0,0,0,0.05);  
+    /************************
+     * NOVA SEÇÃO: ABOUT ME
+     ************************/
+    .about-section {
+      position: relative; /* para o título vertical */
+      background-color: #fff;
+      padding: 2rem;
+    }
+    .about-section .section-title-bg {
+      color: rgba(0,0,0,0.05);
+    }
+    .about-content {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+    .about-content p {
+      margin-bottom: 1rem;
     }
 
     /************************
      * Seção SKILLS
      ************************/
     .skills-section {
-      position: relative; 
+      position: relative;
       background-color: #fff;
       padding: 2rem;
     }
     .skills-section .section-title-bg {
-      color: rgba(0,0,0,0.05); 
+      color: rgba(0,0,0,0.05);
     }
     .skills-content {
       max-width: 900px;
@@ -163,12 +187,12 @@
      * Seção EXPERIENCE
      ************************/
     .experience-section {
-      position: relative; 
+      position: relative;
       background-color: #f9f9f9;
       padding: 2rem;
     }
     .experience-section .section-title-bg {
-      color: rgba(0,0,0,0.05); 
+      color: rgba(0,0,0,0.05);
     }
     .experience-content {
       max-width: 900px;
@@ -244,8 +268,8 @@
      * Seção COLLEGE
      ************************/
     .college-section {
-      position: relative; 
-      background-color: #111; 
+      position: relative;
+      background-color: #111;
       color: #fff;
       padding: 4rem 2rem;
       min-height: 50vh;
@@ -315,7 +339,7 @@
      * Seção Contact
      ************************/
     .contact-section {
-      position: relative; 
+      position: relative;
       padding: 2rem;
     }
     .contact-section h2 {
@@ -356,6 +380,8 @@
     <div class="logo">Ingride Souza</div>
     <nav>
       <ul>
+        <!-- Se quiser linkar para About, adicione no menu -->
+        <!-- <li><a href="#about">About Me</a></li> -->
         <li><a href="#skills">Skills</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#college">Educação</a></li>
@@ -373,6 +399,18 @@
     <div class="info">
       <h1>Full Stack Developer</h1>
       <div class="location">Salvador, Bahia - Brasil</div>
+    </div>
+  </section>
+
+  <!-- NOVA SEÇÃO: ABOUT ME -->
+  <section class="about-section" id="about">
+    <div class="section-title-bg">ABOUT ME</div>
+    <div class="about-content">
+      <p>
+        Olá, eu sou Ingride Souza e tenho 19 anos. Minha jornada nos estudos é movida pela paixão
+        por programação e tecnologia. Atualmente, estou cursando Análise e Desenvolvimento de
+        Sistemas na UniRuy Wyden, com previsão de término em 2025.2.
+      </p>
     </div>
   </section>
 
