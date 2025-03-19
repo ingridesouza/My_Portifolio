@@ -275,73 +275,97 @@
   }
   
 
-    /* Seção College (Educação) */
-    .college-section {
-      background-color: #111;
-      color: #fff;
-      padding: 2rem;
-    }
-
-    .college-section .section-title-bg {
-      position: absolute;
-      top: 2rem;
-      left: -1rem;
-      font-size: 5rem;
-      font-weight: 700;
-      color: rgba(255,255,255,0.05);
-      pointer-events: none;
-      user-select: none;
-      transform: rotate(-90deg);
-    }
-
-    .college-content {
-      max-width: 900px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 2;
-    }
-
-    .college-content h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      text-align: center;
-    }
-
-    .education-wrapper {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      margin-top: 1rem;
-    }
-
-    .education-item {
-      background-color: #222;
-      padding: 1rem;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-    }
-
-    .education-item h3 {
-      margin-bottom: 0.3rem;
-      font-size: 1.1rem;
-      color: #eee;
-      font-weight: 600;
-    }
-
-    .education-item span {
-      display: block;
-      font-size: 0.9rem;
-      color: #ccc;
-      margin-bottom: 0.5rem;
-    }
-
-    .education-item p {
-      font-size: 0.9rem;
-      color: #ccc;
-      line-height: 1.4;
-    }
+    /************************
+ * Seção College (Educação)
+ ************************/
+.college-section {
+    position: relative;
+    background-color: #111; /* fundo escuro */
+    color: #fff;
+    padding: 4rem 2rem;     /* mais espaço para lembrar o modelo */
+    min-height: 50vh;       /* altura mínima opcional */
+    display: flex;          /* permite alinhar verticalmente, se quiser */
+    align-items: center;    /* centraliza verticalmente */
+  }
+  
+  .college-section .section-title-bg {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    font-size: 5rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.05);
+    pointer-events: none;
+    user-select: none;
+    transform: rotate(-90deg); 
+    /* Se quiser ajustar a posição, altere "left" e "top" */
+  }
+  
+  .college-content {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    /* Se quiser, pode usar display flex/column */
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .college-content p {
+    line-height: 1.6;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .degree-info,
+  .intensive-courses {
+    background-color: #222;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  
+  .degree-info h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #f44336; /* cor de destaque (vermelho) - mude conforme preferir */
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+  
+  .degree-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.2rem;
+  }
+  
+  .institution {
+    font-size: 0.95rem;
+    color: #bbb;
+    margin-bottom: 0.2rem;
+  }
+  
+  .study-period {
+    font-size: 0.85rem;
+    color: #888;
+  }
+  
+  .intensive-courses h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #f44336; /* mesma cor de destaque */
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+  
+  .intensive-courses p {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+  }
+  
 
     /* Seção Contact */
     .contact-section {
@@ -555,34 +579,41 @@
 
 
   <!-- Seção College (Educação) -->
-  <section class="college-section" id="college">
-    <div class="section-title-bg">EDUCATION</div>
+<section class="college-section" id="college">
+    <!-- Texto vertical -->
+    <div class="section-title-bg">COLLEGE</div>
+    
     <div class="college-content">
-      <h2>Educação</h2>
-
-      <div class="education-wrapper">
-
-        <div class="education-item">
-          <h3>UniFavip Wyden</h3>
-          <span>Graduação em Análise e Desenvolvimento de Sistemas</span>
-          <p>março de 2023 - novembro de 2025</p>
-        </div>
-
-        <div class="education-item">
-          <h3>INFINITY SCHOOL - Visual Art Creative Center</h3>
-          <span>Curso em Programação Full Stack</span>
-          <p>agosto de 2023 - fevereiro de 2024</p>
-        </div>
-
-        <div class="education-item">
-          <h3>Colégio Estadual Luiz Eduardo Magalhães</h3>
-          <span>Ensino Médio</span>
-          <p>janeiro de 2020 - dezembro de 2022</p>
-        </div>
-
+      <!-- Texto de introdução / resumo acadêmico -->
+      <p>
+        Sou estudante de <strong>Análise e Desenvolvimento de Sistemas</strong> 
+        na <strong>UniFavip Wyden</strong>, dedicada a aprimorar continuamente 
+        meus conhecimentos na área de tecnologia. Além dos estudos acadêmicos, 
+        busco cursos intensivos de programação para me manter atualizada.
+      </p>
+  
+      <!-- Bloco que representa o "BACHELOR'S DEGREE" -->
+      <div class="degree-info">
+        <h3>BACHELOR'S DEGREE</h3>
+        <div class="degree-title">Análise e Desenvolvimento de Sistemas</div>
+        <div class="institution">UniFavip Wyden</div>
+        <p class="study-period">Março de 2023 - Novembro de 2025</p>
+      </div>
+  
+      <!-- Bloco que representa "INTENSIVE COURSES" -->
+      <div class="intensive-courses">
+        <h4>INTENSIVE COURSES</h4>
+        <p>
+          Programação Full Stack na <strong>INFINITY SCHOOL</strong> (Agosto de 2023 - Fevereiro de 2024).
+        </p>
+        <p>
+          Cursos e formações complementares para expandir meu conhecimento 
+          em diversas áreas de TI.
+        </p>
       </div>
     </div>
   </section>
+  
 
   <!-- Seção Contact -->
   <section class="contact-section" id="contact">
