@@ -14,6 +14,10 @@
 
   <style>
     /* Reset básico */
+    html {
+        scroll-behavior: smooth;
+      }
+      
     * {
       margin: 0;
       padding: 0;
@@ -57,65 +61,65 @@
       color: #666;
     }
 
-    /* Título vertical base (aplicado a todas as seções) */
+    /************************
+     * Seção Hero (início)
+     ************************/
+    .hero {
+      display: flex;
+      align-items: center;
+      padding: 2rem 4rem;
+      gap: 2rem;
+      background: #fff; /* fundo branco minimalista */
+    }
+    .hero .photo {
+      flex: 0 0 auto;
+    }
+    .hero .photo img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid #ccc; 
+    }
+    .hero .info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .hero .info h1 {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+    .hero .info .location {
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    /* Título vertical base (para as outras seções) */
     .section-title-bg {
       position: absolute;
-      left: 2rem;               /* Alinhamento horizontal fixo */
-      top: 50%;                 /* Centraliza verticalmente */
+      left: 2rem;               
+      top: 50%;                 
       transform: translateY(-50%) rotate(-90deg);
       font-size: 5rem;
       font-weight: 700;
       pointer-events: none;
       user-select: none;
-      color: rgba(0,0,0,0.05);  /* cor padrão para fundos claros */
-    }
-
-    /* Seção Hero */
-    .hero {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      padding: 2rem;
-      gap: 2rem;
-    }
-    .hero .photo {
-      flex: 0 0 220px;
-      text-align: center;
-    }
-    .hero .photo img {
-      width: 200px;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 100%;
-      border: 2px solid #ccc;
-    }
-    .hero .info {
-      flex: 1;
-      min-width: 280px;
-    }
-    .hero .info h1 {
-      font-size: 2.2rem;
-      margin-bottom: 0.5rem;
-      font-weight: 700;
-    }
-    .hero .info h2 {
-      font-size: 1.2rem;
-      font-weight: 500;
-      color: #555;
-      margin-bottom: 1rem;
-    }
-    .hero .info p {
-      line-height: 1.6;
-      margin-bottom: 1rem;
+      color: rgba(0,0,0,0.05);  
     }
 
     /************************
      * Seção SKILLS
      ************************/
     .skills-section {
-      position: relative; /* Para título vertical */
+      position: relative; 
       background-color: #fff;
       padding: 2rem;
+    }
+    .skills-section .section-title-bg {
+      color: rgba(0,0,0,0.05); 
     }
     .skills-content {
       max-width: 900px;
@@ -155,23 +159,16 @@
       margin-bottom: 0.5rem;
     }
 
-    /* Título vertical SKILLS */
-    .skills-section .section-title-bg {
-      /* Pode manter a cor padrão para fundo claro */
-      content: "SKILLS"; /* Se preferir, pode colocar no HTML. */
-    }
-
     /************************
      * Seção EXPERIENCE
      ************************/
     .experience-section {
-      position: relative; /* Para título vertical */
+      position: relative; 
       background-color: #f9f9f9;
       padding: 2rem;
     }
     .experience-section .section-title-bg {
-      /* Mesmo estilo base, mas substitui o texto no HTML. */
-      color: rgba(0,0,0,0.05); /* Para fundo claro */
+      color: rgba(0,0,0,0.05); 
     }
     .experience-content {
       max-width: 900px;
@@ -247,15 +244,14 @@
      * Seção COLLEGE
      ************************/
     .college-section {
-      position: relative; /* Para título vertical */
-      background-color: #111; /* fundo escuro */
+      position: relative; 
+      background-color: #111; 
       color: #fff;
       padding: 4rem 2rem;
       min-height: 50vh;
       display: flex;
       align-items: center;
     }
-    /* Sobrescreve a cor do texto vertical para fundo escuro */
     .college-section .section-title-bg {
       color: rgba(255,255,255,0.05);
     }
@@ -319,7 +315,7 @@
      * Seção Contact
      ************************/
     .contact-section {
-      position: relative; /* se quiser título vertical, adicione .section-title-bg e estilo */
+      position: relative; 
       padding: 2rem;
     }
     .contact-section h2 {
@@ -376,27 +372,12 @@
     </div>
     <div class="info">
       <h1>Full Stack Developer</h1>
-      <h2>Salvador, Bahia, Brasil</h2>
-      <p>
-        Olá, eu sou <strong>Ingride Souza</strong> e tenho 19 anos.
-        Minha jornada nos estudos é movida pela paixão por programação e
-        tecnologia. Atualmente, estou cursando Análise e Desenvolvimento
-        de Sistemas na UniRuy Wyden, com previsão de término em 2025.2.
-      </p>
-      <p>
-        Sempre busco melhorar meus conhecimentos além da sala de aula.
-        Recentemente, concluí um curso de Programação Full Stack na
-        Infinity School, onde aprendi tanto sobre desenvolvimento Front-End
-        quanto Back-End, o que foi essencial para meu crescimento
-        profissional. Meu foco é me destacar como desenvolvedora Full Stack,
-        explorando novas ferramentas e tecnologias.
-      </p>
+      <div class="location">Salvador, Bahia - Brasil</div>
     </div>
   </section>
 
   <!-- Seção Skills -->
   <section class="skills-section" id="skills">
-    <!-- Título vertical -->
     <div class="section-title-bg">SKILLS</div>
     <div class="skills-content">
       <h2>Skills</h2>
@@ -432,7 +413,7 @@
           </ul>
         </div>
 
-        <!-- Competências / Threads, Chatbots, Automação -->
+        <!-- Competências -->
         <div class="skill-box">
           <h3>Principais Competências</h3>
           <ul>
@@ -471,9 +452,7 @@
 
   <!-- Seção Experience -->
   <section class="experience-section" id="experience">
-    <!-- Título vertical -->
     <div class="section-title-bg">EXPERIENCE</div>
-
     <div class="experience-content">
       <h2>Experience</h2>
       <div class="timeline">
@@ -523,31 +502,25 @@
 
   <!-- Seção College -->
   <section class="college-section" id="college">
-    <!-- Título vertical -->
     <div class="section-title-bg">COLLEGE</div>
-    
     <div class="college-content">
-      <!-- Texto de introdução / resumo acadêmico -->
       <p>
         Sou estudante de <strong>Análise e Desenvolvimento de Sistemas</strong> 
         na <strong>UniFavip Wyden</strong>, dedicada a aprimorar continuamente 
         meus conhecimentos na área de tecnologia. Além dos estudos acadêmicos, 
         busco cursos intensivos de programação para me manter atualizada.
       </p>
-
-      <!-- Bloco que representa o "BACHELOR'S DEGREE" -->
       <div class="degree-info">
         <h3>BACHELOR'S DEGREE</h3>
         <div class="degree-title">Análise e Desenvolvimento de Sistemas</div>
         <div class="institution">UniFavip Wyden</div>
         <p class="study-period">Março de 2023 - Novembro de 2025</p>
       </div>
-
-      <!-- Bloco que representa "INTENSIVE COURSES" -->
       <div class="intensive-courses">
         <h4>INTENSIVE COURSES</h4>
         <p>
-          Programação Full Stack na <strong>INFINITY SCHOOL</strong> (Agosto de 2023 - Fevereiro de 2024).
+          Programação Full Stack na <strong>INFINITY SCHOOL</strong> 
+          (Agosto de 2023 - Fevereiro de 2024).
         </p>
         <p>
           Cursos e formações complementares para expandir meu conhecimento 
