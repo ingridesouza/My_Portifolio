@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingride Souza</title>
+    <link rel="icon" href="images/perfil_image.jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- header -->
+    <header class="header">
+        <a href="#home" class="logo">Ingride Souza Dev.</a>
+
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">Sobre Mim</a>
+            <a href="#projects">Projetos</a>
+            <a href="#contact">Contato</a>
+        </nav>
+
+        <div class="bx bx-moon" id="darkMode-icon"></div>
+
+        <div class="bx bx-menu" id="menu-icon"></div>
+    </header>
+
+    <!-- home section -->
+    <section class="home" id="home">
+        <div class="home-description">
+            <h3>Olá, eu sou</h3>
+            <h1>Ingride Souza</h1>
+            <p>
+                Sou desenvolvedora Full Stack e apaixonada por programação e tecnologia. 
+            </p>
+
+            <div class="social-media">
+                <a href="https://github.com/ingridesouza"><i class='bx bxl-github'></i></a>
+                <a href="https://www.linkedin.com/in/ingride-souza-a21a4518a/"><i class='bx bxl-linkedin'></i></a>
+            </div>
+        </div>
+
+        <div class="profession-container">
+            <div class="overlay"></div>
+        </div>
+
+        <div class="home-img">
+            <img src="images/perfil_image.jpeg" alt="images">
+        </div>
+    </section>
+
+    <!-- about section -->
+    <section class="about" id="about">
+        <div class="about-img">
+            <img src="images/about.png" alt="">
+        </div>
+
+        <div class="about-description">
+            <h2 class="description">Sobre <span>Mim</span></h2>
+            <h3>
+                Meu nome é Ingride Souza, e aos 18 anos, minha jornada como desenvolvedora Full Stack tem sido marcada por uma paixão pela programação e tecnologia. 
+            </h3>
+            <p>
+                Atualmente, estou comprometida com meu curso de Análise e Desenvolvimento de Sistemas na UniRuy Wyden, com previsão de conclusão para 2025.2.
+
+            </p>
+            <p>
+                Além do currículo acadêmico, busco constantemente aprimorar meus conhecimentos. Recentemente, concluí o curso de Programação Full Stack na Infinity School, onde me aprofundei tanto no desenvolvimento Front-End quanto no Back-End. Esta experiência complementar foi essencial para minha evolução profissional.
+
+            </p>
+            <p>
+                Estou determinada a me destacar como desenvolvedora Back End, e para isso, estou constantemente explorando novas ferramentas e tecnologias, incluindo Java, C#, e a biblioteca Django do Python, que foi a linguagem que ganhou o meu coração.
+            </p>
+        </div>
+    </section>
+
+    <!-- skills section -->
+    <section class="skills" id="skills">
+        <h2 class="description">Hard <span>Skills</span></h2>
+        <ul class="hard-skills">
+            <li>Python | POO | Tkinter | Django</li>
+            <li>SQL (Structured Query Language)</li>
+            <li>JavaScript</li>
+            <li>HTML5 | CSS3 | Bootstrap | Material-UI</li>
+            <li>Git Version Control</li><br>
+            <h1><span>Ferramentas:</span></h1>
+            <li>MySQL Workbench</li>
+            <li>Visual Studio Code</li>
+        </ul>
+        </div>
+    </section>
+
+    <section class="skills" id="skills">
+        <h2 class="description">Soft <span>Skills</span></h2>
+        <ul class="soft-skills">
+            <li>Trabalho em equipe</li>
+            <li>Comunicação clara</li>
+            <li>Atenção aos detalhes</li>
+            <li>Compromisso com a qualidade do código</li>
+            <li>Proatividade</li>
+        </ul>
+        </div>
+    </section>
+
+    <!-- projects section -->
+    <section id="projects">
+
+        <div class="projects-container">
+            <h2 class="description">Meus <span>Projetos</span></h2>
+
+        <div class="projects-wrapper">
+            <div class="projects-box mySwiper">
+                <div class="projects-description swiper-wrapper">
+                    <div class="projects-slide swiper-slide" onclick="window.location.href='https://netflix-ingridesouza.netlify.app';" style="cursor: pointer;">
+                        <img src="images/netflix_home.png" alt="">
+                        <h3>Netflix Clone</h3>
+                        <p>Clone da Netflix usando JavaScript e consumindo uma API.</p>
+                        <p>HTML | CSS | JavaScript</p>
+                    </div>
+                    
+                    
+                    <div class="projects-slide swiper-slide">
+                        <img src="images/pizzaria_cardapio.png" alt="">
+                        <h3>Italian Pizzaria</h3>
+                        <p>Um site para uma pizzaria.</p>
+                        <p>Possui página inicial, sessão de cardápio, contato e uma página para os pedidos.</p>
+                        <p>HTML | CSS | JavaScript</p>
+                    </div>
+                    <div class="projects-slide swiper-slide">
+                        <img src="images/trampos_home.png" alt=""></a>
+                        <h3>Trampos Clone</h3>
+                        <p>Meu primeiro projeto.</p>
+                        <p>O clone do site Trampos.</p>
+                        <p>HTML | CSS | Bootstrap</p>
+                    </div>
+                    <div class="projects-slide swiper-slide">
+                        <img src="images/Stark_home.png" alt=""></a>
+                        <h3>Stark Industries</h3>
+                        <p>Conheça as criptomoedas mais famosas e converta as suas.</p>
+                        <p>Um site com as informações mais recentes das criptomoedas que da a opção do usuário de converter as suas criptomoedas para outra moeda.</p>
+                        <p>HTML | CSS | JavaScript</p>
+                    </div>
+                    <div class="projects-slide swiper-slide">
+                        <img src="images/Controle_Alunos.png" alt="">
+                        <h3>Sistema de controle de Alunos</h3>
+                        <p>Feito para uso no terminal sem uso de interface.</p>
+                        <p>Adicione, Visualize, Remova e Atualize os alunos. </p>
+                        <p>PYTHON</p>
+                    </div>
+                    <div class="projects-slide swiper-slide new-projects">
+                        <h1>Em breve novos projetos</h1>
+                        <div class="spinner">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div><br>
+                    </div>
+                </div>
+
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </div>
+</section>
+    
+    <!-- contact section -->
+    <section class="contact" id="contact">
+        <h2 class="description">Entre em  <span>contato</span> comigo!</h2>
+
+        <div class="description-contacts">
+            <div class="contacts">
+                <a href="mailto:ingridesouzadev@gmail.com?subject=Olá Ingride, encontrei o seu portifólio, Podemos conversar?"><i class="bx--bxl-gmail"></i></a>    
+            </div>
+
+            <div class="contacts">
+                <a href="https://github.com/ingridesouza"><i class='bx--bxl-github'></i>
+                </a>
+            </div>
+    
+            <div class="contacts">
+                <a href="https://www.linkedin.com/in/ingride-souza-a21a4518a/"><i class='bx--bxl-linkedin'></i>
+                </a>
+            </div>
+        </div>
+        
+
+    </section>
+
+    <!-- footer design -->
+    <footer class="footer">
+        <div class="footer-text">
+            <p>Copyright &copy; 2024 | Todos os Direitos Reservados.</p>
+        </div>
+
+        <div class="footer-iconTop">
+            <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
+        </div>
+    </footer>
+
+
+    <!-- scroll reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- swiper js -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+    <!-- custom js -->
+    <script src="scripts.js"></script>
+</body>
+
+</html>
