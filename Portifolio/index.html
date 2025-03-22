@@ -1,221 +1,671 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ingride Souza</title>
-    <link rel="icon" href="images/perfil_image.jpeg" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="styles.css">
-</head>
+  <meta charset="UTF-8" />
+  <title>Landing Page - Ingride Souza</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Exemplo de import de fonte do Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* Rolagem suave */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      color: #333;
+      background-color: #fff;
+    }
+
+    /* Cabeçalho */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #f8f8f8;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    header .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #666;
+    }
+
+    /* Título vertical base (aplicado às seções que desejarem manter o texto rotacionado) */
+    .section-title-bg {
+      position: absolute;
+      left: 2rem;
+      top: 50%;
+      transform: translateY(-50%) rotate(-90deg);
+      font-size: 5rem;
+      font-weight: 700;
+      pointer-events: none;
+      user-select: none;
+      color: rgba(0,0,0,0.05);
+    }
+
+    /************************
+     * Seção Hero (início)
+     ************************/
+    .hero {
+      display: flex;
+      align-items: center;
+      padding: 2rem 4rem;
+      gap: 2rem;
+      background: #fff;
+    }
+    .hero .photo {
+      flex: 0 0 auto;
+    }
+    .hero .photo img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid #ccc;
+    }
+    .hero .info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .hero .info h1 {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+    .hero .info .location {
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    /************************
+     * Seção ABOUT ME
+     * Título horizontal, mas com a mesma cor/estilo de fundo
+     ************************/
+    .about-section {
+      position: relative;        /* para posicionar o texto de fundo */
+      background-color: #fff;
+      padding: 2rem 4rem;
+      margin-top: 2rem;
+      min-height: 50vh;
+    }
+
+    /* Texto grande no fundo (horizontal), mantendo cor/tamanho da .section-title-bg */
+    .about-title-bg {
+      position: absolute;
+      left: 50%;
+      top: 20%; /* ajuste conforme necessário */
+      transform: translateX(-50%);
+      font-size: 5rem;
+      font-weight: 700;
+      color: rgba(0,0,0,0.05);
+      pointer-events: none;
+      user-select: none;
+      text-transform: uppercase;
+    }
+
+    /* Título normal (visível em primeiro plano) */
+    .about-title {
+      position: relative;
+      font-size: 2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 1rem;
+      z-index: 2; /* fica acima do fundo */
+    }
+
+    .about-content {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2; /* acima do fundo */
+      line-height: 1.6;
+      font-size: 1rem;
+      text-align: center;
+    }
+    .about-content p {
+      margin-bottom: 1rem;
+    }
+
+    /************************
+     * Seção SKILLS
+     ************************/
+    .skills-section {
+      position: relative;
+      background-color: #fff;
+      padding: 2rem;
+    }
+    .skills-section .section-title-bg {
+      color: rgba(0,0,0,0.05);
+    }
+    .skills-content {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+    .skills-content h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-align: center;
+    }
+    .skills-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .skill-box {
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .skill-box h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    .skill-box ul {
+      margin-left: 1.2rem;
+      list-style: disc;
+    }
+    .skill-box ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    /************************
+     * Seção EXPERIENCE
+     ************************/
+    .experience-section {
+      position: relative;
+      background-color: #f9f9f9;
+      padding: 2rem;
+    }
+    .experience-section .section-title-bg {
+      color: rgba(0,0,0,0.05);
+      left: 1.5rem; /* Ajuste este valor para alinhar com o "SKILLS" */
+    }
+
+    
+    .experience-content {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+    .experience-content h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    /* TIMELINE */
+    .timeline {
+      position: relative;
+      margin: 2rem 0;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 90px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #ccc;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+      padding-left: 130px;
+    }
+    .timeline-date {
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+      color: #555;
+      top: 0;
+      min-width: 50px;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: 82px;
+      top: 6px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #333;
+    }
+    .timeline-card {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .timeline-card h3 {
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+    }
+    .timeline-card p {
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+    .timeline-card ul {
+      list-style: disc;
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    /************************
+     * Seção COLLEGE
+     ************************/
+    .college-section {
+      position: relative;
+      background-color: #111;
+      color: #fff;
+      padding: 4rem 2rem;
+      min-height: 50vh;
+      display: flex;
+      align-items: center;
+    }
+    .college-section .section-title-bg {
+      color: rgba(255,255,255,0.05);
+    }
+    .college-content {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .college-content p {
+      line-height: 1.6;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .degree-info,
+    .intensive-courses {
+      background-color: #222;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+    .degree-info h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #f44336; 
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+    .degree-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.2rem;
+    }
+    .institution {
+      font-size: 0.95rem;
+      color: #bbb;
+      margin-bottom: 0.2rem;
+    }
+    .study-period {
+      font-size: 0.85rem;
+      color: #888;
+    }
+    .intensive-courses h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #f44336;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+    .intensive-courses p {
+      font-size: 0.9rem;
+      color: #ccc;
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+
+    /* Estilo para as caixinhas de habilidades */
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .skill-item {
+      background-color: #06c200; /* Laranja vibrante */
+      color: #000000;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+    }
+    .skill-item:hover {
+      background-color:#047200; /* Laranja mais escuro ao passar o mouse */
+    }
+
+    /************************
+     * Seção Contact
+     ************************/
+    .contact-section {
+      position: relative;
+      padding: 2rem;
+    }
+    .contact-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-align: center;
+    }
+    .contact-info {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+      line-height: 1.8;
+    }
+    .contact-info p {
+      margin-bottom: 0.5rem;
+    }
+    .contact-info a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    /* Rodapé */
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #f8f8f8;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
+</head>
 <body>
 
-    <!-- header -->
-    <header class="header">
-        <a href="#home" class="logo">Ingride Souza Dev.</a>
+  <!-- Cabeçalho -->
+  <header>
+    <div class="logo">Ingride Souza</div>
+    <nav>
+      <ul>
+        <!-- Adicione About se quiser no menu
+        <li><a href="#about">About Me</a></li> -->
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#college">Educação</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-        <nav class="navbar">
-            <a href="#home" class="active">Home</a>
-            <a href="#about">Sobre Mim</a>
-            <a href="#projects">Projetos</a>
-            <a href="#contact">Contato</a>
-        </nav>
+  <!-- Seção Hero -->
+  <section class="hero">
+    <div class="photo">
+      <!-- Substitua pelo caminho da sua foto -->
+      <img src="./assets/image/profile.jpeg" alt="Foto de Ingride Souza" />
+    </div>
+    <div class="info">
+      <h1>Full Stack Developer</h1>
+      <div class="location">Salvador, Bahia - Brasil</div>
+    </div>
+  </section>
 
-        <div class="bx bx-moon" id="darkMode-icon"></div>
+  <!-- Seção ABOUT ME (Título horizontal com mesmo estilo) -->
+  <section class="about-section" id="about">
+    <!-- Texto grande no fundo, estilo igual ao vertical, mas horizontal -->
+    <div class="about-title-bg">ABOUT ME</div>
 
-        <div class="bx bx-menu" id="menu-icon"></div>
-    </header>
+    <!-- Título normal em primeiro plano -->
+    <div class="about-title">ABOUT ME</div>
 
-    <!-- home section -->
-    <section class="home" id="home">
-        <div class="home-description">
-            <h3>Olá, eu sou</h3>
-            <h1>Ingride Souza</h1>
-            <p>
-                Sou desenvolvedora Full Stack e apaixonada por programação e tecnologia. 
-            </p>
+    <div class="about-content">
+      <p>
+        Olá, eu sou Ingride Souza e tenho 19 anos. Minha jornada nos estudos é movida pela paixão
+        por programação e tecnologia. Atualmente, estou cursando Análise e Desenvolvimento de
+        Sistemas na UniRuy Wyden, com previsão de término em 2025.2.
+      </p>
+    </div>
+  </section>
 
-            <div class="social-media">
-                <a href="https://github.com/ingridesouza"><i class='bx bxl-github'></i></a>
-                <a href="https://www.linkedin.com/in/ingride-souza-a21a4518a/"><i class='bx bxl-linkedin'></i></a>
-            </div>
-        </div>
+  <!-- Seção Skills -->
+  <section class="skills-section" id="skills">
+    <div class="section-title-bg">SKILLS</div>
+    <div class="skills-content">
+      <h2>Skills</h2>
+      <div class="skills-wrapper">
 
-        <div class="profession-container">
-            <div class="overlay"></div>
-        </div>
-
-        <div class="home-img">
-            <img src="images/perfil_image.jpeg" alt="images">
-        </div>
-    </section>
-
-    <!-- about section -->
-    <section class="about" id="about">
-        <div class="about-img">
-            <img src="images/about.png" alt="">
-        </div>
-
-        <div class="about-description">
-            <h2 class="description">Sobre <span>Mim</span></h2>
-            <h3>
-                Meu nome é Ingride Souza, e aos 18 anos, minha jornada como desenvolvedora Full Stack tem sido marcada por uma paixão pela programação e tecnologia. 
-            </h3>
-            <p>
-                Atualmente, estou comprometida com meu curso de Análise e Desenvolvimento de Sistemas na UniRuy Wyden, com previsão de conclusão para 2025.2.
-
-            </p>
-            <p>
-                Além do currículo acadêmico, busco constantemente aprimorar meus conhecimentos. Recentemente, concluí o curso de Programação Full Stack na Infinity School, onde me aprofundei tanto no desenvolvimento Front-End quanto no Back-End. Esta experiência complementar foi essencial para minha evolução profissional.
-
-            </p>
-            <p>
-                Estou determinada a me destacar como desenvolvedora Back End, e para isso, estou constantemente explorando novas ferramentas e tecnologias, incluindo Java, C#, e a biblioteca Django do Python, que foi a linguagem que ganhou o meu coração.
-            </p>
-        </div>
-    </section>
-
-    <!-- skills section -->
-    <section class="skills" id="skills">
-        <h2 class="description">Hard <span>Skills</span></h2>
-        <ul class="hard-skills">
-            <li>Python | POO | Tkinter | Django</li>
-            <li>SQL (Structured Query Language)</li>
-            <li>JavaScript</li>
-            <li>HTML5 | CSS3 | Bootstrap | Material-UI</li>
-            <li>Git Version Control</li><br>
-            <h1><span>Ferramentas:</span></h1>
-            <li>MySQL Workbench</li>
-            <li>Visual Studio Code</li>
-        </ul>
-        </div>
-    </section>
-
-    <section class="skills" id="skills">
-        <h2 class="description">Soft <span>Skills</span></h2>
-        <ul class="soft-skills">
+        <!-- Soft Skills -->
+        <div class="skill-box">
+          <h3>Soft Skills</h3>
+          <ul>
             <li>Trabalho em equipe</li>
             <li>Comunicação clara</li>
-            <li>Atenção aos detalhes</li>
-            <li>Compromisso com a qualidade do código</li>
+            <li>Aprendizado rápido</li>
             <li>Proatividade</li>
-        </ul>
+            <li>Atenção aos detalhes</li>
+            <li>Inteligência emocional</li>
+          </ul>
         </div>
-    </section>
 
-    <!-- projects section -->
-    <section id="projects">
-
-        <div class="projects-container">
-            <h2 class="description">Meus <span>Projetos</span></h2>
-
-        <div class="projects-wrapper">
-            <div class="projects-box mySwiper">
-                <div class="projects-description swiper-wrapper">
-                    <div class="projects-slide swiper-slide" onclick="window.location.href='https://netflix-ingridesouza.netlify.app';" style="cursor: pointer;">
-                        <img src="images/netflix_home.png" alt="">
-                        <h3>Netflix Clone</h3>
-                        <p>Clone da Netflix usando JavaScript e consumindo uma API.</p>
-                        <p>HTML | CSS | JavaScript</p>
-                    </div>
-                    
-                    
-                    <div class="projects-slide swiper-slide">
-                        <img src="images/pizzaria_cardapio.png" alt="">
-                        <h3>Italian Pizzaria</h3>
-                        <p>Um site para uma pizzaria.</p>
-                        <p>Possui página inicial, sessão de cardápio, contato e uma página para os pedidos.</p>
-                        <p>HTML | CSS | JavaScript</p>
-                    </div>
-                    <div class="projects-slide swiper-slide">
-                        <img src="images/trampos_home.png" alt=""></a>
-                        <h3>Trampos Clone</h3>
-                        <p>Meu primeiro projeto.</p>
-                        <p>O clone do site Trampos.</p>
-                        <p>HTML | CSS | Bootstrap</p>
-                    </div>
-                    <div class="projects-slide swiper-slide">
-                        <img src="images/Stark_home.png" alt=""></a>
-                        <h3>Stark Industries</h3>
-                        <p>Conheça as criptomoedas mais famosas e converta as suas.</p>
-                        <p>Um site com as informações mais recentes das criptomoedas que da a opção do usuário de converter as suas criptomoedas para outra moeda.</p>
-                        <p>HTML | CSS | JavaScript</p>
-                    </div>
-                    <div class="projects-slide swiper-slide">
-                        <img src="images/Controle_Alunos.png" alt="">
-                        <h3>Sistema de controle de Alunos</h3>
-                        <p>Feito para uso no terminal sem uso de interface.</p>
-                        <p>Adicione, Visualize, Remova e Atualize os alunos. </p>
-                        <p>PYTHON</p>
-                    </div>
-                    <div class="projects-slide swiper-slide new-projects">
-                        <h1>Em breve novos projetos</h1>
-                        <div class="spinner">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div><br>
-                    </div>
-                </div>
-
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
-            </div>
+        <!-- Hard Skills -->
+        <div class="skill-box">
+          <h3>Hard Skills</h3>
+          <ul>
+            <li>Proficient in JavaScript</li>
+            <li>Git Version Control System</li>
+            <li>HTML5, CSS3 e Bootstrap</li>
+            <li>Advanced Python Programming</li>
+            <li>SQL Database Management</li>
+            <li>FLASK Framework Development</li>
+            <li>Chatbot Development and Deployment</li>
+            <li>Artificial Intelligence (AI) Fundamentals</li>
+            <li>TypeScript</li>
+            <li>Software Architecture</li>
+          </ul>
         </div>
+
+        <!-- Competências -->
+        <div class="skill-box">
+          <h3>Principais Competências</h3>
+          <ul>
+            <li>Threads</li>
+            <li>Chatbots</li>
+            <li>Automação de processos</li>
+          </ul>
+        </div>
+
+        <!-- Ferramentas -->
+        <div class="skill-box">
+          <h3>Ferramentas</h3>
+          <ul>
+            <li>Visual Studio Code (VS Code)</li>
+            <li>Workbench</li>
+            <li>PyCharm (IDE)</li>
+            <li>WordPress CMS</li>
+          </ul>
+        </div>
+
+        <!-- Certificações -->
+        <div class="skill-box">
+          <h3>Certificações</h3>
+          <ul>
+            <li>Workshop - Criando o seu primeiro site</li>
+            <li>Microsoft Excel 2016 - Intermediário</li>
+            <li>Node.js</li>
+            <li>Customer Service: Problem-Solving and Troubleshooting</li>
+            <li>Desvendando SQL</li>
+          </ul>
+        </div>
+
+      </div>
     </div>
-</section>
-    
-    <!-- contact section -->
-    <section class="contact" id="contact">
-        <h2 class="description">Entre em  <span>contato</span> comigo!</h2>
+  </section>
 
-        <div class="description-contacts">
-            <div class="contacts">
-                <a href="mailto:ingridesouzadev@gmail.com?subject=Olá Ingride, encontrei o seu portifólio, Podemos conversar?"><i class="bx--bxl-gmail"></i></a>    
-            </div>
-
-            <div class="contacts">
-                <a href="https://github.com/ingridesouza"><i class='bx--bxl-github'></i>
-                </a>
-            </div>
-    
-            <div class="contacts">
-                <a href="https://www.linkedin.com/in/ingride-souza-a21a4518a/"><i class='bx--bxl-linkedin'></i>
-                </a>
-            </div>
+  <!-- Seção Experience -->
+  <section class="experience-section" id="experience">
+    <div class="section-title-bg">EXPERIENCE</div>
+    <div class="experience-content">
+      <h2>Experience</h2>
+      <div class="timeline">
+        <!-- Item 1 -->
+        <div class="timeline-item">
+          <div class="timeline-date">2024 <br> 2025</div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <h3>Leiaute Propaganda</h3>
+            <p><strong>Desenvolvedora de software</strong></p>
+            <p>
+              Atuação no desenvolvimento de software, contribuindo com soluções 
+              em Front-End e Back-End, além de suporte na automação de processos 
+              e chatbots.
+            </p>
+            <p>Tecnologias e ferramentas:</p>
+            <ul>
+              <li>Python</li>
+              <li>JavaScript</li>
+              <li>SQL</li>
+              <li>Selenium</li>
+              <li>TypeScript</li>
+              <li>Inteligência Artificial</li>
+              <li>Zapier</li>
+              <li>Wordpress</li>
+              <li>Git Version Control</li>
+            </ul>
+          </div>
         </div>
-        
 
-    </section>
-
-    <!-- footer design -->
-    <footer class="footer">
-        <div class="footer-text">
-            <p>Copyright &copy; 2024 | Todos os Direitos Reservados.</p>
+        <!-- Item 2 -->
+        <div class="timeline-item">
+          <div class="timeline-date">2024</div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <h3>INFINITY SCHOOL - Visual Art Creative Center</h3>
+            <p><strong>Monitora</strong></p>
+            <p>
+              Suporte a alunos nos conteúdos de programação Full Stack, auxílio 
+              em resolução de problemas e orientação em projetos práticos.
+            </p>
+          </div>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="footer-iconTop">
-            <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
+  <!-- Seção College -->
+  <section class="college-section" id="college">
+    <div class="section-title-bg">COLLEGE</div>
+    <div class="college-content">
+      <p>
+        Sou estudante de <strong>Análise e Desenvolvimento de Sistemas</strong> 
+        na <strong>UniFavip Wyden</strong>, dedicada a aprimorar continuamente 
+        meus conhecimentos na área de tecnologia. Além dos estudos acadêmicos, 
+        busco cursos intensivos de programação para me manter atualizada.
+      </p>
+      <div class="degree-info">
+        <h3>BACHELOR'S DEGREE</h3>
+        <div class="degree-title">Análise e Desenvolvimento de Sistemas</div>
+        <div class="institution">UniFavip Wyden</div>
+        <p class="study-period">Março de 2023 - Novembro de 2025</p>
+        <!-- Caixinhas de habilidades -->
+        <div class="skills-list">
+          <div class="skill-item">Python</div>
+          <div class="skill-item">Web Development</div>
+          <div class="skill-item">Cloud Computing</div>
+          <div class="skill-item">Java</div>
+          <div class="skill-item">Banco de Dados</div>
+          <div class="skill-item">Redes</div>
         </div>
-    </footer>
+      </div>
+      <div class="intensive-courses">
+        <h4>INTENSIVE COURSES</h4>
+        <p>
+          Programação Full Stack na <strong>INFINITY SCHOOL</strong> 
+          (Agosto de 2023 - Fevereiro de 2024).
+        </p>
+        <p>
+          Cursos e formações complementares para expandir meu conhecimento 
+          em diversas áreas de TI.
+        </p>
+        <!-- Caixinhas de habilidades -->
+        <div class="skills-list">
+          <div class="skill-item">Python</div>
+          <div class="skill-item">JavaScript</div>
+          <div class="skill-item">HTML</div>
+          <div class="skill-item">CSS</div>
+          <div class="skill-item">Node.js</div>
+          <div class="skill-item">React</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- Seção Contact -->
+  <section class="contact-section" id="contact">
+    <h2>Contact</h2>
+    <div class="contact-info">
+      <p><strong>Telefone:</strong> <a href="tel:71981170909">71 98117-0909</a></p>
+      <p><strong>Email:</strong> <a href="mailto:ingridesouza040@gmail.com">ingridesouza040@gmail.com</a></p>
+      <p><strong>LinkedIn:</strong> 
+        <a href="https://www.linkedin.com/in/ingride-souza-a21a4518a">
+          linkedin.com/in/ingride-souza-a21a4518a
+        </a>
+      </p>
+      <p><strong>GitHub:</strong> 
+        <a href="https://github.com/ingridesouza">github.com/ingridesouza</a>
+      </p>
+      <p><strong>Portfólio:</strong> 
+        <a href="https://ingridesouza-portifolio.netlify.app">
+          ingridesouza-portifolio.netlify.app
+        </a>
+      </p>
+    </div>
+  </section>
 
-    <!-- scroll reveal -->
-    <script src="https://unpkg.com/scrollreveal"></script>
+  <!-- Rodapé -->
+  <footer>
+    &copy; 2025 - Desenvolvido por Ingride Souza
+  </footer>
 
-    <!-- swiper js -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-
-    <!-- custom js -->
-    <script src="scripts.js"></script>
 </body>
-
 </html>
