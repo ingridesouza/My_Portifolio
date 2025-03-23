@@ -448,10 +448,10 @@
     <div class="logo">Ingride Souza</div>
     <nav>
       <ul>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#college">Educação</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#skills" id="nav-skills">Skills</a></li>
+        <li><a href="#experience" id="nav-experience">Experience</a></li>
+        <li><a href="#college" id="nav-college">Educação</a></li>
+        <li><a href="#contact" id="nav-contact">Contact</a></li>
       </ul>
     </nav>
     <!-- Seletor de idioma -->
@@ -729,7 +729,11 @@
       'contact-linkedin': 'LinkedIn:',
       'contact-github': 'GitHub:',
       'contact-portfolio': 'Portfólio:',
-      'footer-text': '&copy; 2025 - Desenvolvido por Ingride Souza'
+      'footer-text': '&copy; 2025 - Desenvolvido por Ingride Souza',
+      'nav-skills': 'Habilidades',
+      'nav-experience': 'Experiência',
+      'nav-college': 'Educação',
+      'nav-contact': 'Contato'
     },
     'pt-PT': {
       'hero-title': 'Desenvolvedora Full Stack',
@@ -769,7 +773,11 @@
       'contact-linkedin': 'LinkedIn:',
       'contact-github': 'GitHub:',
       'contact-portfolio': 'Portfólio:',
-      'footer-text': '&copy; 2025 - Desenvolvido por Ingride Souza'
+      'footer-text': '&copy; 2025 - Desenvolvido por Ingride Souza',
+      'nav-skills': 'Competências',
+      'nav-experience': 'Experiência',
+      'nav-college': 'Educação',
+      'nav-contact': 'Contacto'
     },
     'en': {
       'hero-title': 'Full Stack Developer',
@@ -809,7 +817,11 @@
       'contact-linkedin': 'LinkedIn:',
       'contact-github': 'GitHub:',
       'contact-portfolio': 'Portfolio:',
-      'footer-text': '&copy; 2025 - Developed by Ingride Souza'
+      'footer-text': '&copy; 2025 - Developed by Ingride Souza',
+      'nav-skills': 'Skills',
+      'nav-experience': 'Experience',
+      'nav-college': 'Education',
+      'nav-contact': 'Contact'
     },
     'fr': {
       'hero-title': 'Développeuse Full Stack',
@@ -849,7 +861,11 @@
       'contact-linkedin': 'LinkedIn :',
       'contact-github': 'GitHub :',
       'contact-portfolio': 'Portfolio :',
-      'footer-text': '&copy; 2025 - Développé par Ingride Souza'
+      'footer-text': '&copy; 2025 - Développé par Ingride Souza',
+      'nav-skills': 'Compétences',
+      'nav-experience': 'Expérience',
+      'nav-college': 'Éducation',
+      'nav-contact': 'Contact'
     }
   };
 
@@ -890,6 +906,12 @@
     document.getElementById('contact-portfolio').textContent = translation['contact-portfolio'];
     document.getElementById('footer-text').innerHTML = translation['footer-text'];
 
+    // Atualiza o nav
+    document.getElementById('nav-skills').textContent = translation['nav-skills'];
+    document.getElementById('nav-experience').textContent = translation['nav-experience'];
+    document.getElementById('nav-college').textContent = translation['nav-college'];
+    document.getElementById('nav-contact').textContent = translation['nav-contact'];
+
     // Atualiza listas
     updateList('soft-skills-list', translation['soft-skills-list']);
     updateList('hard-skills-list', translation['hard-skills-list']);
@@ -909,3 +931,5 @@
     });
   }
 </script>
+</body>
+</html>
