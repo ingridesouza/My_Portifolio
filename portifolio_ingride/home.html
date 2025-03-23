@@ -5,17 +5,11 @@
   <title>Landing Page - Ingride Souza</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Fontes do Google Fonts -->
+  <!-- Exemplo de import de fonte do Google Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap"
     rel="stylesheet"
-  />
-
-  <!-- Font Awesome para ícones -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
   />
 
   <style>
@@ -75,26 +69,19 @@
     }
     .language-selector button {
       background: none;
-      border: 1px solid #ccc;
-      border-radius: 4px;
+      border: none;
       cursor: pointer;
       font-size: 0.9rem;
       color: #333;
-      padding: 0.5rem 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: background-color 0.3s, border-color 0.3s;
+      padding: 0.5rem;
+      border-radius: 4px;
+      transition: background-color 0.3s;
     }
     .language-selector button:hover {
       background-color: #f0f0f0;
-      border-color: #999;
-    }
-    .language-selector button i {
-      font-size: 1rem;
     }
 
-    /* Título vertical base */
+    /* Título vertical base (aplicado às seções que desejarem manter o texto rotacionado) */
     .section-title-bg {
       position: absolute;
       left: 2rem;
@@ -144,18 +131,21 @@
 
     /************************
      * Seção ABOUT ME
+     * Título horizontal, mas com a mesma cor/estilo de fundo
      ************************/
     .about-section {
-      position: relative;
+      position: relative;        /* para posicionar o texto de fundo */
       background-color: #fff;
       padding: 2rem 4rem;
       margin-top: 2rem;
       min-height: 50vh;
     }
+
+    /* Texto grande no fundo (horizontal), mantendo cor/tamanho da .section-title-bg */
     .about-title-bg {
       position: absolute;
       left: 50%;
-      top: 20%;
+      top: 20%; /* ajuste conforme necessário */
       transform: translateX(-50%);
       font-size: 5rem;
       font-weight: 700;
@@ -164,6 +154,8 @@
       user-select: none;
       text-transform: uppercase;
     }
+
+    /* Título normal (visível em primeiro plano) */
     .about-title {
       position: relative;
       font-size: 2rem;
@@ -171,13 +163,14 @@
       text-transform: uppercase;
       text-align: center;
       margin-bottom: 1rem;
-      z-index: 2;
+      z-index: 2; /* fica acima do fundo */
     }
+
     .about-content {
       max-width: 900px;
       margin: 0 auto;
       position: relative;
-      z-index: 2;
+      z-index: 2; /* acima do fundo */
       line-height: 1.6;
       font-size: 1rem;
       text-align: center;
@@ -245,8 +238,10 @@
     }
     .experience-section .section-title-bg {
       color: rgba(0,0,0,0.05);
-      left: 1.5rem;
+      left: 1.5rem; /* Ajuste este valor para alinhar com o "SKILLS" */
     }
+
+    
     .experience-content {
       max-width: 900px;
       margin: 0 auto;
@@ -260,6 +255,8 @@
       text-transform: uppercase;
       text-align: center;
     }
+
+    /* TIMELINE */
     .timeline {
       position: relative;
       margin: 2rem 0;
@@ -353,7 +350,7 @@
     .degree-info h3 {
       font-size: 1rem;
       font-weight: 700;
-      color: #f44336;
+      color: #f44336; 
       margin-bottom: 0.5rem;
       text-transform: uppercase;
     }
@@ -394,7 +391,7 @@
       margin-top: 1rem;
     }
     .skill-item {
-      background-color: #06c200;
+      background-color: #06c200; /* Verde vibrante */
       color: #000000;
       padding: 0.5rem 1rem;
       border-radius: 4px;
@@ -403,7 +400,7 @@
       transition: background-color 0.3s ease;
     }
     .skill-item:hover {
-      background-color:#047200;
+      background-color:#047200; /* Verde mais escuro ao passar o mouse */
     }
 
     /************************
@@ -501,7 +498,7 @@
 
   <!-- Seção Skills -->
   <section class="skills-section" id="skills">
-    <div class="section-title-bg" id="skills-title-bg">SKILLS</div>
+    <div class="section-title-bg">SKILLS</div>
     <div class="skills-content">
       <h2 id="skills-title">Skills</h2>
       <div class="skills-wrapper">
@@ -569,7 +566,7 @@
 
   <!-- Seção Experience -->
   <section class="experience-section" id="experience">
-    <div class="section-title-bg" id="experience-title-bg">EXPERIENCE</div>
+    <div class="section-title-bg">EXPERIENCE</div>
     <div class="experience-content">
       <h2 id="experience-title">Experience</h2>
       <div class="timeline">
@@ -618,7 +615,7 @@
 
   <!-- Seção College -->
   <section class="college-section" id="college">
-    <div class="section-title-bg" id="college-title-bg">COLLEGE</div>
+    <div class="section-title-bg">COLLEGE</div>
     <div class="college-content">
       <p id="college-text">
         Sou estudante de <strong>Análise e Desenvolvimento de Sistemas</strong> 
@@ -697,10 +694,8 @@
       'pt-BR': {
         'hero-title': 'Desenvolvedora Full Stack',
         'hero-location': 'Salvador, Bahia - Brasil',
-        'about-title': 'SOBRE MIM',
         'about-text': 'Olá, eu sou Ingride Souza e tenho 19 anos. Minha jornada nos estudos é movida pela paixão por programação e tecnologia. Atualmente, estou cursando Análise e Desenvolvimento de Sistemas na UniRuy Wyden, com previsão de término em 2025.2.',
         'skills-title': 'Habilidades',
-        'skills-title-bg': 'HABILIDADES',
         'soft-skills-title': 'Soft Skills',
         'soft-skills-list': ['Trabalho em equipe', 'Comunicação clara', 'Aprendizado rápido', 'Proatividade', 'Atenção aos detalhes', 'Inteligência emocional'],
         'hard-skills-title': 'Hard Skills',
@@ -712,7 +707,6 @@
         'certifications-title': 'Certificações',
         'certifications-list': ['Workshop - Criando o seu primeiro site', 'Microsoft Excel 2016 - Intermediário', 'Node.js', 'Customer Service: Problem-Solving and Troubleshooting', 'Desvendando SQL'],
         'experience-title': 'Experiência',
-        'experience-title-bg': 'EXPERIÊNCIA',
         'experience-1-title': 'Leiaute Propaganda',
         'experience-1-role': 'Desenvolvedora de software',
         'experience-1-description': 'Atuação no desenvolvimento de software, contribuindo com soluções em Front-End e Back-End, além de suporte na automação de processos e chatbots.',
@@ -722,8 +716,6 @@
         'experience-2-role': 'Monitora',
         'experience-2-description': 'Suporte a alunos nos conteúdos de programação Full Stack, auxílio em resolução de problemas e orientação em projetos práticos.',
         'college-text': 'Sou estudante de <strong>Análise e Desenvolvimento de Sistemas</strong> na <strong>UniFavip Wyden</strong>, dedicada a aprimorar continuamente meus conhecimentos na área de tecnologia. Além dos estudos acadêmicos, busco cursos intensivos de programação para me manter atualizada.',
-        'college-title': 'FORMAÇÃO',
-        'college-title-bg': 'FORMAÇÃO',
         'degree-title': 'BACHARELADO',
         'degree-name': 'Análise e Desenvolvimento de Sistemas',
         'degree-institution': 'UniFavip Wyden',
@@ -739,13 +731,51 @@
         'contact-portfolio': 'Portfólio:',
         'footer-text': '&copy; 2025 - Desenvolvido por Ingride Souza'
       },
+      'pt-PT': {
+        'hero-title': 'Desenvolvedora Full Stack',
+        'hero-location': 'Salvador, Bahia - Brasil',
+        'about-text': 'Olá, eu sou Ingride Souza e tenho 19 anos. A minha jornada nos estudos é movida pela paixão por programação e tecnologia. Atualmente, estou a cursar Análise e Desenvolvimento de Sistemas na UniRuy Wyden, com previsão de término em 2025.2.',
+        'skills-title': 'Competências',
+        'soft-skills-title': 'Soft Skills',
+        'soft-skills-list': ['Trabalho em equipa', 'Comunicação clara', 'Aprendizagem rápida', 'Proatividade', 'Atenção aos detalhes', 'Inteligência emocional'],
+        'hard-skills-title': 'Hard Skills',
+        'hard-skills-list': ['Proficiente em JavaScript', 'Sistema de Controlo de Versão Git', 'HTML5, CSS3 e Bootstrap', 'Programação Avançada em Python', 'Gestão de Base de Dados SQL', 'Desenvolvimento com FLASK', 'Desenvolvimento e Implementação de Chatbots', 'Fundamentos de Inteligência Artificial (AI)', 'TypeScript', 'Arquitetura de Software'],
+        'competencies-title': 'Principais Competências',
+        'competencies-list': ['Threads', 'Chatbots', 'Automatização de processos'],
+        'tools-title': 'Ferramentas',
+        'tools-list': ['Visual Studio Code (VS Code)', 'Workbench', 'PyCharm (IDE)', 'WordPress CMS'],
+        'certifications-title': 'Certificações',
+        'certifications-list': ['Workshop - Criando o seu primeiro site', 'Microsoft Excel 2016 - Intermédio', 'Node.js', 'Customer Service: Problem-Solving and Troubleshooting', 'Desvendando SQL'],
+        'experience-title': 'Experiência',
+        'experience-1-title': 'Leiaute Propaganda',
+        'experience-1-role': 'Desenvolvedora de software',
+        'experience-1-description': 'Atuação no desenvolvimento de software, contribuindo com soluções em Front-End e Back-End, além de suporte na automatização de processos e chatbots.',
+        'experience-1-technologies': 'Tecnologias e ferramentas:',
+        'experience-1-tech-list': ['Python', 'JavaScript', 'SQL', 'Selenium', 'TypeScript', 'Inteligência Artificial', 'Zapier', 'Wordpress', 'Git Version Control'],
+        'experience-2-title': 'INFINITY SCHOOL - Visual Art Creative Center',
+        'experience-2-role': 'Monitora',
+        'experience-2-description': 'Suporte a alunos nos conteúdos de programação Full Stack, auxílio na resolução de problemas e orientação em projetos práticos.',
+        'college-text': 'Sou estudante de <strong>Análise e Desenvolvimento de Sistemas</strong> na <strong>UniFavip Wyden</strong>, dedicada a aprimorar continuamente os meus conhecimentos na área de tecnologia. Além dos estudos académicos, busco cursos intensivos de programação para me manter atualizada.',
+        'degree-title': 'LICENCIATURA',
+        'degree-name': 'Análise e Desenvolvimento de Sistemas',
+        'degree-institution': 'UniFavip Wyden',
+        'degree-period': 'Março de 2023 - Novembro de 2025',
+        'courses-title': 'CURSOS INTENSIVOS',
+        'courses-description': 'Programação Full Stack na <strong>INFINITY SCHOOL</strong> (Agosto de 2023 - Fevereiro de 2024).',
+        'courses-additional': 'Cursos e formações complementares para expandir o meu conhecimento em diversas áreas de TI.',
+        'contact-title': 'Contacto',
+        'contact-phone': 'Telefone:',
+        'contact-email': 'Email:',
+        'contact-linkedin': 'LinkedIn:',
+        'contact-github': 'GitHub:',
+        'contact-portfolio': 'Portfólio:',
+        'footer-text': '&copy; 2025 - Desenvolvido por Ingride Souza'
+      },
       'en': {
         'hero-title': 'Full Stack Developer',
         'hero-location': 'Salvador, Bahia - Brazil',
-        'about-title': 'ABOUT ME',
         'about-text': 'Hello, I am Ingride Souza, and I am 19 years old. My journey in studies is driven by a passion for programming and technology. Currently, I am pursuing a degree in Systems Analysis and Development at UniRuy Wyden, with an expected completion in 2025.2.',
         'skills-title': 'Skills',
-        'skills-title-bg': 'SKILLS',
         'soft-skills-title': 'Soft Skills',
         'soft-skills-list': ['Teamwork', 'Clear communication', 'Fast learning', 'Proactivity', 'Attention to detail', 'Emotional intelligence'],
         'hard-skills-title': 'Hard Skills',
@@ -757,7 +787,6 @@
         'certifications-title': 'Certifications',
         'certifications-list': ['Workshop - Creating your first website', 'Microsoft Excel 2016 - Intermediate', 'Node.js', 'Customer Service: Problem-Solving and Troubleshooting', 'Unveiling SQL'],
         'experience-title': 'Experience',
-        'experience-title-bg': 'EXPERIENCE',
         'experience-1-title': 'Leiaute Propaganda',
         'experience-1-role': 'Software Developer',
         'experience-1-description': 'Working on software development, contributing to Front-End and Back-End solutions, as well as supporting process automation and chatbots.',
@@ -767,8 +796,6 @@
         'experience-2-role': 'Tutor',
         'experience-2-description': 'Supporting students in Full Stack programming content, assisting in problem-solving, and guiding practical projects.',
         'college-text': 'I am a student of <strong>Systems Analysis and Development</strong> at <strong>UniFavip Wyden</strong>, dedicated to continuously improving my knowledge in the field of technology. In addition to academic studies, I seek intensive programming courses to stay updated.',
-        'college-title': 'EDUCATION',
-        'college-title-bg': 'EDUCATION',
         'degree-title': 'BACHELOR\'S DEGREE',
         'degree-name': 'Systems Analysis and Development',
         'degree-institution': 'UniFavip Wyden',
@@ -784,26 +811,62 @@
         'contact-portfolio': 'Portfolio:',
         'footer-text': '&copy; 2025 - Developed by Ingride Souza'
       },
-      // Adicione mais idiomas conforme necessário
+      'fr': {
+        'hero-title': 'Développeuse Full Stack',
+        'hero-location': 'Salvador, Bahia - Brésil',
+        'about-text': 'Bonjour, je suis Ingride Souza et j\'ai 19 ans. Mon parcours d\'études est motivé par une passion pour la programmation et la technologie. Actuellement, je suis un cursus en Analyse et Développement de Systèmes à UniRuy Wyden, avec une fin prévue en 2025.2.',
+        'skills-title': 'Compétences',
+        'soft-skills-title': 'Soft Skills',
+        'soft-skills-list': ['Travail d\'équipe', 'Communication claire', 'Apprentissage rapide', 'Proactivité', 'Attention aux détails', 'Intelligence émotionnelle'],
+        'hard-skills-title': 'Hard Skills',
+        'hard-skills-list': ['Compétent en JavaScript', 'Système de contrôle de version Git', 'HTML5, CSS3 et Bootstrap', 'Programmation avancée en Python', 'Gestion de base de données SQL', 'Développement avec FLASK', 'Développement et déploiement de chatbots', 'Fondamentaux de l\'intelligence artificielle (IA)', 'TypeScript', 'Architecture logicielle'],
+        'competencies-title': 'Compétences principales',
+        'competencies-list': ['Threads', 'Chatbots', 'Automatisation des processus'],
+        'tools-title': 'Outils',
+        'tools-list': ['Visual Studio Code (VS Code)', 'Workbench', 'PyCharm (IDE)', 'WordPress CMS'],
+        'certifications-title': 'Certifications',
+        'certifications-list': ['Atelier - Créer votre premier site web', 'Microsoft Excel 2016 - Intermédiaire', 'Node.js', 'Service client : Résolution de problèmes et dépannage', 'Découvrir SQL'],
+        'experience-title': 'Expérience',
+        'experience-1-title': 'Leiaute Propaganda',
+        'experience-1-role': 'Développeuse de logiciels',
+        'experience-1-description': 'Participation au développement de logiciels, contribuant à des solutions Front-End et Back-End, ainsi qu\'au support de l\'automatisation des processus et des chatbots.',
+        'experience-1-technologies': 'Technologies et outils :',
+        'experience-1-tech-list': ['Python', 'JavaScript', 'SQL', 'Selenium', 'TypeScript', 'Intelligence artificielle', 'Zapier', 'Wordpress', 'Git Version Control'],
+        'experience-2-title': 'INFINITY SCHOOL - Visual Art Creative Center',
+        'experience-2-role': 'Tutrice',
+        'experience-2-description': 'Soutien aux étudiants dans les contenus de programmation Full Stack, aide à la résolution de problèmes et orientation dans des projets pratiques.',
+        'college-text': 'Je suis étudiante en <strong>Analyse et Développement de Systèmes</strong> à <strong>UniFavip Wyden</strong>, dédiée à améliorer continuellement mes connaissances dans le domaine de la technologie. En plus des études académiques, je recherche des cours intensifs de programmation pour rester à jour.',
+        'degree-title': 'LICENCE',
+        'degree-name': 'Analyse et Développement de Systèmes',
+        'degree-institution': 'UniFavip Wyden',
+        'degree-period': 'Mars 2023 - Novembre 2025',
+        'courses-title': 'COURS INTENSIFS',
+        'courses-description': 'Programmation Full Stack à <strong>INFINITY SCHOOL</strong> (Août 2023 - Février 2024).',
+        'courses-additional': 'Cours et formations complémentaires pour élargir mes connaissances dans divers domaines de l\'informatique.',
+        'contact-title': 'Contact',
+        'contact-phone': 'Téléphone :',
+        'contact-email': 'Email :',
+        'contact-linkedin': 'LinkedIn :',
+        'contact-github': 'GitHub :',
+        'contact-portfolio': 'Portfolio :',
+        'footer-text': '&copy; 2025 - Développé par Ingride Souza'
+      }
     };
-
+  
     function changeLanguage(language) {
       const translation = translations[language];
-
-      // Atualiza textos simples
+  
+      // Atualiza o conteúdo da página com base no idioma selecionado
       document.getElementById('hero-title').textContent = translation['hero-title'];
       document.getElementById('hero-location').textContent = translation['hero-location'];
-      document.getElementById('about-title').textContent = translation['about-title'];
       document.getElementById('about-text').textContent = translation['about-text'];
       document.getElementById('skills-title').textContent = translation['skills-title'];
-      document.getElementById('skills-title-bg').textContent = translation['skills-title-bg'];
       document.getElementById('soft-skills-title').textContent = translation['soft-skills-title'];
       document.getElementById('hard-skills-title').textContent = translation['hard-skills-title'];
       document.getElementById('competencies-title').textContent = translation['competencies-title'];
       document.getElementById('tools-title').textContent = translation['tools-title'];
       document.getElementById('certifications-title').textContent = translation['certifications-title'];
       document.getElementById('experience-title').textContent = translation['experience-title'];
-      document.getElementById('experience-title-bg').textContent = translation['experience-title-bg'];
       document.getElementById('experience-1-title').textContent = translation['experience-1-title'];
       document.getElementById('experience-1-role').textContent = translation['experience-1-role'];
       document.getElementById('experience-1-description').textContent = translation['experience-1-description'];
@@ -812,7 +875,6 @@
       document.getElementById('experience-2-role').textContent = translation['experience-2-role'];
       document.getElementById('experience-2-description').textContent = translation['experience-2-description'];
       document.getElementById('college-text').innerHTML = translation['college-text'];
-      document.getElementById('college-title-bg').textContent = translation['college-title-bg'];
       document.getElementById('degree-title').textContent = translation['degree-title'];
       document.getElementById('degree-name').textContent = translation['degree-name'];
       document.getElementById('degree-institution').textContent = translation['degree-institution'];
@@ -827,7 +889,7 @@
       document.getElementById('contact-github').textContent = translation['contact-github'];
       document.getElementById('contact-portfolio').textContent = translation['contact-portfolio'];
       document.getElementById('footer-text').innerHTML = translation['footer-text'];
-
+  
       // Atualiza listas
       updateList('soft-skills-list', translation['soft-skills-list']);
       updateList('hard-skills-list', translation['hard-skills-list']);
@@ -836,7 +898,7 @@
       updateList('certifications-list', translation['certifications-list']);
       updateList('experience-1-tech-list', translation['experience-1-tech-list']);
     }
-
+  
     function updateList(elementId, items) {
       const listElement = document.getElementById(elementId);
       listElement.innerHTML = ''; // Limpa a lista
@@ -847,5 +909,3 @@
       });
     }
   </script>
-</body>
-</html>
