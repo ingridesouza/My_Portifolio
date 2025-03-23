@@ -630,12 +630,12 @@
         <p class="study-period" id="degree-period">Março de 2023 - Novembro de 2025</p>
         <!-- Caixinhas de habilidades -->
         <div class="skills-list">
-          <div class="skill-item">Python</div>
-          <div class="skill-item">Web Development</div>
-          <div class="skill-item">Cloud Computing</div>
-          <div class="skill-item">Java</div>
-          <div class="skill-item">Banco de Dados</div>
-          <div class="skill-item">Redes</div>
+          <div class="skill-item" id="skill-1">Python</div>
+          <div class="skill-item" id="skill-2">Web Development</div>
+          <div class="skill-item" id="skill-3">Cloud Computing</div>
+          <div class="skill-item" id="skill-4">Java</div>
+          <div class="skill-item" id="skill-5">Banco de Dados</div>
+          <div class="skill-item" id="skill-6">Redes</div>
         </div>
       </div>
       <div class="intensive-courses">
@@ -650,12 +650,12 @@
         </p>
         <!-- Caixinhas de habilidades -->
         <div class="skills-list">
-          <div class="skill-item">Python</div>
-          <div class="skill-item">JavaScript</div>
-          <div class="skill-item">HTML</div>
-          <div class="skill-item">CSS</div>
-          <div class="skill-item">Node.js</div>
-          <div class="skill-item">React</div>
+          <div class="skill-item" id="skill-7">Python</div>
+          <div class="skill-item" id="skill-8">JavaScript</div>
+          <div class="skill-item" id="skill-9">HTML</div>
+          <div class="skill-item" id="skill-10">CSS</div>
+          <div class="skill-item" id="skill-11">Node.js</div>
+          <div class="skill-item" id="skill-12">React</div>
         </div>
       </div>
     </div>
@@ -733,7 +733,19 @@
       'nav-skills': 'Habilidades',
       'nav-experience': 'Experiência',
       'nav-college': 'Educação',
-      'nav-contact': 'Contato'
+      'nav-contact': 'Contato',
+      'skill-1': 'Python',
+      'skill-2': 'Desenvolvimento Web',
+      'skill-3': 'Computação em Nuvem',
+      'skill-4': 'Java',
+      'skill-5': 'Banco de Dados',
+      'skill-6': 'Redes',
+      'skill-7': 'Python',
+      'skill-8': 'JavaScript',
+      'skill-9': 'HTML',
+      'skill-10': 'CSS',
+      'skill-11': 'Node.js',
+      'skill-12': 'React'
     },
     'pt-PT': {
       'hero-title': 'Desenvolvedora Full Stack',
@@ -777,7 +789,19 @@
       'nav-skills': 'Competências',
       'nav-experience': 'Experiência',
       'nav-college': 'Educação',
-      'nav-contact': 'Contacto'
+      'nav-contact': 'Contacto',
+      'skill-1': 'Python',
+      'skill-2': 'Desenvolvimento Web',
+      'skill-3': 'Computação em Nuvem',
+      'skill-4': 'Java',
+      'skill-5': 'Base de Dados',
+      'skill-6': 'Redes',
+      'skill-7': 'Python',
+      'skill-8': 'JavaScript',
+      'skill-9': 'HTML',
+      'skill-10': 'CSS',
+      'skill-11': 'Node.js',
+      'skill-12': 'React'
     },
     'en': {
       'hero-title': 'Full Stack Developer',
@@ -821,7 +845,19 @@
       'nav-skills': 'Skills',
       'nav-experience': 'Experience',
       'nav-college': 'Education',
-      'nav-contact': 'Contact'
+      'nav-contact': 'Contact',
+      'skill-1': 'Python',
+      'skill-2': 'Web Development',
+      'skill-3': 'Cloud Computing',
+      'skill-4': 'Java',
+      'skill-5': 'Database',
+      'skill-6': 'Networks',
+      'skill-7': 'Python',
+      'skill-8': 'JavaScript',
+      'skill-9': 'HTML',
+      'skill-10': 'CSS',
+      'skill-11': 'Node.js',
+      'skill-12': 'React'
     },
     'fr': {
       'hero-title': 'Développeuse Full Stack',
@@ -865,7 +901,19 @@
       'nav-skills': 'Compétences',
       'nav-experience': 'Expérience',
       'nav-college': 'Éducation',
-      'nav-contact': 'Contact'
+      'nav-contact': 'Contact',
+      'skill-1': 'Python',
+      'skill-2': 'Développement Web',
+      'skill-3': 'Cloud Computing',
+      'skill-4': 'Java',
+      'skill-5': 'Base de Données',
+      'skill-6': 'Réseaux',
+      'skill-7': 'Python',
+      'skill-8': 'JavaScript',
+      'skill-9': 'HTML',
+      'skill-10': 'CSS',
+      'skill-11': 'Node.js',
+      'skill-12': 'React'
     }
   };
 
@@ -911,6 +959,14 @@
     document.getElementById('nav-experience').textContent = translation['nav-experience'];
     document.getElementById('nav-college').textContent = translation['nav-college'];
     document.getElementById('nav-contact').textContent = translation['nav-contact'];
+
+    // Atualiza as caixinhas de habilidades
+    for (let i = 1; i <= 12; i++) {
+      const skillElement = document.getElementById(`skill-${i}`);
+      if (skillElement) {
+        skillElement.textContent = translation[`skill-${i}`];
+      }
+    }
 
     // Atualiza listas
     updateList('soft-skills-list', translation['soft-skills-list']);
