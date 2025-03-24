@@ -407,38 +407,104 @@
      * Seção Contact
      ************************/
     .contact-section {
-      position: relative;
-      padding: 2rem;
-    }
-    .contact-section h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      font-weight: 700;
-      text-transform: uppercase;
+      background-color: #f9f9f9;
+      padding: 3rem 2rem;
       text-align: center;
     }
+
+    .contact-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #333;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
     .contact-info {
       max-width: 600px;
       margin: 0 auto;
-      text-align: center;
-      line-height: 1.8;
-    }
-    .contact-info p {
-      margin-bottom: 0.5rem;
-    }
-    .contact-info a {
-      color: #0066cc;
-      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
     }
 
-    /* Rodapé */
-    footer {
-      text-align: center;
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background-color: #fff;
       padding: 1rem;
-      background-color: #f8f8f8;
-      font-size: 0.9rem;
-      color: #666;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
+    .contact-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .contact-item i {
+      font-size: 1.5rem;
+      color: #06c200; /* Verde vibrante */
+    }
+
+    .contact-item p {
+      margin: 0;
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .contact-item a {
+      color: #06c200;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-item a:hover {
+      color: #047200; /* Verde mais escuro */
+    }
+
+    /* Estilos para o Footer */
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 2rem 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+      border-top: 1px solid #444;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .social-links a {
+      color: #fff;
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #06c200; /* Verde vibrante */
+    }
+
+    #footer-text {
+      margin: 0;
+      color: #ccc;
+    }
+
   </style>
 </head>
 <body>
@@ -662,31 +728,62 @@
   </section>
 
   <!-- Seção Contact -->
-  <section class="contact-section" id="contact">
-    <h2 id="contact-title">Contact</h2>
-    <div class="contact-info">
+<section class="contact-section" id="contact">
+  <h2 id="contact-title">Contact</h2>
+  <div class="contact-info">
+    <div class="contact-item">
+      <i class="fas fa-phone-alt"></i>
       <p><strong id="contact-phone">Telefone:</strong> <a href="tel:71981170909">71 98117-0909</a></p>
+    </div>
+    <div class="contact-item">
+      <i class="fas fa-envelope"></i>
       <p><strong id="contact-email">Email:</strong> <a href="mailto:ingridesouza040@gmail.com">ingridesouza040@gmail.com</a></p>
+    </div>
+    <div class="contact-item">
+      <i class="fab fa-linkedin"></i>
       <p><strong id="contact-linkedin">LinkedIn:</strong> 
-        <a href="https://www.linkedin.com/in/ingride-souza-a21a4518a">
+        <a href="https://www.linkedin.com/in/ingride-souza-a21a4518a" target="_blank">
           linkedin.com/in/ingride-souza-a21a4518a
         </a>
       </p>
+    </div>
+    <div class="contact-item">
+      <i class="fab fa-github"></i>
       <p><strong id="contact-github">GitHub:</strong> 
-        <a href="https://github.com/ingridesouza">github.com/ingridesouza</a>
+        <a href="https://github.com/ingridesouza" target="_blank">github.com/ingridesouza</a>
       </p>
+    </div>
+    <div class="contact-item">
+      <i class="fas fa-globe"></i>
       <p><strong id="contact-portfolio">Portfólio:</strong> 
-        <a href="https://ingridesouza-portifolio.netlify.app">
+        <a href="https://ingridesouza-portifolio.netlify.app" target="_blank">
           ingridesouza-portifolio.netlify.app
         </a>
       </p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Rodapé -->
-  <footer>
+<!-- Rodapé -->
+<footer>
+  <div class="footer-content">
     <p id="footer-text">&copy; 2025 - Desenvolvido por Ingride Souza</p>
-  </footer>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/ingride-souza-a21a4518a" target="_blank" title="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://github.com/ingridesouza" target="_blank" title="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="mailto:ingridesouza040@gmail.com" title="Email">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- Adicionando Font Awesome para ícones -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
   <!-- Script de tradução -->
   <script>
