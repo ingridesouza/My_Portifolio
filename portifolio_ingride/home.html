@@ -129,6 +129,28 @@
       color: #555;
     }
 
+
+    .typing-effect {
+      overflow: hidden;
+      border-right: .15em solid orange;
+      white-space: nowrap;
+      margin: 0 auto;
+      letter-spacing: .20em; 
+      animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+    }
+    
+    /* Animação de digitação */
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    
+    /* Animação do cursor piscando */
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: orange; }
+    }
+
     /************************
      * Seção ABOUT ME
      ************************/
@@ -540,7 +562,7 @@
       <img src="./assets/image/profile (2).jpeg" alt="Foto de Ingride Souza" />
     </div>
     <div class="info">
-      <h1 id="hero-title">Full Stack Developer</h1>
+      <h1 id="hero-title" class="typing-effect"></h1>
       <div class="location" id="hero-location">Salvador, Bahia - Brasil</div>
     </div>
   </section>
@@ -789,6 +811,22 @@
 
   <!-- Script de tradução -->
   <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const heroTitle = document.getElementById('hero-title');
+      const text = "Full Stack Developer";
+      let index = 0;
+    
+      function typeWriter() {
+        if (index < text.length) {
+          heroTitle.textContent += text.charAt(index);
+          index++;
+          setTimeout(typeWriter, 100);
+        }
+      }
+    
+      typeWriter();
+    });
+
     const translations = {
       'pt-BR': {
         'hero-title': 'Desenvolvedora Full Stack',
