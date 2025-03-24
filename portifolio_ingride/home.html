@@ -632,7 +632,6 @@
     <div class="experience-content">
       <h2 id="experience-title">Experience</h2>
       <div class="timeline">
-        <!-- Item 1 -->
         <div class="timeline-item">
           <div class="timeline-date">2024 <br> 2025</div>
           <div class="timeline-dot"></div>
@@ -658,7 +657,7 @@
             </ul>
           </div>
         </div>
-        <!-- Item 2 -->
+
         <div class="timeline-item">
           <div class="timeline-date">2024</div>
           <div class="timeline-dot"></div>
@@ -781,10 +780,10 @@
   <!-- AOS JS -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
-    // Inicializa o AOS
+    // AOS
     AOS.init({
-      duration: 1000, // Duração da animação em milissegundos
-      once: true, // A animação ocorre apenas uma vez
+      duration: 1000, // animação em milissegundos
+      once: true, // ocorre apenas uma vez
     });
   </script>
 
@@ -1054,13 +1053,13 @@
       document.getElementById('contact-portfolio').textContent = translation['contact-portfolio'];
       document.getElementById('footer-text').innerHTML = translation['footer-text'];
 
-      // Atualiza o nav
+      // nav
       document.getElementById('nav-skills').textContent = translation['nav-skills'];
       document.getElementById('nav-experience').textContent = translation['nav-experience'];
       document.getElementById('nav-college').textContent = translation['nav-college'];
       document.getElementById('nav-contact').textContent = translation['nav-contact'];
 
-      // Atualiza as caixinhas de habilidades
+      // caixinhas de habilidades
       for (let i = 1; i <= 12; i++) {
         const skillElement = document.getElementById(`skill-${i}`);
         if (skillElement) {
@@ -1068,7 +1067,7 @@
         }
       }
 
-      // Atualiza listas
+      // listas
       updateList('soft-skills-list', translation['soft-skills-list']);
       updateList('hard-skills-list', translation['hard-skills-list']);
       updateList('competencies-list', translation['competencies-list']);
@@ -1079,7 +1078,7 @@
 
     function updateList(elementId, items) {
       const listElement = document.getElementById(elementId);
-      listElement.innerHTML = ''; // Limpa a lista
+      listElement.innerHTML = ''; 
       items.forEach(item => {
         const li = document.createElement('li');
         li.textContent = item;
