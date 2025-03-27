@@ -131,21 +131,27 @@
 
 
     .typing-effect {
+      display: inline-block;
       overflow: hidden;
       border-right: .15em solid orange;
       white-space: nowrap;
-      margin: 0 auto;
-      letter-spacing: .20em; 
-      animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+      letter-spacing: .25em;
+      animation: 
+        typing 3.5s steps(40, end),
+        blink-caret .75s step-end infinite;
     }
     
-    /* Animação de digitação */
+    /* Efeito final quando a animação terminar */
+    .typing-effect.completed {
+      border-right: none;
+      animation: none;
+    }
+    
     @keyframes typing {
       from { width: 0 }
       to { width: 100% }
     }
     
-    /* Animação do cursor piscando */
     @keyframes blink-caret {
       from, to { border-color: transparent }
       50% { border-color: orange; }
@@ -813,20 +819,25 @@
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const heroTitle = document.getElementById('hero-title');
-      const text = "Full Stack Developer";
+      heroTitle.classList.add('typing-effect'); // Adiciona a classe para o efeito
+      
+      // Configurações do efeito de digitação
+      const text = heroTitle.textContent || "Full Stack Developer";
+      heroTitle.textContent = ''; // Limpa o texto inicial
       let index = 0;
     
       function typeWriter() {
         if (index < text.length) {
           heroTitle.textContent += text.charAt(index);
           index++;
-          setTimeout(typeWriter, 100);
+          setTimeout(typeWriter, 100); // Velocidade da digitação
+        } else {
+          heroTitle.style.borderRight = 'none'; // Remove o cursor após terminar
         }
       }
     
       typeWriter();
     });
-
     const translations = {
       'pt-BR': {
         'hero-title': 'Desenvolvedora Full Stack',
