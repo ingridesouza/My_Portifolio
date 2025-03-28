@@ -126,29 +126,23 @@
       gap: 1.5rem;
       background: #fff;
       flex-wrap: wrap;
-      justify-content: flex-start;
+      justify-content: center;
       margin-left: 0;
       max-width: 100%;
     }
     
-    /* Ajuste para telas menores */
-    @media (max-width: 768px) {
-      .hero {
-        padding: 2rem; /* Reduz o padding em telas pequenas */
-        flex-direction: column;
-        text-align: center;
-      }
-    }
-
     .hero .photo {
       flex: 0 0 auto;
+      margin-bottom: 1.5rem;
     }
     
     .hero .photo img {
-      width: 150px;
-      height: 150px;
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      aspect-ratio: 1/1;
       object-fit: cover;
-      border-radius: 20%;
+      border-radius: 50%;
       border: 2px solid #ccc;
     }
     
@@ -158,10 +152,11 @@
       justify-content: center;
       gap: 0.5rem;
       max-width: 100%;
+      text-align: center;
     }
     
     .hero .info h1 {
-      font-size: 1.8rem;
+      font-size: clamp(1.5rem, 5vw, 1.8rem);
       font-weight: 700;
       word-break: break-word;
     }
@@ -174,7 +169,7 @@
     .typing-effect {
       display: inline-block;
       overflow: hidden;
-      border-right: .15em solid orange;
+      border-right: .15em solid rgb(219, 0, 121);
       white-space: nowrap;
       letter-spacing: .15em;
       animation: 
@@ -196,7 +191,7 @@
     
     @keyframes blink-caret {
       from, to { border-color: transparent }
-      50% { border-color: orange; }
+      50% { border-color:  rgb(219, 0, 121); }
     }
 
     /************************
@@ -205,7 +200,7 @@
     .about-section {
       position: relative;
       background-color: #fff;
-      padding: 2rem 1rem;
+      padding: 4rem 1rem;
       margin-top: 2rem;
       min-height: 50vh;
       overflow: hidden;
@@ -217,9 +212,9 @@
       left: 50%;
       top: 20%;
       transform: translateX(-50%);
-      font-size: 4rem;
+      font-size: clamp(2.5rem, 10vw, 4rem);
       font-weight: 700;
-      color: rgba(0,0,0,0.05);
+      color:  rgba(252, 149, 205, 0.616);
       pointer-events: none;
       user-select: none;
       text-transform: uppercase;
@@ -229,11 +224,11 @@
     /* Título normal (visível em primeiro plano) */
     .about-title {
       position: relative;
-      font-size: 1.8rem;
+      font-size: clamp(1.5rem, 5vw, 1.8rem);
       font-weight: 700;
       text-transform: uppercase;
       text-align: center;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       z-index: 2;
     }
 
@@ -258,11 +253,11 @@
     .skills-section {
       position: relative;
       background-color: #fff;
-      padding: 2rem 1rem;
+      padding: 4rem 1rem;
     }
     
     .skills-section .section-title-bg {
-      color: rgba(0,0,0,0.05);
+      color:  rgba(252, 149, 205, 0.616);
     }
     
     .skills-content {
@@ -273,8 +268,8 @@
     }
     
     .skills-content h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
+      font-size: clamp(1.5rem, 5vw, 1.8rem);
+      margin-bottom: 1.5rem;
       font-weight: 700;
       text-transform: uppercase;
       text-align: center;
@@ -316,11 +311,11 @@
     .experience-section {
       position: relative;
       background-color: #f9f9f9;
-      padding: 2rem 1rem;
+      padding: 4rem 1rem;
     }
     
     .experience-section .section-title-bg {
-      color: rgba(0,0,0,0.05);
+      color:  rgba(252, 149, 205, 0.616);
       left: 1rem;
     }
 
@@ -332,8 +327,8 @@
     }
     
     .experience-content h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
+      font-size: clamp(1.5rem, 5vw, 1.8rem);
+      margin-bottom: 1.5rem;
       font-weight: 700;
       text-transform: uppercase;
       text-align: center;
@@ -348,7 +343,7 @@
     .timeline::before {
       content: "";
       position: absolute;
-      left: 70px;
+      left: 30px;
       top: 0;
       bottom: 0;
       width: 2px;
@@ -358,7 +353,7 @@
     .timeline-item {
       position: relative;
       margin-bottom: 1.5rem;
-      padding-left: 100px;
+      padding-left: 60px;
     }
     
     .timeline-date {
@@ -368,11 +363,12 @@
       color: #555;
       top: 0;
       min-width: 50px;
+      font-size: 0.9rem;
     }
     
     .timeline-dot {
       position: absolute;
-      left: 65px;
+      left: 25px;
       top: 6px;
       width: 14px;
       height: 14px;
@@ -411,7 +407,7 @@
       position: relative;
       background-color: #111;
       color: #fff;
-      padding: 3rem 1rem;
+      padding: 4rem 1rem;
       min-height: 50vh;
       display: flex;
       align-items: center;
@@ -448,7 +444,7 @@
     .degree-info h3 {
       font-size: 1rem;
       font-weight: 700;
-      color: #f44336;
+      color:  rgb(165, 0, 91);
       margin-bottom: 0.5rem;
       text-transform: uppercase;
     }
@@ -474,7 +470,7 @@
     .intensive-courses h4 {
       font-size: 1rem;
       font-weight: 700;
-      color: #f44336;
+      color:  rgb(165, 0, 91);
       margin-bottom: 0.5rem;
       text-transform: uppercase;
     }
@@ -495,8 +491,8 @@
     }
     
     .skill-item {
-      background-color: #06c200;
-      color: #000000;
+      background-color:  rgb(192, 0, 106);
+      color: #ffffff;
       padding: 0.5rem 0.8rem;
       border-radius: 4px;
       font-size: 0.8rem;
@@ -506,7 +502,7 @@
     }
     
     .skill-item:hover {
-      background-color: #047200;
+      background-color: rgb(139, 0, 77);
     }
 
     /************************
@@ -514,12 +510,12 @@
      ************************/
     .contact-section {
       background-color: #f9f9f9;
-      padding: 2rem 1rem;
+      padding: 4rem 1rem;
       text-align: center;
     }
 
     .contact-section h2 {
-      font-size: 2rem;
+      font-size: clamp(1.5rem, 5vw, 2rem);
       margin-bottom: 1.5rem;
       color: #333;
       text-transform: uppercase;
@@ -554,7 +550,7 @@
 
     .contact-item i {
       font-size: 1.5rem;
-      color: #06c200;
+      color:   rgb(192, 0, 106);
       flex-shrink: 0;
     }
 
@@ -565,13 +561,13 @@
     }
 
     .contact-item a {
-      color: #06c200;
+      color: rgb(165, 0, 91);
       text-decoration: none;
       transition: color 0.3s ease;
     }
 
     .contact-item a:hover {
-      color: #047200;
+      color: rgb(139, 0, 77);
     }
 
     /* Estilos para o Footer */
@@ -608,7 +604,7 @@
     }
 
     .social-links a:hover {
-      color: #06c200;
+      color: rgb(139, 0, 77);
     }
 
     #footer-text {
@@ -617,18 +613,9 @@
     }
 
     /* Media Queries para responsividade */
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
-      }
-      
-      nav ul {
-        gap: 1rem;
-      }
-      
+    @media (max-width: 992px) {
       .hero {
+        padding: 2rem;
         flex-direction: column;
         text-align: center;
       }
@@ -641,27 +628,54 @@
       .about-title-bg {
         font-size: 3rem;
       }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+      }
+      
+      nav ul {
+        gap: 0.5rem;
+      }
+      
+      .language-selector {
+        justify-content: center;
+        width: 100%;
+      }
+      
+      .section-title-bg {
+        font-size: 2.5rem;
+        left: 0.5rem;
+      }
       
       .timeline::before {
-        left: 50px;
+        left: 20px;
       }
       
       .timeline-item {
-        padding-left: 80px;
+        padding-left: 50px;
       }
       
       .timeline-dot {
-        left: 45px;
+        left: 15px;
+      }
+      
+      .timeline-date {
+        font-size: 0.8rem;
       }
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 576px) {
       .section-title-bg {
-        font-size: 2.5rem;
+        font-size: 2rem;
+        left: 0.3rem;
       }
       
       .about-title-bg {
-        font-size: 2.5rem;
+        font-size: 2rem;
       }
       
       .hero .info h1 {
@@ -674,7 +688,31 @@
       }
       
       .timeline-date {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
+      }
+      
+      .contact-item {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .contact-item i {
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .section-title-bg {
+        display: none;
+      }
+      
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .skills-list {
+        justify-content: center;
       }
     }
   </style>
@@ -925,9 +963,9 @@
       </div>
       <div class="contact-item">
         <i class="fas fa-globe"></i>
-        <p><strong id="contact-portfolio">Portfólio:</strong> 
-          <a href="https://ingridesouza-portifolio.netlify.app" target="_blank">
-            ingridesouza-portifolio.netlify.app
+        <p><strong id="contact-portfolio">Instagram:</strong> 
+          <a href="https://www.instagram.com/ingridesouzadev/" target="_blank">
+            instagram.com/ingridesouzadev
           </a>
         </p>
       </div>
@@ -1180,7 +1218,7 @@
         'experience-2-description': 'Soutien aux étudiants dans les contenus de programação Full Stack, aide à la résolution de problèmes et orientation dans des projets pratiques.',
         'college-text': 'Je suis étudiante en <strong>Analyse et Développement de Systèmes</strong> à <strong>UniFavip Wyden</strong>, dédiée à améliorer continuellement mes connaissances dans le domaine de la tecnologia. En plus des études académiques, je recherche des cours intensifs de programmation pour rester à jour.',
         'degree-title': 'LICENCE',
-        'degree-name': 'Analyse et Développement de Systèmes',
+        'degree-name': 'Analyse et Développement de Sistemas',
         'degree-institution': 'UniFavip Wyden',
         'degree-period': 'Mars 2023 - Novembre 2025',
         'courses-title': 'COURS INTENSIFS',
