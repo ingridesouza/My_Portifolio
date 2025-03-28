@@ -1,0 +1,699 @@
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    color: #333;
+    background-color: #fff;
+    padding-top: 80px;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+  }
+  
+  header .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+    white-space: nowrap;
+  }
+  
+  nav ul li a:hover {
+    color: #666;
+  }
+
+  /* Seletor de idioma */
+  .language-selector {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  
+  .language-selector button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: #333;
+    padding: 0.3rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+  }
+  
+  .language-selector button:hover {
+    background-color: #f0f0f0;
+  }
+
+  /* Título vertical base*/
+  .section-title-bg {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    font-size: 4rem;
+    font-weight: 700;
+    pointer-events: none;
+    user-select: none;
+    color: rgba(0,0,0,0.05);
+    white-space: nowrap;
+  }
+
+  /************************
+   * Seção Hero (início)
+   ************************/
+  .hero {
+    display: flex;
+    align-items: center;
+    padding: 2rem 4rem 2rem 6rem;
+    gap: 1.5rem;
+    background: #fff;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 0;
+    max-width: 100%;
+  }
+  
+  .hero .photo {
+    flex: 0 0 auto;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero .photo img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+  }
+  
+  .hero .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  .hero .info h1 {
+    font-size: clamp(1.5rem, 5vw, 1.8rem);
+    font-weight: 700;
+    word-break: break-word;
+  }
+  
+  .hero .info .location {
+    font-size: 1rem;
+    color: #555;
+  }
+
+  .typing-effect {
+    display: inline-block;
+    overflow: hidden;
+    border-right: .15em solid rgb(219, 0, 121);
+    white-space: nowrap;
+    letter-spacing: .15em;
+    animation: 
+      typing 3.5s steps(40, end),
+      blink-caret .75s step-end infinite;
+    max-width: 100%;
+  }
+  
+  /* Efeito final quando a animação terminar */
+  .typing-effect.completed {
+    border-right: none;
+    animation: none;
+  }
+  
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color:  rgb(219, 0, 121); }
+  }
+
+  /************************
+   * Seção ABOUT ME
+   ************************/
+  .about-section {
+    position: relative;
+    background-color: #fff;
+    padding: 4rem 1rem;
+    margin-top: 2rem;
+    min-height: 50vh;
+    overflow: hidden;
+  }
+
+  /* Texto grande no fundo (horizontal) */
+  .about-title-bg {
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translateX(-50%);
+    font-size: clamp(2.5rem, 10vw, 4rem);
+    font-weight: 700;
+    color:  rgba(252, 149, 205, 0.616);
+    pointer-events: none;
+    user-select: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  /* Título normal (visível em primeiro plano) */
+  .about-title {
+    position: relative;
+    font-size: clamp(1.5rem, 5vw, 1.8rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    z-index: 2;
+  }
+
+  .about-content {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    line-height: 1.6;
+    font-size: 1rem;
+    text-align: center;
+    padding: 0 1rem;
+  }
+  
+  .about-content p {
+    margin-bottom: 1rem;
+  }
+
+  /************************
+   * Seção SKILLS
+   ************************/
+  .skills-section {
+    position: relative;
+    background-color: #fff;
+    padding: 4rem 1rem;
+  }
+  
+  .skills-section .section-title-bg {
+    color:  rgba(252, 149, 205, 0.616);
+  }
+  
+  .skills-content {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .skills-content h2 {
+    font-size: clamp(1.5rem, 5vw, 1.8rem);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  
+  .skills-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  .skill-box {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 1.2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .skill-box h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+  
+  .skill-box ul {
+    margin-left: 1.2rem;
+    list-style: disc;
+  }
+  
+  .skill-box ul li {
+    margin-bottom: 0.5rem;
+    word-break: break-word;
+  }
+
+  /************************
+   * Seção EXPERIENCE
+   ************************/
+  .experience-section {
+    position: relative;
+    background-color: #f9f9f9;
+    padding: 4rem 1rem;
+  }
+  
+  .experience-section .section-title-bg {
+    color:  rgba(252, 149, 205, 0.616);
+    left: 1rem;
+  }
+
+  .experience-content {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .experience-content h2 {
+    font-size: clamp(1.5rem, 5vw, 1.8rem);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  /* TIMELINE */
+  .timeline {
+    position: relative;
+    margin: 1.5rem 0;
+  }
+  
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 30px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #ccc;
+  }
+  
+  .timeline-item {
+    position: relative;
+    margin-bottom: 1.5rem;
+    padding-left: 60px;
+  }
+  
+  .timeline-date {
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+    color: #555;
+    top: 0;
+    min-width: 50px;
+    font-size: 0.9rem;
+  }
+  
+  .timeline-dot {
+    position: absolute;
+    left: 25px;
+    top: 6px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #333;
+  }
+  
+  .timeline-card {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    word-break: break-word;
+  }
+  
+  .timeline-card h3 {
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+  }
+  
+  .timeline-card p {
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+  }
+  
+  .timeline-card ul {
+    list-style: disc;
+    margin-left: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  /************************
+   * Seção COLLEGE
+   ************************/
+  .college-section {
+    position: relative;
+    background-color: #111;
+    color: #fff;
+    padding: 4rem 1rem;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+  }
+  
+  .college-section .section-title-bg {
+    color: rgba(255,255,255,0.05);
+  }
+  
+  .college-content {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .college-content p {
+    line-height: 1.6;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    word-break: break-word;
+  }
+  
+  .degree-info,
+  .intensive-courses {
+    background-color: #222;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  
+  .degree-info h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color:  rgb(165, 0, 91);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+  
+  .degree-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.2rem;
+  }
+  
+  .institution {
+    font-size: 0.95rem;
+    color: #bbb;
+    margin-bottom: 0.2rem;
+  }
+  
+  .study-period {
+    font-size: 0.85rem;
+    color: #888;
+  }
+  
+  .intensive-courses h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color:  rgb(165, 0, 91);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+  
+  .intensive-courses p {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+  }
+
+  /*caixinhas de habilidades */
+  .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  
+  .skill-item {
+    background-color:  rgb(192, 0, 106);
+    color: #ffffff;
+    padding: 0.5rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+  }
+  
+  .skill-item:hover {
+    background-color: rgb(139, 0, 77);
+  }
+
+  /************************
+   * Seção Contact
+   ************************/
+  .contact-section {
+    background-color: #f9f9f9;
+    padding: 4rem 1rem;
+    text-align: center;
+  }
+
+  .contact-section h2 {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    margin-bottom: 1.5rem;
+    color: #333;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .contact-info {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    word-break: break-word;
+    text-align: left;
+  }
+
+  .contact-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .contact-item i {
+    font-size: 1.5rem;
+    color:   rgb(192, 0, 106);
+    flex-shrink: 0;
+  }
+
+  .contact-item p {
+    margin: 0;
+    font-size: 1rem;
+    color: #555;
+  }
+
+  .contact-item a {
+    color: rgb(165, 0, 91);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .contact-item a:hover {
+    color: rgb(139, 0, 77);
+  }
+
+  /* Estilos para o Footer */
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    border-top: 1px solid #444;
+  }
+
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .social-links a {
+    color: #fff;
+    font-size: 1.3rem;
+    transition: color 0.3s ease;
+  }
+
+  .social-links a:hover {
+    color: rgb(139, 0, 77);
+  }
+
+  #footer-text {
+    margin: 0;
+    color: #ccc;
+  }
+
+  /* Media Queries para responsividade */
+  @media (max-width: 992px) {
+    .hero {
+      padding: 2rem;
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .section-title-bg {
+      font-size: 3rem;
+      left: 0.5rem;
+    }
+    
+    .about-title-bg {
+      font-size: 3rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    header {
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1rem;
+    }
+    
+    nav ul {
+      gap: 0.5rem;
+    }
+    
+    .language-selector {
+      justify-content: center;
+      width: 100%;
+    }
+    
+    .section-title-bg {
+      font-size: 2.5rem;
+      left: 0.5rem;
+    }
+    
+    .timeline::before {
+      left: 20px;
+    }
+    
+    .timeline-item {
+      padding-left: 50px;
+    }
+    
+    .timeline-dot {
+      left: 15px;
+    }
+    
+    .timeline-date {
+      font-size: 0.8rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .section-title-bg {
+      font-size: 2rem;
+      left: 0.3rem;
+    }
+    
+    .about-title-bg {
+      font-size: 2rem;
+    }
+    
+    .hero .info h1 {
+      font-size: 1.5rem;
+    }
+    
+    .about-title, .skills-content h2, 
+    .experience-content h2, .contact-section h2 {
+      font-size: 1.5rem;
+    }
+    
+    .timeline-date {
+      font-size: 0.8rem;
+    }
+    
+    .contact-item {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .contact-item i {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .section-title-bg {
+      display: none;
+    }
+    
+    nav ul {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .skills-list {
+      justify-content: center;
+    }
+  }
