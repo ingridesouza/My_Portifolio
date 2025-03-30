@@ -1,8 +1,6 @@
-# 🌟 Portfólio Profissional - Ingride Souza  
-
 **Olá! 👋** Este é o repositório do meu portfólio pessoal, onde compartilho minha trajetória profissional, habilidades e projetos.  
 
-## ✨ Sobre Mim  
+## Sobre Mim  
 
 Sou **Ingride Souza**, estudante de **Análise e Desenvolvimento de Sistemas** e apaixonada por tecnologia. Aqui você encontrará:  
 
@@ -13,7 +11,7 @@ Sou **Ingride Souza**, estudante de **Análise e Desenvolvimento de Sistemas** e
 
 ## 🔗 Acesse Meu Portfólio  
 
-📌 **[Visualizar Online](https://ingridesouza-portifolio.netlify.app/)**  
+**[Visualizar Online](https://ingridesouza-portifolio.netlify.app/)**  
 
 ## 📩 Vamos Conversar?  
 
