@@ -325,12 +325,14 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
 //  Menu Hamburguer
+// Menu Hamburguer melhorado
 document.addEventListener('DOMContentLoaded', function() {
   const menuToggle = document.getElementById('mobile-menu');
   const nav = document.querySelector('nav');
   const languageSelector = document.querySelector('.language-selector');
   
-  menuToggle.addEventListener('click', function() {
+  menuToggle.addEventListener('click', function(e) {
+    e.stopPropagation(); // Evita que o clique propague para o documento
     nav.classList.toggle('active');
     languageSelector.classList.toggle('active');
     
@@ -338,18 +340,87 @@ document.addEventListener('DOMContentLoaded', function() {
     if (nav.classList.contains('active')) {
       icon.classList.remove('fa-bars');
       icon.classList.add('fa-times');
+      // Adiciona overlay quando o menu está aberto
+      document.body.classList.add('menu-open');
     } else {
       icon.classList.remove('fa-times');
       icon.classList.add('fa-bars');
+      // Remove overlay quando o menu está fechado
+      document.body.classList.remove('menu-open');
     }
   });
   
+  // Fechar menu ao clicar em qualquer link
   document.querySelectorAll('nav a').forEach(item => {
     item.addEventListener('click', () => {
       nav.classList.remove('active');
       languageSelector.classList.remove('active');
       menuToggle.querySelector('i').classList.remove('fa-times');
       menuToggle.querySelector('i').classList.add('fa-bars');
+      document.body.classList.remove('menu-open');
     });
+  });
+  
+// Fechar menu ao clicar fora
+document.addEventListener('click', function(e) {
+  if (!nav.contains(e.target) && e.target !== menuToggle) {
+    nav.classList.remove('active');
+    languageSelector.classList.remove('active');
+    menuToggle.querySelector('i').classList.remove('fa-times');
+    menuToggle.querySelector('i').classList.add('fa-bars');
+    document.body.classList.remove('menu-open');
+  }
+});
+});
+
+// Ajuste no efeito de digitação para mobile
+document.addEventListener("DOMContentLoaded", function() {
+  const heroTitle = document.getElementById('hero-title');
+  const text = heroTitle.textContent || "Full Stack Developer";
+  
+  // Verifica se é mobile
+  const isMobile = window.matchMedia("(max-width: 768px)").matches;
+  
+  if (isMobile) {
+    // Em mobile, mostra o texto completo sem animação
+    heroTitle.textContent = text;
+    heroTitle.classList.add('completed');
+  } else {
+    // Em desktop, mantém a animação de digitação
+    heroTitle.classList.add('typing-effect');
+    heroTitle.textContent = ''; 
+    let index = 0;
+  
+    function typeWriter() {
+      if (index < text.length) {
+        heroTitle.textContent += text.charAt(index);
+        index++;
+        setTimeout(typeWriter, 100); 
+      } else {
+        heroTitle.style.borderRight = 'none';
+      }
+    }
+  
+    typeWriter();
+  }
+});
+
+// AOS ajustado para mobile
+AOS.init({
+  duration: 800, // Duração menor para mobile
+  once: true,
+  disable: function() {
+    return window.innerWidth < 768; // Desativa animações em mobile
+  }
+});
+
+// Ativa animações simples quando o menu é fechado
+document.querySelectorAll('nav a').forEach(item => {
+  item.addEventListener('click', () => {
+    if (window.innerWidth < 768) {
+      setTimeout(() => {
+        window.scrollBy(0, 1); // Força um redraw para suavizar a transição
+      }, 300);
+    }
   });
 });

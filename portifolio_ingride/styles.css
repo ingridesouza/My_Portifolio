@@ -799,3 +799,154 @@ html, body {
     display: flex !important;
   }
 }
+
+
+/* Overlay para quando o menu está aberto */
+body.menu-open::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  backdrop-filter: blur(2px);
+}
+
+/* Melhorias no header mobile */
+@media (max-width: 768px) {
+  header {
+    padding: 0.5rem;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+  }
+  
+  .logo {
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    text-align: left;
+    width: auto;
+    flex-grow: 1;
+  }
+  
+  nav {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: #f8f8f8;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    z-index: 997;
+  }
+  
+  nav.active {
+    max-height: 500px; /* Ajuste conforme necessário */
+  }
+  
+  .language-selector {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: #f0f0f0;
+    padding: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    z-index: 997;
+  }
+  
+  .language-selector.active {
+    max-height: 60px; /* Ajuste conforme necessário */
+    top: auto;
+    bottom: 0;
+  }
+  
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(192, 0, 106, 0.1);
+    transition: background-color 0.3s;
+  }
+  
+  .menu-toggle:hover {
+    background-color: rgba(192, 0, 106, 0.2);
+  }
+  
+  /* Melhorias na seção hero */
+  .hero {
+    padding: 1rem;
+    margin-top: 60px;
+  }
+  
+  .hero .photo img {
+    max-width: 200px;
+  }
+  
+  /* Melhorias nas seções */
+  .about-section, 
+  .skills-section, 
+  .experience-section, 
+  .college-section, 
+  .contact-section {
+    padding: 2rem 1rem;
+  }
+  
+  /* Melhorias na timeline */
+  .timeline-item {
+    padding-left: 40px;
+  }
+  
+  .timeline-date {
+    font-size: 0.7rem;
+    left: -10px;
+  }
+  
+  .timeline-dot {
+    left: 15px;
+    width: 10px;
+    height: 10px;
+  }
+  
+  /* Melhorias nos cards de contato */
+  .contact-item {
+    flex-direction: row;
+    align-items: center;
+    padding: 0.8rem;
+  }
+  
+  .contact-item i {
+    font-size: 1.2rem;
+  }
+  
+  .contact-item p {
+    font-size: 0.9rem;
+  }
+  
+  /* Melhorias nas caixinhas de habilidades */
+  .skills-list {
+    justify-content: center;
+  }
+  
+  .skill-item {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.7rem;
+  }
+  
+  /* Efeito de digitação ajustado para mobile */
+  .typing-effect {
+    white-space: normal;
+    border-right: none;
+    animation: none;
+  }
+}
