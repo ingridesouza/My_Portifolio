@@ -424,3 +424,38 @@ document.querySelectorAll('nav a').forEach(item => {
     }
   });
 });
+
+// Voltar para o topo
+
+document.addEventListener('DOMContentLoaded', function() {
+  const backToTopButton = document.getElementById('back-to-top');
+  
+  // Mostrar/ocultar o botão baseado na posição de rolagem
+  window.addEventListener('scroll', function() {
+    if (window.pageYOffset > 300) {
+      backToTopButton.classList.add('visible');
+    } else {
+      backToTopButton.classList.remove('visible');
+    }
+  });
+  
+  // Rolagem suave quando o botão é clicado
+  backToTopButton.addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+  
+  // Adiciona acessibilidade via teclado
+  backToTopButton.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+  });
+});
