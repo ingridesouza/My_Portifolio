@@ -571,3 +571,262 @@ document.addEventListener('click', function(e) {
     }, 600);
   }
 });
+
+//------------ terminal
+
+// Terminal de Projetos Interativo
+document.addEventListener('DOMContentLoaded', function() {
+  const terminalOutput = document.getElementById('projects-output');
+  const terminalCommand = document.getElementById('projects-command');
+  
+  // Seus projetos em destaque
+  const projects = {
+    cryptotracker: {
+      title: "Crypto Tracker & DeepSeek Advisor",
+      description: "Plataforma completa para acompanhamento de criptomoedas em tempo real com agente especializado em investimentos. Consome API do CoinGecko para fornecer dados atualizados e insights inteligentes.",
+      features: [
+        "Cotação em tempo real de 100+ criptomoedas",
+        "Conversor de valores entre moedas",
+        "Chatbot especialista em criptomoedas",
+        "Sistema de notificações para compra/venda",
+        "Análise histórica e gráficos interativos",
+        "Perfis detalhados de cada criptoativo"
+      ],
+      technologies: ["Python", "Flask", "HTML5", "CSS3", "JavaScript", "CoinGecko API", "DeepSeek AI"],
+      links: [
+        { text: "Demo", url: "#", icon: "fa-eye" },
+        { text: "Código", url: "#", icon: "fa-code" },
+        { text: "Case Study", url: "#", icon: "fa-file-alt" }
+      ],
+      year: "2024",
+      badge: "crypto-badge"
+    },
+    biblioteca: {
+      title: "Sistema de Gestão de Biblioteca",
+      description: "Sistema completo para gerenciamento de bibliotecas com controle de acervo, empréstimos, membros e relatórios administrativos.",
+      features: [
+        "Cadastro de livros e membros",
+        "Controle de empréstimos e devoluções",
+        "Relatórios de circulação",
+        "Sistema de multas automatizado",
+        "Busca avançada com filtros",
+        "Dashboard administrativo"
+      ],
+      technologies: ["Python", "Flask", "SQLAlchemy", "Bootstrap", "SQLite"],
+      links: [
+        { text: "Demo", url: "#", icon: "fa-eye" },
+        { text: "Código", url: "#", icon: "fa-code" }
+      ],
+      year: "2023"
+    },
+    techlanding: {
+      title: "Landing Page - Tech Solutions",
+      description: "Página de destino moderna para empresa fictícia de soluções em software, com design responsivo e elementos interativos.",
+      features: [
+        "Design totalmente responsivo",
+        "Animções CSS e JavaScript",
+        "Formulário de contato funcional",
+        "Seção de portfólio interativa",
+        "Carrossel de depoimentos",
+        "Otimizado para SEO"
+      ],
+      technologies: ["HTML5", "CSS3", "JavaScript", "GSAP", "Responsive Design"],
+      links: [
+        { text: "Visitar", url: "#", icon: "fa-external-link-alt" },
+        { text: "Código", url: "#", icon: "fa-code" }
+      ],
+      year: "2023"
+    },
+    netflixclone: {
+      title: "Clone da Netflix",
+      description: "Réplica da interface da Netflix com catálogo dinâmico, reprodução de vídeos e sistema de recomendações.",
+      features: [
+        "Interface fiel ao original",
+        "Carrossel de conteúdos",
+        "Player de vídeo integrado",
+        "Sistema de categorias",
+        "Responsivo para todas as telas",
+        "Efeitos de hover e transições"
+      ],
+      technologies: ["React", "CSS Modules", "MovieDB API", "Axios", "React Player"],
+      links: [
+        { text: "Demo", url: "#", icon: "fa-eye" },
+        { text: "Código", url: "#", icon: "fa-code" }
+      ],
+      year: "2024"
+    },
+    pizzaria: {
+      title: "Site Pizzaria Napoli",
+      description: "Website completo para pizzaria com cardápio digital, sistema de pedidos e localização.",
+      features: [
+        "Cardápio interativo com categorias",
+        "Sistema de carrinho de compras",
+        "Integração com Google Maps",
+        "Galeria de fotos dos produtos",
+        "Formulário de reservas",
+        "Design temático atraente"
+      ],
+      technologies: ["JavaScript", "HTML5", "CSS3", "Google Maps API", "LocalStorage"],
+      links: [
+        { text: "Visitar", url: "#", icon: "fa-external-link-alt" },
+        { text: "Código", url: "#", icon: "fa-code" }
+      ],
+      year: "2023"
+    }
+  };
+
+  // Comandos disponíveis
+  const commands = {
+    destaques: {
+      description: "Lista meus principais projetos",
+      execute: () => {
+        let output = `<span class="info">Projetos em Destaque:</span>\n\n`;
+        Object.keys(projects).forEach(project => {
+          const proj = projects[project];
+          output += `<span class="command">• ${proj.title}</span> <span class="project-year">${proj.year}</span> - <span class="info">detalhes ${project}</span>\n`;
+        });
+        return output + `<span class="info">\nDigite "detalhes [nome-projeto]" para mais informações</span>`;
+      }
+    },
+    detalhes: {
+      description: "Mostra detalhes completos de um projeto",
+      execute: (project) => {
+        if (!project) return `<span class="error">Especifique um projeto. Ex: detalhes cryptotracker</span>`;
+        if (!projects[project]) return `<span class="error">Projeto não encontrado. Digite "destaques" para ver opções.</span>`;
+        
+        const proj = projects[project];
+        return `
+          <div class="project-card">
+            <div class="project-title">
+              ${proj.title}
+              <span class="project-year ${proj.badge || ''}">${proj.year}</span>
+            </div>
+            <div class="project-description">${proj.description}</div>
+            
+            <div class="feature-list">
+              <span class="info">Principais funcionalidades:</span>
+              <ul>
+                ${proj.features.map(feat => `<li>${feat}</li>`).join('')}
+              </ul>
+            </div>
+            
+            <div class="project-tech">
+              ${proj.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+            </div>
+            
+            <div class="project-links">
+              ${proj.links.map(link => `
+                <a href="${link.url}" class="project-link" target="_blank">
+                  <i class="fas ${link.icon}"></i> ${link.text}
+                </a>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }
+    },
+    tecnologias: {
+      description: "Filtra projetos por tecnologia utilizada",
+      execute: (tech) => {
+        if (!tech) {
+          const allTech = new Set();
+          Object.values(projects).forEach(project => {
+            project.technologies.forEach(t => allTech.add(t));
+          });
+          
+          return `<span class="info">Tecnologias utilizadas:</span>\n\n` +
+                 Array.from(allTech).map(t => `<span class="tech-tag">${t}</span>`).join(' ') +
+                 `<span class="info">\n\nDigite "tecnologias [nome-tecnologia]" para filtrar projetos</span>`;
+        }
+        
+        const filteredProjects = Object.entries(projects)
+          .filter(([_, proj]) => proj.technologies.some(t => t.toLowerCase().includes(tech.toLowerCase())))
+          .map(([key, proj]) => `<span class="command">• ${proj.title}</span> - <span class="info">detalhes ${key}</span>`);
+        
+        if (filteredProjects.length === 0) {
+          return `<span class="error">Nenhum projeto encontrado com a tecnologia "${tech}"</span>`;
+        }
+        
+        return `<span class="info">Projetos usando ${tech}:</span>\n\n` +
+               filteredProjects.join('\n') +
+               `<span class="info">\n\nDigite "detalhes [nome-projeto]" para mais informações</span>`;
+      }
+    },
+    help: {
+      description: "Mostra todos os comandos disponíveis",
+      execute: () => {
+        let helpText = `<span class="info">Comandos do Terminal de Projetos:</span>\n\n`;
+        Object.keys(commands).forEach(cmd => {
+          helpText += `<span class="command">${cmd}</span> - ${commands[cmd].description}\n`;
+        });
+        return helpText + `<span class="info">\nExperimente começar com "destaques"</span>`;
+      }
+    },
+    clear: {
+      description: "Limpa o terminal",
+      execute: () => {
+        terminalOutput.innerHTML = '';
+        return '';
+      }
+    }
+  };
+
+  // Processa os comandos
+  function processCommand(fullCmd) {
+    const parts = fullCmd.split(' ');
+    const baseCmd = parts[0].toLowerCase();
+    const args = parts.slice(1);
+    
+    addToTerminal(`<span class="prompt">$</span> ${fullCmd}`, 'user-input');
+    
+    if (commands[baseCmd]) {
+      const output = commands[baseCmd].execute(...args);
+      if (output) addToTerminal(output);
+    } else {
+      addToTerminal(`<span class="error">Comando não encontrado: ${baseCmd}</span>\n` +
+                   `<span class="info">Digite 'help' para ver os comandos disponíveis</span>`);
+    }
+    
+    terminalCommand.value = '';
+    terminalOutput.scrollTop = terminalOutput.scrollHeight;
+  }
+
+  // Adiciona texto ao terminal
+  function addToTerminal(text, className = '') {
+    const line = document.createElement('div');
+    line.className = `terminal-output-line ${className}`;
+    line.innerHTML = text;
+    terminalOutput.appendChild(line);
+  }
+
+  // Inicializa o terminal
+  function initTerminal() {
+    addToTerminal(
+      `<span class="info">Terminal de Projetos - Ingride Souza</span>\n` +
+      `<span class="response">Desenvolvedora Full Stack | Especialista em Python e Soluções Inovadoras</span>\n\n` +
+      `<span class="info">Digite 'destaques' para ver meus projetos ou 'help' para ajuda</span>\n\n` +
+      `<span class="prompt">$</span> <span class="blink">_</span>`
+    );
+    terminalOutput.scrollTop = terminalOutput.scrollHeight;
+  }
+
+  // Event listeners
+  terminalCommand.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+      const cmd = terminalCommand.value.trim();
+      if (cmd) processCommand(cmd);
+    }
+  });
+
+  // Foco automático no input
+  terminalCommand.focus();
+
+  // Inicializa o terminal
+  initTerminal();
+
+  // Efeito de cursor piscante
+  setInterval(() => {
+    const blink = document.querySelector('.blink');
+    if (blink) blink.style.visibility = blink.style.visibility === 'hidden' ? 'visible' : 'hidden';
+  }, 500);
+});

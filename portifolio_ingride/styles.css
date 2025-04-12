@@ -1285,3 +1285,117 @@ body.menu-open::before {
     font-size: 12px;
   }
 }
+
+
+/* Estilos Específicos para Terminal de Projetos */
+#projects-terminal {
+  background-color: #0f0c29;
+  border: 1px solid #6e45e2;
+  margin: 3rem auto;
+  max-width: 900px;
+}
+
+#projects-terminal .terminal-header {
+  background-color: #1a1831;
+}
+
+.project-card {
+  background: linear-gradient(135deg, #1a1831 0%, #24243e 100%);
+  border-left: 3px solid #6e45e2;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 8px 8px 0;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.project-title {
+  color: #6e45e2;
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+}
+
+.project-year {
+  background-color: #6e45e2;
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  margin-left: 0.8rem;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 1rem 0;
+}
+
+.tech-tag {
+  background-color: rgba(110, 69, 226, 0.2);
+  color: #a594f9;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  border: 1px solid #6e45e2;
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.2rem;
+}
+
+.project-link {
+  background-color: #6e45e2;
+  color: white !important;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.project-link:hover {
+  background-color: #7d55ff;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 10px rgba(110, 69, 226, 0.4);
+}
+
+.project-link i {
+  margin-right: 0.5rem;
+}
+
+.project-description {
+  color: #d3d3e7;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.feature-list {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.feature-list li {
+  margin-bottom: 0.5rem;
+  color: #b8b8d8;
+  position: relative;
+}
+
+.feature-list li:before {
+  content: "▹";
+  color: #6e45e2;
+  position: absolute;
+  left: -1.5rem;
+}
+
+.crypto-badge {
+  background-color: rgba(247, 147, 26, 0.2);
+  color: #f7931a;
+  border: 1px solid #f7931a;
+}
