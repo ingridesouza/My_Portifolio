@@ -464,3 +464,53 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+// Particulas
+
+document.addEventListener("DOMContentLoaded", function() {
+  const particlesContainer = document.querySelector('.photo-particles');
+  const particleCount = 30; // Aumentei o número de partículas
+  const techSymbols = ['</>', '{}', '()', '[]', ';', '=>', '++', '==', '${}', '#', '*', '&&', '||', '?', ':', 'import', 'function', 'return', 'const', 'let'];
+  
+  // Cria partículas estilo código
+  for (let i = 0; i < particleCount; i++) {
+    const particle = document.createElement('div');
+    particle.classList.add('particle');
+    
+    // Símbolo aleatório
+    const symbol = techSymbols[Math.floor(Math.random() * techSymbols.length)];
+    particle.textContent = symbol;
+    
+    // Posição inicial aleatória
+    const startAngle = Math.random() * Math.PI * 2;
+    const radius = 120 + Math.random() * 80;
+    const startX = Math.cos(startAngle) * radius;
+    const startY = Math.sin(startAngle) * radius;
+    
+    particle.style.left = `calc(50% + ${startX}px)`;
+    particle.style.top = `calc(50% + ${startY}px)`;
+    
+    // Animação única para cada partícula
+    const duration = 4 + Math.random() * 6;
+    const delay = Math.random() * 10;
+    
+    particle.style.animation = `particle-fade ${duration}s ease-in-out ${delay}s infinite`;
+    
+    // Efeito de profundidade
+    particle.style.transform = `scale(${0.7 + Math.random() * 0.6})`;
+    
+    particlesContainer.appendChild(particle);
+  }
+  
+  // Efeito de círculo tecnológico dinâmico
+  const techCircle = document.querySelector('.tech-circle');
+  let rotation = 0;
+  
+  function animateCircle() {
+    rotation += 0.2;
+    techCircle.style.transform = `rotate(${rotation}deg)`;
+    requestAnimationFrame(animateCircle);
+  }
+  
+  animateCircle();
+});
