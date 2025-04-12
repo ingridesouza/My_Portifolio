@@ -101,79 +101,105 @@ html, body {
   /************************
    * Seção Hero (início)
    ************************/
-  .hero {
+   .hero {
     display: flex;
     align-items: center;
-    padding: 2rem 4rem 2rem 6rem;
-    gap: 1.5rem;
-    background: #fff;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-left: 0;
-    max-width: 100%;
+    justify-content: space-between;
+    position: relative;
+    min-height: 80vh;
+    padding: 2rem;
   }
-  
-  .hero .photo {
-    flex: 0 0 auto;
-    margin-bottom: 1.5rem;
-  }
-  
-  .hero .photo img {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    aspect-ratio: 1/1;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 2px solid #ccc;
-  }
-  
-  .hero .info {
+
+  .photo-container {
+    position: fixed;
+    width: 40%;
+    height: 100%;
+    right: 0;
+    top: 0;
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    gap: 0.5rem;
-    max-width: 100%;
-    text-align: center;
+    z-index: 1;
   }
-  
-  .hero .info h1 {
-    font-size: clamp(1.5rem, 5vw, 1.8rem);
-    font-weight: 700;
-    word-break: break-word;
+
+  .photo {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #C0006A;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   }
-  
-  .hero .info .location {
-    font-size: 1rem;
-    color: #555;
+
+  .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .info {
+    width: 55%;
+    z-index: 2;
   }
 
   .typing-effect {
     display: inline-block;
-    overflow: hidden;
-    border-right: .15em solid rgb(219, 0, 121);
-    white-space: nowrap;
-    letter-spacing: .15em;
-    animation: 
-      typing 3.5s steps(40, end),
-      blink-caret .75s step-end infinite;
-    max-width: 100%;
+    position: relative;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #333;
   }
-  
-  /* Efeito final quando a animação terminar */
-  .typing-effect.completed {
-    border-right: none;
-    animation: none;
+
+  .typing-effect::after {
+    content: '|';
+    position: absolute;
+    right: -10px;
+    animation: blink 0.7s infinite;
+    color: #C0006A;
   }
-  
-  @keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
   }
-  
-  @keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color:  rgb(219, 0, 121); }
+
+  .location {
+    font-size: 1.5rem;
+    color: #666;
+    margin-top: 1rem;
+    font-weight: 400;
+  }
+
+  @media (max-width: 992px) {
+    .hero {
+      flex-direction: column;
+      text-align: center;
+      padding-top: 100px;
+    }
+
+    .photo-container {
+      position: static;
+      width: 100%;
+      height: auto;
+      margin-bottom: 2rem;
+    }
+
+    .photo {
+      width: 250px;
+      height: 250px;
+    }
+
+    .info {
+      width: 100%;
+    }
+
+    .typing-effect {
+      font-size: 2rem;
+    }
+
+    .location {
+      font-size: 1.2rem;
+    }
   }
 
   /************************
@@ -800,8 +826,6 @@ html, body {
     display: flex !important;
   }
 }
-
- /*Botão de voltar para o topo*/
 
 /* Overlay para quando o menu está aberto */
 body.menu-open::before {

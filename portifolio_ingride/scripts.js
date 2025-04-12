@@ -1,32 +1,32 @@
-    // AOS
-    AOS.init({
-        duration: 1000,
-        once: true,
-      });
-
-      
 document.addEventListener("DOMContentLoaded", function() {
-    const heroTitle = document.getElementById('hero-title');
-    heroTitle.classList.add('typing-effect');
-    
-    const text = heroTitle.textContent || "Full Stack Developer";
-    heroTitle.textContent = ''; 
-    let index = 0;
-  
-    function typeWriter() {
-      if (index < text.length) {
-        heroTitle.textContent += text.charAt(index);
-        index++;
-        setTimeout(typeWriter, 100); 
-      } else {
-        heroTitle.style.borderRight = 'none';
-      }
-    }
-  
-    typeWriter();
+  // AOS
+  AOS.init({
+    duration: 1000,
+    once: true,
   });
 
+  const heroTitle = document.getElementById('hero-title');
+  heroTitle.classList.add('typing-effect');
+  
+  const text = "Full Stack Developer"; // Texto fixo para o efeito
+  heroTitle.textContent = ''; 
+  let index = 0;
 
+  function typeWriter() {
+    if (index < text.length) {
+      heroTitle.textContent += text.charAt(index);
+      index++;
+      setTimeout(typeWriter, 100); 
+    } else {
+      // Mantém o cursor piscando mesmo após terminar
+      heroTitle.style.borderRight = 'none';
+    }
+  }
+
+  typeWriter();
+});
+
+//-------------------Traduções
 
   const translations = {
     'pt-BR': {
@@ -324,7 +324,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
-//  Menu Hamburguer
+//------------------Menu Hamburguer
 // Menu Hamburguer melhorado
 document.addEventListener('DOMContentLoaded', function() {
   const menuToggle = document.getElementById('mobile-menu');
