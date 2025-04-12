@@ -429,10 +429,15 @@ document.querySelectorAll('nav a').forEach(item => {
 
 document.addEventListener('DOMContentLoaded', function() {
   const backToTopButton = document.getElementById('back-to-top');
+  const secondSection = document.querySelector('#skills'); // Segunda seção do site
   
-  // Mostrar/ocultar o botão baseado na posição de rolagem
+  // Mostrar/ocultar o botão baseado na posição da segunda seção
   window.addEventListener('scroll', function() {
-    if (window.pageYOffset > 300) {
+    const secondSectionPosition = secondSection.getBoundingClientRect().top;
+    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // Mostrar quando o topo da segunda seção estiver acima do meio da tela
+    if (secondSectionPosition < window.innerHeight / 2 || scrollPosition > 300) {
       backToTopButton.classList.add('visible');
     } else {
       backToTopButton.classList.remove('visible');
