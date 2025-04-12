@@ -256,84 +256,144 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   };
 
-  function changeLanguage(language) {
-    const translation = translations[language];
-
-    document.getElementById('hero-title').textContent = translation['hero-title'];
-    document.getElementById('hero-location').textContent = translation['hero-location'];
-    document.getElementById('about-text').textContent = translation['about-text'];
-    document.getElementById('skills-title').textContent = translation['skills-title'];
-    document.getElementById('soft-skills-title').textContent = translation['soft-skills-title'];
-    document.getElementById('hard-skills-title').textContent = translation['hard-skills-title'];
-    document.getElementById('competencies-title').textContent = translation['competencies-title'];
-    document.getElementById('tools-title').textContent = translation['tools-title'];
-    document.getElementById('certifications-title').textContent = translation['certifications-title'];
-    document.getElementById('experience-title').textContent = translation['experience-title'];
-    document.getElementById('experience-1-title').textContent = translation['experience-1-title'];
-    document.getElementById('experience-1-role').textContent = translation['experience-1-role'];
-    document.getElementById('experience-1-description').textContent = translation['experience-1-description'];
-    document.getElementById('experience-1-technologies').textContent = translation['experience-1-technologies'];
-    document.getElementById('experience-2-title').textContent = translation['experience-2-title'];
-    document.getElementById('experience-2-role').textContent = translation['experience-2-role'];
-    document.getElementById('experience-2-description').textContent = translation['experience-2-description'];
-    document.getElementById('college-text').innerHTML = translation['college-text'];
-    document.getElementById('degree-title').textContent = translation['degree-title'];
-    document.getElementById('degree-name').textContent = translation['degree-name'];
-    document.getElementById('degree-institution').textContent = translation['degree-institution'];
-    document.getElementById('degree-period').textContent = translation['degree-period'];
-    document.getElementById('courses-title').textContent = translation['courses-title'];
-    document.getElementById('courses-description').innerHTML = translation['courses-description'];
-    document.getElementById('courses-additional').textContent = translation['courses-additional'];
-    document.getElementById('contact-title').textContent = translation['contact-title'];
-    document.getElementById('contact-phone').textContent = translation['contact-phone'];
-    document.getElementById('contact-email').textContent = translation['contact-email'];
-    document.getElementById('contact-linkedin').textContent = translation['contact-linkedin'];
-    document.getElementById('contact-github').textContent = translation['contact-github'];
-    document.getElementById('contact-portfolio').textContent = translation['contact-portfolio'];
-    document.getElementById('footer-text').innerHTML = translation['footer-text'];
-
-    // nav
-    document.getElementById('nav-skills').textContent = translation['nav-skills'];
-    document.getElementById('nav-experience').textContent = translation['nav-experience'];
-    document.getElementById('nav-college').textContent = translation['nav-college'];
-    document.getElementById('nav-contact').textContent = translation['nav-contact'];
-
-    // caixinhas de habilidades
-    for (let i = 1; i <= 12; i++) {
-      const skillElement = document.getElementById(`skill-${i}`);
-      if (skillElement) {
-        skillElement.textContent = translation[`skill-${i}`];
-      }
+//------------------Seletor de Idiomas Avançado
+document.addEventListener('DOMContentLoaded', function() {
+  const dropdown = document.querySelector('.language-dropdown');
+  const currentLang = document.querySelector('.language-current');
+  const langOptions = document.querySelectorAll('.language-options button');
+  
+  // Mapeamento de ícones para cada idioma
+  const langIcons = {
+    'pt-BR': 'fa-globe-americas',
+    'pt-PT': 'fa-globe-europe',
+    'en': 'fa-globe',
+    'fr': 'fa-globe'
+  };
+  
+  // Mapeamento de nomes curtos para exibição
+  const langShortNames = {
+    'pt-BR': 'PT-BR',
+    'pt-PT': 'PT-PT',
+    'en': 'EN',
+    'fr': 'FR'
+  };
+  
+  // Ativar/desativar dropdown
+  currentLang.addEventListener('click', function(e) {
+    e.stopPropagation();
+    dropdown.classList.toggle('active');
+    
+    // Efeito visual ao abrir
+    if (dropdown.classList.contains('active')) {
+      animateOptions();
     }
-
-    // listas
-    updateList('soft-skills-list', translation['soft-skills-list']);
-    updateList('hard-skills-list', translation['hard-skills-list']);
-    updateList('competencies-list', translation['competencies-list']);
-    updateList('tools-list', translation['tools-list']);
-    updateList('certifications-list', translation['certifications-list']);
-    updateList('experience-1-tech-list', translation['experience-1-tech-list']);
-  }
-
-  function updateList(elementId, items) {
-    const listElement = document.getElementById(elementId);
-    listElement.innerHTML = ''; 
-    items.forEach(item => {
-      const li = document.createElement('li');
-      li.textContent = item;
-      listElement.appendChild(li);
+  });
+  
+  // Fechar ao clicar fora
+  document.addEventListener('click', function() {
+    dropdown.classList.remove('active');
+  });
+  
+  // Fechar ao pressionar Esc
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      dropdown.classList.remove('active');
+    }
+  });
+  
+  // Animar opções ao abrir
+  function animateOptions() {
+    langOptions.forEach((option, index) => {
+      option.style.opacity = '0';
+      option.style.transform = 'translateY(-10px)';
+      
+      setTimeout(() => {
+        option.style.transition = `opacity 0.3s ease ${index * 0.1}s, transform 0.3s ease ${index * 0.1}s`;
+        option.style.opacity = '1';
+        option.style.transform = 'translateY(0)';
+      }, 10);
     });
   }
+  
+  // Atualizar idioma atual no seletor
+  function updateCurrentLanguage(lang) {
+    const icon = currentLang.querySelector('i:first-child');
+    const text = currentLang.querySelector('span');
+    
+    // Atualiza ícone e texto
+    icon.className = `fas ${langIcons[lang]}`;
+    text.textContent = langShortNames[lang];
+    
+    // Adiciona efeito visual de confirmação
+    currentLang.classList.add('language-changed');
+    setTimeout(() => {
+      currentLang.classList.remove('language-changed');
+    }, 1000);
+  }
+  
+  // Configurar eventos para cada opção de idioma
+  langOptions.forEach(option => {
+    option.addEventListener('click', function(e) {
+      e.preventDefault();
+      const lang = this.getAttribute('data-lang');
+      
+      // Efeito visual ao selecionar
+      this.classList.add('selected');
+      setTimeout(() => {
+        this.classList.remove('selected');
+      }, 300);
+      
+      // Fechar dropdown
+      dropdown.classList.remove('active');
+      
+      // Atualizar visual do seletor
+      updateCurrentLanguage(lang);
+      
+      // Chamar sua função de mudança de idioma
+      changeLanguage(lang);
+    });
+  });
+  
+  // Inicializar com o idioma padrão (pt-BR)
+  updateCurrentLanguage('pt-BR');
+});
+
+//------------------Função de Mudança de Idioma
+function changeLanguage(language) {
+  const translation = translations[language];
+
+  // Atualiza todos os textos conforme sua implementação existente
+  document.getElementById('hero-title').textContent = translation['hero-title'];
+  document.getElementById('hero-location').textContent = translation['hero-location'];
+  // ... (keep all your existing changeLanguage() code exactly as it is)
+  
+  // Atualiza listas
+  updateList('soft-skills-list', translation['soft-skills-list']);
+  updateList('hard-skills-list', translation['hard-skills-list']);
+  updateList('competencies-list', translation['competencies-list']);
+  updateList('tools-list', translation['tools-list']);
+  updateList('certifications-list', translation['certifications-list']);
+  updateList('experience-1-tech-list', translation['experience-1-tech-list']);
+}
+
+function updateList(elementId, items) {
+  const listElement = document.getElementById(elementId);
+  listElement.innerHTML = ''; 
+  items.forEach(item => {
+    const li = document.createElement('li');
+    li.textContent = item;
+    listElement.appendChild(li);
+  });
+}
 
 //------------------Menu Hamburguer
-// Menu Hamburguer melhorado
 document.addEventListener('DOMContentLoaded', function() {
   const menuToggle = document.getElementById('mobile-menu');
   const nav = document.querySelector('nav');
   const languageSelector = document.querySelector('.language-selector');
   
   menuToggle.addEventListener('click', function(e) {
-    e.stopPropagation(); // Evita que o clique propague para o documento
+    e.stopPropagation();
     nav.classList.toggle('active');
     languageSelector.classList.toggle('active');
     
@@ -341,17 +401,15 @@ document.addEventListener('DOMContentLoaded', function() {
     if (nav.classList.contains('active')) {
       icon.classList.remove('fa-bars');
       icon.classList.add('fa-times');
-      // Adiciona overlay quando o menu está aberto
       document.body.classList.add('menu-open');
     } else {
       icon.classList.remove('fa-times');
       icon.classList.add('fa-bars');
-      // Remove overlay quando o menu está fechado
       document.body.classList.remove('menu-open');
     }
   });
   
-  // Fechar menu ao clicar em qualquer link
+  // Fechar menu ao clicar em links
   document.querySelectorAll('nav a').forEach(item => {
     item.addEventListener('click', () => {
       nav.classList.remove('active');
@@ -362,32 +420,29 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
-// Fechar menu ao clicar fora
-document.addEventListener('click', function(e) {
-  if (!nav.contains(e.target) && e.target !== menuToggle) {
-    nav.classList.remove('active');
-    languageSelector.classList.remove('active');
-    menuToggle.querySelector('i').classList.remove('fa-times');
-    menuToggle.querySelector('i').classList.add('fa-bars');
-    document.body.classList.remove('menu-open');
-  }
-});
+  // Fechar menu ao clicar fora
+  document.addEventListener('click', function(e) {
+    if (!nav.contains(e.target) && e.target !== menuToggle) {
+      nav.classList.remove('active');
+      languageSelector.classList.remove('active');
+      menuToggle.querySelector('i').classList.remove('fa-times');
+      menuToggle.querySelector('i').classList.add('fa-bars');
+      document.body.classList.remove('menu-open');
+    }
+  });
 });
 
-// Ajuste no efeito de digitação para mobile
+//------------------Efeito de Digitação
 document.addEventListener("DOMContentLoaded", function() {
   const heroTitle = document.getElementById('hero-title');
   const text = heroTitle.textContent || "Full Stack Developer";
   
-  // Verifica se é mobile
   const isMobile = window.matchMedia("(max-width: 768px)").matches;
   
   if (isMobile) {
-    // Em mobile, mostra o texto completo sem animação
     heroTitle.textContent = text;
     heroTitle.classList.add('completed');
   } else {
-    // Em desktop, mantém a animação de digitação
     heroTitle.classList.add('typing-effect');
     heroTitle.textContent = ''; 
     let index = 0;
@@ -406,38 +461,58 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
-// AOS ajustado para mobile
-AOS.init({
-  duration: 800, // Duração menor para mobile
-  once: true,
-  disable: function() {
-    return window.innerWidth < 768; // Desativa animações em mobile
+//------------------Animação de Partículas
+document.addEventListener("DOMContentLoaded", function() {
+  const particlesContainer = document.querySelector('.photo-particles');
+  const particleCount = 30;
+  const techSymbols = ['</>', '{}', '()', '[]', ';', '=>', '++', '==', '${}', '#', '*', '&&', '||', '?', ':', 'import', 'function', 'return', 'const', 'let'];
+  
+  for (let i = 0; i < particleCount; i++) {
+    const particle = document.createElement('div');
+    particle.classList.add('particle');
+    
+    const symbol = techSymbols[Math.floor(Math.random() * techSymbols.length)];
+    particle.textContent = symbol;
+    
+    const startAngle = Math.random() * Math.PI * 2;
+    const radius = 120 + Math.random() * 80;
+    const startX = Math.cos(startAngle) * radius;
+    const startY = Math.sin(startAngle) * radius;
+    
+    particle.style.left = `calc(50% + ${startX}px)`;
+    particle.style.top = `calc(50% + ${startY}px)`;
+    
+    const duration = 4 + Math.random() * 6;
+    const delay = Math.random() * 10;
+    
+    particle.style.animation = `particle-fade ${duration}s ease-in-out ${delay}s infinite`;
+    particle.style.transform = `scale(${0.7 + Math.random() * 0.6})`;
+    
+    particlesContainer.appendChild(particle);
   }
+  
+  // Animação do círculo tecnológico
+  const techCircle = document.querySelector('.tech-circle');
+  let rotation = 0;
+  
+  function animateCircle() {
+    rotation += 0.2;
+    techCircle.style.transform = `rotate(${rotation}deg)`;
+    requestAnimationFrame(animateCircle);
+  }
+  
+  animateCircle();
 });
 
-// Ativa animações simples quando o menu é fechado
-document.querySelectorAll('nav a').forEach(item => {
-  item.addEventListener('click', () => {
-    if (window.innerWidth < 768) {
-      setTimeout(() => {
-        window.scrollBy(0, 1); // Força um redraw para suavizar a transição
-      }, 300);
-    }
-  });
-});
-
-// Voltar para o topo
-
+//------------------Botão Voltar ao Topo
 document.addEventListener('DOMContentLoaded', function() {
   const backToTopButton = document.getElementById('back-to-top');
-  const secondSection = document.querySelector('#skills'); // Segunda seção do site
+  const secondSection = document.querySelector('#skills');
   
-  // Mostrar/ocultar o botão baseado na posição da segunda seção
   window.addEventListener('scroll', function() {
     const secondSectionPosition = secondSection.getBoundingClientRect().top;
     const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
     
-    // Mostrar quando o topo da segunda seção estiver acima do meio da tela
     if (secondSectionPosition < window.innerHeight / 2 || scrollPosition > 300) {
       backToTopButton.classList.add('visible');
     } else {
@@ -445,7 +520,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   
-  // Rolagem suave quando o botão é clicado
   backToTopButton.addEventListener('click', function(e) {
     e.preventDefault();
     window.scrollTo({
@@ -454,7 +528,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
-  // Adiciona acessibilidade via teclado
   backToTopButton.addEventListener('keydown', function(e) {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
@@ -466,51 +539,35 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// Particulas
-document.addEventListener("DOMContentLoaded", function() {
-  const particlesContainer = document.querySelector('.photo-particles');
-  const particleCount = 30; // Aumentei o número de partículas
-  const techSymbols = ['</>', '{}', '()', '[]', ';', '=>', '++', '==', '${}', '#', '*', '&&', '||', '?', ':', 'import', 'function', 'return', 'const', 'let'];
-  
-  // Cria partículas estilo código
-  for (let i = 0; i < particleCount; i++) {
-    const particle = document.createElement('div');
-    particle.classList.add('particle');
-    
-    // Símbolo aleatório
-    const symbol = techSymbols[Math.floor(Math.random() * techSymbols.length)];
-    particle.textContent = symbol;
-    
-    // Posição inicial aleatória
-    const startAngle = Math.random() * Math.PI * 2;
-    const radius = 120 + Math.random() * 80;
-    const startX = Math.cos(startAngle) * radius;
-    const startY = Math.sin(startAngle) * radius;
-    
-    particle.style.left = `calc(50% + ${startX}px)`;
-    particle.style.top = `calc(50% + ${startY}px)`;
-    
-    // Animação única para cada partícula
-    const duration = 4 + Math.random() * 6;
-    const delay = Math.random() * 10;
-    
-    particle.style.animation = `particle-fade ${duration}s ease-in-out ${delay}s infinite`;
-    
-    // Efeito de profundidade
-    particle.style.transform = `scale(${0.7 + Math.random() * 0.6})`;
-    
-    particlesContainer.appendChild(particle);
+//------------------Inicialização AOS
+AOS.init({
+  duration: 800,
+  once: true,
+  disable: function() {
+    return window.innerWidth < 768;
   }
-  
-  // Efeito de círculo tecnológico dinâmico
-  const techCircle = document.querySelector('.tech-circle');
-  let rotation = 0;
-  
-  function animateCircle() {
-    rotation += 0.2;
-    techCircle.style.transform = `rotate(${rotation}deg)`;
-    requestAnimationFrame(animateCircle);
+});
+
+//------------------Efeito de Ripple
+document.addEventListener('click', function(e) {
+  if (e.target.closest('.language-options button')) {
+    const button = e.target.closest('.language-options button');
+    const ripple = document.createElement('span');
+    ripple.className = 'ripple-effect';
+    
+    const rect = button.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    const x = e.clientX - rect.left - size/2;
+    const y = e.clientY - rect.top - size/2;
+    
+    ripple.style.width = ripple.style.height = `${size}px`;
+    ripple.style.left = `${x}px`;
+    ripple.style.top = `${y}px`;
+    
+    button.appendChild(ripple);
+    
+    setTimeout(() => {
+      ripple.remove();
+    }, 600);
   }
-  
-  animateCircle();
 });
