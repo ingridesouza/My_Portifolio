@@ -41,18 +41,27 @@
     </div>
     <!-- Seletor de idioma -->
     <div class="language-selector">
-      <button onclick="changeLanguage('pt-BR')" title="Português (Brasil)">
-        <i class="fas fa-globe-americas"></i> PT-BR
-      </button>
-      <button onclick="changeLanguage('pt-PT')" title="Português (Portugal)">
-        <i class="fas fa-globe-europe"></i> PT-PT
-      </button>
-      <button onclick="changeLanguage('en')" title="English">
-        <i class="fas fa-globe"></i> EN
-      </button>
-      <button onclick="changeLanguage('fr')" title="Français">
-        <i class="fas fa-globe"></i> FR
-      </button>
+      <div class="language-dropdown">
+        <button class="language-current" aria-expanded="false" aria-label="Seletor de idiomas">
+          <i class="fas fa-globe-americas"></i>
+          <span>PT-BR</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="language-options">
+          <button onclick="changeLanguage('pt-BR')" data-lang="pt-BR" title="Português (Brasil)">
+            <i class="fas fa-globe-americas"></i> PT-BR
+          </button>
+          <button onclick="changeLanguage('pt-PT')" data-lang="pt-PT" title="Português (Portugal)">
+            <i class="fas fa-globe-europe"></i> PT-PT
+          </button>
+          <button onclick="changeLanguage('en')" data-lang="en" title="English">
+            <i class="fas fa-globe"></i> EN
+          </button>
+          <button onclick="changeLanguage('fr')" data-lang="fr" title="Français">
+            <i class="fas fa-globe"></i> FR
+          </button>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -73,6 +82,7 @@
       <div class="location" id="hero-location">Salvador, Bahia - Brasil</div>
     </div>
   </section>
+
 
   <!-- Seção ABOUT ME -->
   <section class="about-section" id="about" data-aos="fade-right" data-aos-delay="200">
