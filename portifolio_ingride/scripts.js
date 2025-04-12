@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 //-------------------Traduções
 
+
   const translations = {
     'pt-BR': {
       'hero-title': 'Desenvolvedora Full Stack',
@@ -466,7 +467,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Particulas
-
 document.addEventListener("DOMContentLoaded", function() {
   const particlesContainer = document.querySelector('.photo-particles');
   const particleCount = 30; // Aumentei o número de partículas
