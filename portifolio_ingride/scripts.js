@@ -582,10 +582,10 @@ document.addEventListener('DOMContentLoaded', function() {
   // Seus projetos em destaque
   const projects = {
     cryptotracker: {
-      title: "Crypto Tracker & DeepSeek Advisor",
+      title: "Crypto Tracker",
       description: "Plataforma completa para acompanhamento de criptomoedas em tempo real com agente especializado em investimentos. Consome API do CoinGecko para fornecer dados atualizados e insights inteligentes.",
       features: [
-        "Cotação em tempo real de 100+ criptomoedas",
+        "Cotação em tempo real de criptomoedas",
         "Conversor de valores entre moedas",
         "Chatbot especialista em criptomoedas",
         "Sistema de notificações para compra/venda",
@@ -595,10 +595,10 @@ document.addEventListener('DOMContentLoaded', function() {
       technologies: ["Python", "Flask", "HTML5", "CSS3", "JavaScript", "CoinGecko API", "DeepSeek AI"],
       links: [
         { text: "Demo", url: "#", icon: "fa-eye" },
-        { text: "Código", url: "#", icon: "fa-code" },
+        { text: "Código", url: "https://github.com/ingridesouza/conversor-criptomoedas", icon: "fa-code" },
         { text: "Case Study", url: "#", icon: "fa-file-alt" }
       ],
-      year: "2024",
+      year: "2025",
       badge: "crypto-badge"
     },
     biblioteca: {
@@ -612,15 +612,15 @@ document.addEventListener('DOMContentLoaded', function() {
         "Busca avançada com filtros",
         "Dashboard administrativo"
       ],
-      technologies: ["Python", "Flask", "SQLAlchemy", "Bootstrap", "SQLite"],
+      technologies: ["Python", "Flask", "SQLAlchemy", "CSS", "SQLite"],
       links: [
-        { text: "Demo", url: "#", icon: "fa-eye" },
-        { text: "Código", url: "#", icon: "fa-code" }
+        { text: "Demo", url: "https://biblioteca-online-jdta.onrender.com/", icon: "fa-eye" },
+        { text: "Código", url: "https://github.com/ingridesouza/biblioteca_online", icon: "fa-code" }
       ],
-      year: "2023"
+      year: "2025"
     },
     techlanding: {
-      title: "Landing Page - Tech Solutions",
+      title: "Landing Page - Byte Wave",
       description: "Página de destino moderna para empresa fictícia de soluções em software, com design responsivo e elementos interativos.",
       features: [
         "Design totalmente responsivo",
@@ -633,13 +633,13 @@ document.addEventListener('DOMContentLoaded', function() {
       technologies: ["HTML5", "CSS3", "JavaScript", "GSAP", "Responsive Design"],
       links: [
         { text: "Visitar", url: "#", icon: "fa-external-link-alt" },
-        { text: "Código", url: "#", icon: "fa-code" }
+        { text: "Código", url: "https://github.com/ingridesouza/page_tech", icon: "fa-code" }
       ],
-      year: "2023"
+      year: "2025"
     },
     netflixclone: {
       title: "Clone da Netflix",
-      description: "Réplica da interface da Netflix com catálogo dinâmico, reprodução de vídeos e sistema de recomendações.",
+      description: "Réplica da interface da Netflix com catálogo dinâmico.",
       features: [
         "Interface fiel ao original",
         "Carrossel de conteúdos",
@@ -648,10 +648,10 @@ document.addEventListener('DOMContentLoaded', function() {
         "Responsivo para todas as telas",
         "Efeitos de hover e transições"
       ],
-      technologies: ["React", "CSS Modules", "MovieDB API", "Axios", "React Player"],
+      technologies: ["CSS Modules", "MovieDB API", "Axios", "JS"],
       links: [
         { text: "Demo", url: "#", icon: "fa-eye" },
-        { text: "Código", url: "#", icon: "fa-code" }
+        { text: "Código", url: "https://github.com/ingridesouza/Netflix_/tree/main/netflix", icon: "fa-code" }
       ],
       year: "2024"
     },
