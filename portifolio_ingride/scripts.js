@@ -831,3 +831,4 @@ document.addEventListener('DOMContentLoaded', function() {
     if (blink) blink.style.visibility = blink.style.visibility === 'hidden' ? 'visible' : 'hidden';
   }, 500);
 });
+

@@ -59,6 +59,34 @@ html, body {
   nav ul li a:hover {
     color: #666;
   }
+  /* Ajustes gerais para melhor experiência em mobile */
+@media (max-width: 768px) {
+  /* Melhoria no scroll suave para evitar conflitos com header fixo */
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 70px; /* Altura do header */
+  }
+  
+  /* Ajuste no espaçamento das seções */
+  section {
+    scroll-margin-top: 70px; /* Evita que o conteúdo fique atrás do header */
+  }
+  
+  /* Otimização de performance para animações em mobile */
+  .photo-wrapper {
+    animation: none;
+  }
+  
+  .terminal-output-line {
+    animation: none;
+  }
+}
+
+/* Correção para viewport em mobile */
+@viewport {
+  width: device-width;
+  zoom: 1.0;
+}
 
     /* Seletor de idioma moderno */
     .language-selector {
@@ -294,6 +322,79 @@ html, body {
 
     .location {
       font-size: 1.2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      flex-direction: column-reverse; /* Foto abaixo do texto */
+      min-height: auto;
+      padding: 1rem;
+      margin-top: 60px; /* Espaço para o header fixo */
+      text-align: center;
+    }
+  
+    .photo-container {
+      position: static;
+      width: 100%;
+      height: auto;
+      margin: 2rem auto;
+      padding: 0;
+    }
+  
+    .photo-wrapper {
+      width: 220px;
+      height: 220px;
+      margin: 0 auto;
+    }
+  
+    .photo {
+      width: 100%;
+      height: 100%;
+      border-width: 3px;
+    }
+  
+    .info {
+      width: 100%;
+      padding: 0 1rem;
+    }
+  
+    .typing-effect {
+      font-size: 1.8rem;
+      white-space: normal;
+      display: block;
+      margin: 0 auto;
+    }
+  
+    .typing-effect::after {
+      display: none; /* Remove o cursor piscante em mobile */
+    }
+  
+    .location {
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+    }
+  
+    /* Ajustes para as partículas e efeitos */
+    .photo-aura,
+    .photo-particles,
+    .tech-circle {
+      display: none; /* Remove efeitos visuais complexos em mobile */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .typing-effect {
+      font-size: 1.5rem;
+    }
+    
+    .location {
+      font-size: 1rem;
+    }
+    
+    .photo-wrapper {
+      width: 180px;
+      height: 180px;
     }
   }
 
@@ -1394,6 +1495,125 @@ body.menu-open::before {
   outline: none;
   caret-color: #6e45e2;
   letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+  .terminal-section {
+    margin: 1.5rem 0;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    border-left: none;
+    border-right: none;
+  }
+
+  .terminal-container {
+    border-radius: 0;
+  }
+
+  .terminal-header {
+    padding: 0.5rem 1rem;
+  }
+
+  .terminal-title {
+    font-size: 0.8rem;
+    margin-left: 0.8rem;
+  }
+
+  .terminal-body {
+    padding: 1rem;
+    min-height: 300px;
+    max-height: 60vh;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .terminal-input {
+    padding-top: 0.8rem;
+  }
+
+  .prompt {
+    font-size: 0.9rem;
+  }
+
+  #projects-command {
+    font-size: 0.9rem;
+  }
+
+  .project-card {
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 0;
+    border-left: none;
+  }
+
+  .project-title {
+    font-size: 1.1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .project-year {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+  }
+
+  .project-description {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .project-tech {
+    gap: 0.5rem;
+    margin: 1rem 0;
+  }
+
+  .tech-tag {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.7rem;
+  }
+
+  .project-links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .project-link {
+    width: 100%;
+    justify-content: center;
+    padding: 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .feature-list {
+    padding-left: 1.2rem;
+    margin: 1rem 0;
+  }
+
+  .feature-list li {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .feature-list li:before {
+    left: -1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .terminal-body {
+    font-size: 0.85rem;
+    padding: 0.8rem;
+  }
+
+  .project-card {
+    padding: 0.8rem;
+  }
+
+  .project-description {
+    font-size: 0.85rem;
+  }
 }
 
 /* ===== ESTILOS DE TEXTO E CORES ===== */
