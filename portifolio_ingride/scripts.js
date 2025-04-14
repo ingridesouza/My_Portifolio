@@ -819,7 +819,8 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Foco automático no input
-  terminalCommand.focus();
+  // terminalCommand.focus();
+  
 
   // Inicializa o terminal
   initTerminal();
