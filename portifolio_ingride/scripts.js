@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const heroTitle = document.getElementById('hero-title');
   heroTitle.classList.add('typing-effect');
   
-  const text = "Full Stack Developer"; // Texto fixo para o efeito
+  const text = "Full Stack Developer";
   heroTitle.textContent = ''; 
   let index = 0;
 
