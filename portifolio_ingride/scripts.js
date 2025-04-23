@@ -348,8 +348,6 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Atualizar visual do seletor
       updateCurrentLanguage(lang);
-      
-      // Chamar sua função de mudança de idioma
       changeLanguage(lang);
     });
   });
