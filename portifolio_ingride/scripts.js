@@ -816,11 +816,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Foco automático no input
   // terminalCommand.focus();
   
-
-  // Inicializa o terminal
   initTerminal();
 
   // Efeito de cursor piscante
