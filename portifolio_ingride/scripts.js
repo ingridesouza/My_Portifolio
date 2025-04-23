@@ -577,7 +577,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const terminalOutput = document.getElementById('projects-output');
   const terminalCommand = document.getElementById('projects-command');
   
-  // Seus projetos em destaque
+  // Projetos em destaque
   const projects = {
     cryptotracker: {
       title: "Crypto Tracker",
