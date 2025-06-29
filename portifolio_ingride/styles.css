@@ -729,6 +729,58 @@ html, body {
     background-color: rgb(139, 0, 77);
   }
 
+
+  /* Estilo para o bloco de documentos */
+.documents {
+  display: flex;
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.document-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #A0005A;
+  color: #fff;
+  padding: 0.7rem 1.3rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(192, 0, 106, 0.10);
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.document-link i {
+  font-size: 1.2rem;
+  margin-right: 0.3rem;
+}
+
+.document-link:hover, .document-link:focus {
+  background:#B0006A;
+  color: #fff;
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 8px 24px rgba(110, 69, 226, 0.15);
+  text-decoration: none;
+  outline: none;
+}
+
+@media (max-width: 600px) {
+  .documents {
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: stretch;
+  }
+  .document-link {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.98rem;
+    padding: 0.7rem 1rem;
+  }
+}
   /************************
    * Seção Contact
    ************************/
