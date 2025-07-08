@@ -225,53 +225,72 @@ html, body {
    * Seção Hero (início)
    ************************/
    .hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-    min-height: 80vh;
-    padding: 2rem;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 80vh;
+  padding: 2rem;
+  gap: 2rem;
+  position: relative;
+  flex-wrap: wrap;
+}
 
-  .photo-container {
-    position: fixed;
-    width: 40%;
-    height: 100%;
-    right: 0;
-    top: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1;
-  }
+.photo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+  min-width: 220px;
+  max-width: 400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
 
-  .photo {
-    width: 350px;
-    height: 350px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 5px solid #C0006A;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  }
+.photo-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1/1;
+  max-width: 350px;
+  margin: 0 auto;
+  animation: float 6s ease-in-out infinite;
+}
 
-  .photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+.photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid #C0006A;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  background: #fff;
+}
 
-  .info {
-    width: 55%;
-    z-index: 2;
-  }
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
-  .typing-effect {
-    display: inline-block;
-    position: relative;
-    font-size: 3rem;
-    font-weight: 700;
-    color: #333;
-  }
+.info {
+  flex: 1 1 300px;
+  min-width: 220px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.typing-effect {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  line-height: 1.2;
+  word-break: break-word;
+}
 
   .typing-effect::after {
     content: '|';
@@ -286,190 +305,69 @@ html, body {
     50% { opacity: 0; }
   }
 
-  .location {
-    font-size: 1.5rem;
-    color: #666;
-    margin-top: 1rem;
-    font-weight: 400;
-  }
+.location {
+  font-size: 1.2rem;
+  color: #666;
+  margin-top: 0.5rem;
+  font-weight: 400;
+}
 
-  @media (max-width: 992px) {
-    .hero {
-      flex-direction: column;
-      text-align: center;
-      padding-top: 100px;
-    }
-
-    .photo-container {
-      position: static;
-      width: 100%;
-      height: auto;
-      margin-bottom: 2rem;
-    }
-
-    .photo {
-      width: 250px;
-      height: 250px;
-    }
-
-    .info {
-      width: 100%;
-    }
-
-    .typing-effect {
-      font-size: 2rem;
-    }
-
-    .location {
-      font-size: 1.2rem;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .hero {
-      flex-direction: column;
-      min-height: auto;
-      padding: 1rem;
-      margin-top: 60px;
-      text-align: center;
-      position: relative;
-    }
-  
-    .photo-container {
-      position: static;
-      width: 100%;
-      height: auto;
-      margin: 2rem auto;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      order: 2; /* Coloca a foto depois do texto */
-    }
-  
-    .photo-wrapper {
-      width: 200px;
-      height: 200px;
-      margin: 0 auto;
-      animation: none;
-    }
-  
-  
-    .photo {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      border: 4px solid #C0006A;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-      overflow: hidden;
-    }
-
-    .photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-  
-    .info {
-      width: 100%;
-      padding: 0 1rem;
-      order: 1; /* Coloca o texto antes da foto */
-    }
-  
-    .typing-effect {
-      font-size: 1.8rem;
-      white-space: normal;
-      display: block;
-      margin: 0 auto;
-    }
-  
-    .typing-effect::after {
-      display: none; 
-    }
-  
-    .location {
-      font-size: 1.1rem;
-      margin-top: 0.5rem;
-    }
-  
-    /* Ajustes para as partículas e efeitos */
-    .photo-aura,
-    .photo-particles,
-    .tech-circle {
-      display: none !important;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .typing-effect {
-      font-size: 1.5rem;
-    }
-    
-    .location {
-      font-size: 1rem;
-    }
-    
-    .photo-wrapper {
-      width: 180px;
-      height: 180px;
-    }
-    
-  }
   
 
   /************************
    * Seção ABOUT ME
    ************************/
-  .about-section {
-    position: relative;
-    background-color: #fff;
-    padding: 4rem 1rem;
-    margin-top: 2rem;
-    min-height: 50vh;
-    overflow: hidden;
-  }
+.about-section {
+  position: relative;
+  background-color: #fff;
+  padding: 4rem 1rem;
+  margin-top: 2rem;
+  min-height: 50vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  /* Texto grande no fundo (horizontal) */
-  .about-title-bg {
-    position: absolute;
-    left: 50%;
-    top: 20%;
-    transform: translateX(-50%);
-    font-size: clamp(2.5rem, 10vw, 4rem);
-    font-weight: 700;
-    color:  rgba(252, 149, 205, 0.616);
-    pointer-events: none;
-    user-select: none;
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
+.about-title-bg {
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%);
+  font-size: clamp(2.5rem, 10vw, 4rem);
+  font-weight: 700;
+  color: rgba(252, 149, 205, 0.616);
+  pointer-events: none;
+  user-select: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  z-index: 0;
+}
 
-  /* Título normal (visível em primeiro plano) */
-  .about-title {
-    position: relative;
-    font-size: clamp(1.5rem, 5vw, 1.8rem);
-    font-weight: 700;
-    text-transform: uppercase;
-    text-align: center;
-    margin-bottom: 1.5rem;
-    z-index: 2;
-  }
+.about-title {
+  position: relative;
+  font-size: clamp(1.5rem, 5vw, 1.8rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  z-index: 2;
+}
 
-  .about-content {
-    max-width: 900px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 2;
-    line-height: 1.6;
-    font-size: 1rem;
-    text-align: center;
-    padding: 0 1rem;
-  }
-  
-  .about-content p {
-    margin-bottom: 1rem;
-  }
+.about-content {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  line-height: 1.6;
+  font-size: 1rem;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.about-content p {
+  margin-bottom: 1rem;
+}
 
   /************************
    * Seção SKILLS
