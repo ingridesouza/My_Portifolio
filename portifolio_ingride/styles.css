@@ -290,15 +290,16 @@ html, body {
   color: #333;
   line-height: 1.2;
   word-break: break-word;
+  position: relative; /* Adicione esta linha */
 }
 
-  .typing-effect::after {
-    content: '|';
-    position: absolute;
-    right: -10px;
-    animation: blink 0.7s infinite;
-    color: #C0006A;
-  }
+.typing-effect::after {
+  content: '|';
+  position: absolute;
+  right: -10px;
+  animation: blink 0.7s infinite;
+  color: #C0006A;
+}
 
   @keyframes blink {
     0%, 100% { opacity: 1; }
@@ -1134,12 +1135,14 @@ body.menu-open::before {
     padding: 0.4rem 0.6rem;
     font-size: 0.7rem;
   }
-  
-  /* Efeito de digitação ajustado para mobile */
+} 
+/* Efeito de digitação ajustado para mobile */
+@media (max-width: 768px) {
   .typing-effect {
     white-space: normal;
-    border-right: none;
-    animation: none;
+    /* Remova border-right e animation para manter o cursor piscando */
+    /* Se quiser remover o cursor no mobile, adicione: */
+    /* color: inherit; */
   }
 }
 
