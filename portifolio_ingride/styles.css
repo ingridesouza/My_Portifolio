@@ -313,7 +313,33 @@ html, body {
   font-weight: 400;
 }
 
-  
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .photo-container {
+    width: 60%;
+    max-width: 250px;
+    order: 1; /* Faz a foto vir primeiro */
+  }
+
+  .info {
+    order: 2; /* Faz o texto vir depois */
+    align-items: center;
+  }
+
+  .typing-effect {
+    font-size: 2rem;
+  }
+
+  .typing-effect::after {
+    right: -5px;
+  }
+}
 
   /************************
    * Seção ABOUT ME
