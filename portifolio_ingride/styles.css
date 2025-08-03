@@ -233,6 +233,7 @@ html, body {
   gap: 2rem;
   position: relative;
   flex-wrap: wrap;
+  overflow: hidden; /* Prevents any content from overflowing */
 }
 
 .photo-container {
@@ -245,32 +246,41 @@ html, body {
   margin: 0 auto;
   position: relative;
   z-index: 1;
+  transform: translateZ(0); /* Force hardware acceleration */
 }
 
 .photo-wrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 1/1;
   max-width: 350px;
   margin: 0 auto;
   animation: float 6s ease-in-out infinite;
+  padding: 0 15px;
+  box-sizing: border-box;
+  will-change: transform; /* Optimize animations */
 }
 
 .photo {
+  position: relative;
   width: 100%;
-  height: 100%;
+  padding-bottom: 100%; /* Creates a square aspect ratio */
   border-radius: 50%;
   overflow: hidden;
   border: 5px solid #C0006A;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   background: #fff;
+  margin: 0 auto;
 }
 
 .photo img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.3s ease;
 }
 
 .info {
@@ -316,24 +326,39 @@ html, body {
 @media (max-width: 768px) {
   .hero {
     flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: auto;
+    padding: 2rem 1rem;
+    gap: 2rem;
     text-align: center;
-    padding-top: 4rem;
-    padding-bottom: 4rem;
   }
 
   .photo-container {
-    width: 60%;
-    max-width: 250px;
-    order: 1; /* Faz a foto vir primeiro */
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    order: 1;
   }
 
   .info {
-    order: 2; /* Faz o texto vir depois */
+    order: 2;
     align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    padding: 0 1rem;
+    margin-top: 1rem;
   }
 
   .typing-effect {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .location {
+    margin-top: 0.5rem;
+    font-size: 1.1rem;
   }
 
   .typing-effect::after {
@@ -1257,7 +1282,6 @@ body.menu-open::before {
 /*Particulas*/
 
 .photo-container {
-  position: fixed;
   width: 40%;
   height: 100%;
   right: 0;
