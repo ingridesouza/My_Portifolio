@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const heroTitle = document.getElementById('hero-title');
   heroTitle.classList.add('typing-effect');
   
-  const text = "Full Stack Developer";
+  const text = "Back-End Developer";
   heroTitle.textContent = ''; 
   let index = 0;
 
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   const translations = {
     'pt-BR': {
-      'hero-title': 'Desenvolvedora Full Stack',
+      'hero-title': 'Desenvolvedora Back-End',
       'hero-location': 'Salvador, Bahia - Brasil',
       'about-text': 'Olá, eu sou Ingride Souza e tenho 19 anos. Minha jornada nos estudos é movida pela paixão por programação e tecnologia. Atualmente, estou cursando Análise e Desenvolvimento de Sistemas na UniRuy Wyden, com previsão de término em 2025.2.',
       'skills-title': 'Habilidades',
@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function() {
       'skill-12': 'React'
     },
     'pt-PT': {
-      'hero-title': 'Desenvolvedora Full Stack',
+      'hero-title': 'Desenvolvedora Back-End',
       'hero-location': 'Salvador, Bahia - Brasil',
       'about-text': 'Olá, eu sou Ingride Souza e tenho 19 anos. A minha jornada nos estudos é movida pela paixão por programação e tecnologia. Atualmente, estou a cursar Análise e Desenvolvimento de Sistemas na UniRuy Wyden, com previsão de término em 2025.2.',
       'skills-title': 'Competências',
@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function() {
       'skill-12': 'React'
     },
     'en': {
-      'hero-title': 'Full Stack Developer',
+      'hero-title': 'Back-End Developer',
       'hero-location': 'Salvador, Bahia - Brazil',
       'about-text': 'Hello, I am Ingride Souza, and I am 19 years old. My journey in studies is driven by a passion for programming and technology. Currently, I am pursuing a degree in Systems Analysis and Development at UniRuy Wyden, with an expected completion in 2025.2.',
       'skills-title': 'Skills',
@@ -199,7 +199,7 @@ document.addEventListener("DOMContentLoaded", function() {
       'skill-12': 'React'
     },
     'fr': {
-      'hero-title': 'Développeuse Full Stack',
+      'hero-title': 'Développeuse Back-End',
       'hero-location': 'Salvador, Bahia - Brésil',
       'about-text': 'Bonjour, je suis Ingride Souza et j\'ai 19 ans. Mon parcours d\'études est motivé par une passion pour la programmation et la technologie. Actuellement, je suis un cursus en Analyse et Développement de Systèmes à UniRuy Wyden, avec une fin prévue en 2025.2.',
       'skills-title': 'Compétences',

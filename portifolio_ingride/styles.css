@@ -219,6 +219,32 @@ html, body {
     user-select: none;
     color: rgba(0,0,0,0.05);
     white-space: nowrap;
+    z-index: 1;
+  }
+  
+  /* Ajustes para telas médias */
+  @media (max-width: 992px) {
+    .section-title-bg {
+      font-size: 3.2rem;
+      left: 0.5rem;
+    }
+  }
+  
+  /* Ajustes para telas pequenas */
+  @media (max-width: 768px) {
+    .section-title-bg {
+      position: relative;
+      top: auto;
+      left: 0;
+      transform: none;
+      font-size: 2.5rem;
+      text-align: center;
+      margin: 0 auto 1.5rem;
+      color: rgba(0,0,0,0.1);
+      white-space: normal;
+      width: 100%;
+      padding: 0 1rem;
+    }
   }
 
   /************************
@@ -373,12 +399,14 @@ html, body {
   position: relative;
   background-color: #fff;
   padding: 4rem 1rem;
-  margin-top: 2rem;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
   min-height: 50vh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
+
 }
 
 .about-title-bg {
@@ -421,17 +449,30 @@ html, body {
   margin-bottom: 1rem;
 }
 
-  /************************
-   * Seção SKILLS
-   ************************/
-  .skills-section {
-    position: relative;
-    background-color: #fff;
-    padding: 4rem 1rem;
-  }
+/* Company logo styles */
+.company-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.company-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+  
   
   .skills-section .section-title-bg {
     color:  rgba(252, 149, 205, 0.616);
+  }
+  
+  @media (max-width: 768px) {
+    .skills-section .section-title-bg {
+      color: rgba(252, 149, 205, 0.4);
+    }
   }
   
   .skills-content {
@@ -491,6 +532,13 @@ html, body {
   .experience-section .section-title-bg {
     color:  rgba(252, 149, 205, 0.616);
     left: 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .experience-section .section-title-bg {
+      color: rgba(252, 149, 205, 0.4);
+      left: 0;
+    }
   }
 
   .experience-content {
@@ -559,36 +607,55 @@ html, body {
   }
   
   .timeline-card h3 {
-    margin-bottom: 0.3rem;
+    margin: 0;
+    font-weight: 700;
+    color: #333;
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+  
+  .timeline-card p > strong {
+    display: inline-block;
+    margin: 0.5rem 0;
+    color: #A0005A;
     font-weight: 600;
   }
   
   .timeline-card p {
     margin-bottom: 0.5rem;
-    line-height: 1.4;
+    line-height: 1.6;
+    text-align: justify;
+    color: #333;
+  }
+  
+  .timeline-card p strong {
+    color: #A0005A;
+    font-weight: 600;
   }
   
   .timeline-card ul {
-    list-style: disc;
-    margin-left: 1.2rem;
-    margin-bottom: 1rem;
-  }
-
-  /************************
-   * Seção COLLEGE
-   ************************/
-  .college-section {
-    position: relative;
-    background-color: #111;
-    color: #fff;
-    padding: 4rem 1rem;
-    min-height: 50vh;
-    display: flex;
-    align-items: center;
+    margin-top: 0.5rem;
+    padding-left: 1.2rem;
   }
   
-  .college-section .section-title-bg {
-    color: rgba(255,255,255,0.05);
+  .timeline-card ul li {
+    margin-bottom: 0.3rem;
+    line-height: 1.5;
+  }
+  
+  .timeline-card #experience-1-description,
+  .timeline-card #experience-2-description {
+    text-align: left;
+    line-height: 1.7;
+    color: #444;
+    margin: 1rem 0;
+  }
+  
+  .timeline-card #experience-1-description br,
+  .timeline-card #experience-2-description br {
+    content: "";
+    display: block;
+    margin: 0.8rem 0;
   }
   
   .college-content {
@@ -1058,6 +1125,34 @@ body.menu-open::before {
   backdrop-filter: blur(2px);
 }
 
+
+.college-section {
+  position: relative;
+  background-color: #111;
+  padding: 4rem 1rem; /* desktop */
+}
+
+/* Título de fundo (COLLEGE) */
+.college-section .section-title-bg {
+  color: rgba(255, 255, 255, 0.14); /* ajuste 0.12–0.18 conforme desejar */
+}
+
+/* Título visível da seção */
+.college-section .section-title {
+  color: #fff;
+}
+
+/* Parágrafo específico */
+#college-text {
+  color: #fff; /* texto branco */
+}
+
+/* Garantir que o <strong> dentro do parágrafo siga o branco */
+#college-text strong {
+  color: inherit; /* ou color: #fff; */
+}
+
+
 /* Melhorias no header mobile */
 @media (max-width: 768px) {
   header {
@@ -1145,6 +1240,7 @@ body.menu-open::before {
   .contact-section {
     padding: 2rem 1rem;
   }
+
   
   /* Melhorias na timeline */
   .timeline-item {
@@ -1417,6 +1513,8 @@ body.menu-open::before {
   color: #f0f0f0;
   padding: 2rem 1rem;
   margin: 3rem auto;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
   border-radius: 10px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   max-width: 900px;
