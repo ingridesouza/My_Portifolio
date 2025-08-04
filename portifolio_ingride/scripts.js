@@ -579,6 +579,49 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Projetos em destaque
   const projects = {
+    watchtower: {
+      title: "WatchTower-AI",
+      description:
+        "Sistema de monitoramento por vídeo com IA para detecção/análise de eventos em tempo real. Arquitetura modular e escalável.",
+      features: [
+        "Monitoramento de câmeras RTSP",
+        "Detecção e classificação de eventos",
+        "Gestão de locais e áreas",
+        "API RESTful e painel web",
+        "Processamento assíncrono com Celery"
+      ],
+      technologies: [
+        "Django", "Django REST Framework", "Celery", "Redis", "PostgreSQL",
+        "MinIO", "FastAPI (inferência)", "React", "Vite", "Docker"
+      ],
+      links: [
+        { text: "Código", url: "https://github.com/ingridesouza/WatchTower-AI", icon: "fa-code" }
+      ],
+      year: "2025",
+      badge: "ai-badge"
+    },
+    imagine: {
+      title: "ImagAIne",
+      description:
+        "Plataforma para geração de imagens via IA a partir de prompts, com autenticação, fila assíncrona e galeria pública.",
+      features: [
+        "Geração de imagens por prompt",
+        "Compartilhamento e galeria pública",
+        "Busca por palavras-chave/similaridade",
+        "Processamento assíncrono (Celery/Redis)",
+        "Execução em contêineres (Docker)"
+      ],
+      technologies: [
+        "Django", "Django REST Framework", "Celery", "Redis",
+        "Hugging Face Diffusers", "PostgreSQL", "React (frontend planejado)",
+        "Redux", "Material UI", "Axios", "Docker", "Docker Compose"
+      ],
+      links: [
+        { text: "Código", url: "https://github.com/ingridesouza/ImagAIne", icon: "fa-code" }
+      ],
+      year: "2025",
+      badge: "ai-badge"
+    },
     cryptotracker: {
       title: "Crypto Tracker",
       description: "Plataforma completa para acompanhamento de criptomoedas em tempo real com agente especializado em investimentos. Consome API do CoinGecko para fornecer dados atualizados e insights inteligentes.",
@@ -648,7 +691,7 @@ document.addEventListener('DOMContentLoaded', function() {
       ],
       technologies: ["CSS Modules", "MovieDB API", "Axios", "JS"],
       links: [
-        { text: "Demo", url: "#", icon: "fa-eye" },
+        { text: "Demo", url: "https://netffllix.netlify.app/", icon: "fa-eye" },
         { text: "Código", url: "https://github.com/ingridesouza/Netflix_/tree/main/netflix", icon: "fa-code" }
       ],
       year: "2024"
