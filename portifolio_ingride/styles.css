@@ -406,7 +406,6 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
 .about-title-bg {
@@ -465,14 +464,14 @@ html, body {
 }
   
   
-  .skills-section .section-title-bg {
-    color:  rgba(252, 149, 205, 0.616);
+  .skills-section {
+    position: relative;
+    padding: 6rem 1rem 4rem;
   }
   
-  @media (max-width: 768px) {
-    .skills-section .section-title-bg {
-      color: rgba(252, 149, 205, 0.4);
-    }
+  .skills-section .section-title-bg {
+    color: rgba(252, 149, 205, 0.7);
+    left: 2rem;
   }
   
   .skills-content {
@@ -526,19 +525,24 @@ html, body {
   .experience-section {
     position: relative;
     background-color: #f9f9f9;
-    padding: 4rem 1rem;
+    padding: 6rem 1rem 4rem;
   }
   
   .experience-section .section-title-bg {
-    color:  rgba(252, 149, 205, 0.616);
-    left: 1rem;
+    color: rgba(252, 149, 205, 0.7);
+    left: 2rem;
   }
   
-  @media (max-width: 768px) {
-    .experience-section .section-title-bg {
-      color: rgba(252, 149, 205, 0.4);
-      left: 0;
-    }
+  /* Estilos para a seção de faculdade */
+  .college-section {
+    position: relative;
+    background-color: #fff;
+    padding: 6rem 1rem 4rem;
+  }
+  
+  .college-section .section-title-bg {
+    color: rgba(252, 149, 205, 0.7);
+    left: 2rem;
   }
 
   .experience-content {
@@ -1509,9 +1513,10 @@ body.menu-open::before {
 
 /* ===== ESTILOS GERAIS DO TERMINAL ===== */
 .terminal-section {
+  position: relative;
   background-color: #0f0c29;
   color: #f0f0f0;
-  padding: 2rem 1rem;
+  padding: 6rem 1rem 2rem;
   margin: 3rem auto;
   margin-top: 4rem;
   margin-bottom: 4rem;
@@ -1520,6 +1525,15 @@ body.menu-open::before {
   max-width: 900px;
   font-family: 'Courier New', monospace;
   border: 1px solid #6e45e2;
+  overflow: hidden;
+}
+
+.terminal-section .section-title-bg {
+  color: rgba(110, 69, 226, 0.7);
+  left: 2rem;
+  top: 1.5rem;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 2px;
 }
 
 .terminal-container {
