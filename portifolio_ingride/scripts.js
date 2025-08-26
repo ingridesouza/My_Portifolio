@@ -603,7 +603,7 @@ document.addEventListener('DOMContentLoaded', function() {
     imagine: {
       title: "ImagAIne",
       description:
-        "Plataforma para geração de imagens via IA a partir de prompts, com autenticação, fila assíncrona e galeria pública.",
+        "ImagAIne é uma plataforma de geração de imagens \"texto para imagem\", feita em Django e baseada em multiagentes de IA. O sistema gera, aprimora e valida imagens de forma autônoma, garantindo resultados de alta qualidade.",
       features: [
         "Geração de imagens por prompt",
         "Compartilhamento e galeria pública",
