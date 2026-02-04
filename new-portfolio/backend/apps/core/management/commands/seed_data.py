@@ -197,6 +197,9 @@ Je commence par le probleme et les contraintes, pas par la stack. Le code doit e
         postgresql = Skill.objects.filter(name='PostgreSQL').first()
         docker = Skill.objects.filter(name='Docker').first()
         typescript = Skill.objects.filter(name='TypeScript').first()
+        celery = Skill.objects.filter(name='Celery').first()
+        redis = Skill.objects.filter(name='Redis').first()
+        huggingface = Skill.objects.filter(name='Hugging Face').first()
 
         projects_data = [
             {
@@ -227,6 +230,36 @@ Backend construit avec Django + DRF, PostgreSQL, authentification JWT. App mobil
                     'Backend Django REST Framework',
                     'Preparado para cargas assincronas',
                     'Docker Compose para desenvolvimento',
+                ]
+            },
+            {
+                'slug': 'imagaine',
+                'title': 'ImagAIne',
+                'title_en': 'ImagAIne',
+                'title_fr': 'ImagAIne',
+                'short_description': 'Plataforma backend para geracao e compartilhamento de imagens com IA.',
+                'short_description_en': 'Backend platform for AI image generation and sharing.',
+                'short_description_fr': 'Plateforme backend pour la generation et le partage d\'images par IA.',
+                'full_description': '''Um sistema projetado em torno de processamento assincrono, arquitetura API-first e integracao real com modelos de IA generativa. O projeto foca em lidar com requisicoes concorrentes, geracao de imagens em background, limites de uso e compartilhamento publico.
+
+Backend construido com Django + DRF, Celery para tarefas assincronas, Redis como broker, PostgreSQL para persistencia e Docker Compose para orquestracao local. Integrado com modelos da Hugging Face para geracao de imagens.''',
+                'full_description_en': '''A system designed around asynchronous processing, API-first architecture and real integration with generative AI models. The project focuses on handling concurrent requests, background image generation, usage limits and public sharing.
+
+Backend built with Django + DRF, Celery for async tasks, Redis as broker, PostgreSQL for persistence and Docker Compose for local orchestration. Integrated with Hugging Face models for image generation.''',
+                'full_description_fr': '''Un systeme concu autour du traitement asynchrone, de l\'architecture API-first et de l\'integration reelle avec des modeles d\'IA generative. Le projet se concentre sur la gestion des requetes concurrentes, la generation d\'images en arriere-plan et le partage public.
+
+Backend construit avec Django + DRF, Celery pour les taches asynchrones, Redis comme broker, PostgreSQL pour la persistance et Docker Compose pour l\'orchestration locale. Integre avec les modeles Hugging Face.''',
+                'year': 2025,
+                'is_featured': True,
+                'github_repo': 'https://github.com/ingridesouza/ImagAIne',
+                'technologies': [python, django, drf, celery, redis, postgresql, docker, huggingface],
+                'features': [
+                    'Processamento assincrono com Celery',
+                    'Arquitetura API-first',
+                    'Integracao com Hugging Face',
+                    'Geracao de imagens em background',
+                    'Limites de uso por usuario',
+                    'Compartilhamento publico de imagens',
                 ]
             },
         ]
