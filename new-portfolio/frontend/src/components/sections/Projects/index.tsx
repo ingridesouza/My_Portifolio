@@ -17,7 +17,7 @@ export function Projects() {
 
   return (
     <section id="projects" className="section-padding bg-gray-50 dark:bg-dark-900" ref={ref}>
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
         {/* Background title */}
         <div className="relative">
           <h2 className="absolute -top-8 left-1/2 -translate-x-1/2 text-6xl md:text-8xl font-bold text-primary-500/10 dark:text-primary-500/5 whitespace-nowrap pointer-events-none">
@@ -39,7 +39,7 @@ export function Projects() {
             <div className="animate-spin w-8 h-8 border-2 border-primary-500 border-t-transparent rounded-full mx-auto" />
           </div>
         ) : (
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             {projects?.slice(0, 4).map((project, index) => (
               <ProjectCard
                 key={project.id}
@@ -52,7 +52,7 @@ export function Projects() {
         )}
 
         {/* Terminal */}
-        <div className="mt-32 md:mt-40 lg:mt-48">
+        <div className="mt-16 sm:mt-20 md:mt-28">
           <Terminal />
         </div>
       </div>
@@ -80,21 +80,21 @@ function ProjectCard({
     >
       {/* Thumbnail */}
       {project.thumbnail && (
-        <div className="relative h-48 overflow-hidden">
+        <div className="relative h-44 overflow-hidden">
           <img
             src={project.thumbnail}
             alt={project.title}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-          <span className="absolute bottom-3 left-3 px-2 py-1 bg-primary-500 text-white text-sm rounded">
+          <span className="absolute bottom-3 left-3 px-2 py-1 bg-primary-500 text-white text-xs rounded">
             {project.year}
           </span>
         </div>
       )}
 
-      <div className="p-6">
-        <h3 className="text-xl font-semibold mb-2 group-hover:text-primary-500 transition-colors">
+      <div className="p-5">
+        <h3 className="text-lg font-semibold mb-2 group-hover:text-primary-500 transition-colors">
           {project.title}
         </h3>
 
@@ -103,7 +103,7 @@ function ProjectCard({
         </p>
 
         {/* Technologies */}
-        <div className="flex flex-wrap gap-2 mb-4">
+        <div className="flex flex-wrap gap-1.5 mb-4">
           {project.technologies?.slice(0, 4).map((tech) => (
             <span
               key={tech.id}
@@ -115,15 +115,15 @@ function ProjectCard({
         </div>
 
         {/* Links */}
-        <div className="flex gap-3">
+        <div className="flex flex-wrap gap-3">
           {project.github_repo && (
             <a
               href={project.github_repo}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors"
+              className="flex items-center gap-1.5 text-sm text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors"
             >
-              <Github size={16} />
+              <Github size={15} />
               {t('projects.viewCode')}
             </a>
           )}
@@ -132,9 +132,9 @@ function ProjectCard({
               href={project.live_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors"
+              className="flex items-center gap-1.5 text-sm text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors"
             >
-              <ExternalLink size={16} />
+              <ExternalLink size={15} />
               {t('projects.viewDemo')}
             </a>
           )}

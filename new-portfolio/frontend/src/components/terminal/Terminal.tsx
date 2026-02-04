@@ -97,13 +97,13 @@ export function Terminal() {
       className="bg-[#0f0c29] rounded-xl overflow-hidden shadow-2xl border border-purple-500/30"
     >
       {/* Header */}
-      <div className="flex items-center gap-2 px-4 py-3 bg-[#1a1831] border-b border-purple-500/20">
-        <div className="flex gap-2">
-          <span className="w-3 h-3 rounded-full bg-red-500" />
-          <span className="w-3 h-3 rounded-full bg-yellow-500" />
-          <span className="w-3 h-3 rounded-full bg-green-500" />
+      <div className="flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-3 bg-[#1a1831] border-b border-purple-500/20">
+        <div className="flex gap-1.5 sm:gap-2">
+          <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500" />
+          <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500" />
+          <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500" />
         </div>
-        <span className="ml-4 text-purple-400 text-sm font-mono">
+        <span className="ml-2 sm:ml-4 text-purple-400 text-xs sm:text-sm font-mono truncate">
           ingride@portfolio:~/projetos$
         </span>
       </div>
@@ -111,7 +111,7 @@ export function Terminal() {
       {/* Body */}
       <div
         ref={bodyRef}
-        className="p-4 h-96 overflow-y-auto font-mono text-sm scrollbar-thin"
+        className="p-3 sm:p-4 h-72 sm:h-80 md:h-96 overflow-y-auto font-mono text-xs sm:text-sm scrollbar-thin"
       >
         {lines.map((line) => (
           <TerminalLine key={line.id} line={line} />
@@ -119,7 +119,7 @@ export function Terminal() {
 
         {/* Input */}
         <form onSubmit={handleSubmit} className="flex items-center gap-2 mt-2">
-          <span className="text-purple-500 font-bold">$</span>
+          <span className="text-purple-500 font-bold text-sm sm:text-base">$</span>
           <input
             ref={inputRef}
             type="text"
@@ -128,11 +128,11 @@ export function Terminal() {
             onKeyDown={handleKeyDown}
             disabled={isProcessing}
             placeholder={t('projects.terminal.placeholder')}
-            className="flex-1 bg-transparent text-white outline-none placeholder:text-gray-600"
+            className="flex-1 bg-transparent text-white outline-none placeholder:text-gray-600 text-xs sm:text-sm"
             autoComplete="off"
           />
           {isProcessing && (
-            <span className="text-purple-400 animate-pulse">...</span>
+            <span className="text-purple-400 animate-pulse text-xs sm:text-sm">...</span>
           )}
         </form>
       </div>
@@ -177,49 +177,49 @@ function TerminalLine({ line }: { line: TerminalLine }) {
     }
 
     return (
-      <div className="bg-gradient-to-r from-[#1a1831] to-[#24243e] border-l-4 border-purple-500 p-4 rounded-r-lg my-4">
-        <div className="flex items-center gap-3 mb-3">
-          <h3 className="text-purple-400 font-bold text-lg">{project.title}</h3>
-          <span className="px-2 py-1 bg-purple-500 text-white text-xs rounded-full">
+      <div className="bg-gradient-to-r from-[#1a1831] to-[#24243e] border-l-2 sm:border-l-4 border-purple-500 p-3 sm:p-4 rounded-r-lg my-3 sm:my-4">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+          <h3 className="text-purple-400 font-bold text-base sm:text-lg">{project.title}</h3>
+          <span className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-purple-500 text-white text-xs rounded-full">
             {project.year}
           </span>
         </div>
 
-        <p className="text-gray-300 mb-4">{project.description}</p>
+        <p className="text-gray-300 text-xs sm:text-sm mb-3 sm:mb-4">{project.description}</p>
 
         {project.features?.length > 0 && (
-          <div className="mb-4">
-            <span className="text-purple-300 text-sm">Features:</span>
+          <div className="mb-3 sm:mb-4">
+            <span className="text-purple-300 text-xs sm:text-sm">Features:</span>
             <ul className="mt-1 space-y-1">
               {project.features.map((feature, i) => (
-                <li key={i} className="text-gray-400 text-sm flex items-center gap-2">
-                  <span className="text-purple-500">▹</span>
-                  {feature}
+                <li key={i} className="text-gray-400 text-xs sm:text-sm flex items-start gap-2">
+                  <span className="text-purple-500 mt-0.5">▹</span>
+                  <span>{feature}</span>
                 </li>
               ))}
             </ul>
           </div>
         )}
 
-        <div className="flex flex-wrap gap-2 mb-4">
+        <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
           {project.technologies?.map((tech, i) => (
             <span
               key={i}
-              className="px-2 py-1 bg-purple-500/20 text-purple-300 text-xs rounded border border-purple-500/30"
+              className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-purple-500/20 text-purple-300 text-xs rounded border border-purple-500/30"
             >
               {tech}
             </span>
           ))}
         </div>
 
-        <div className="flex gap-3">
+        <div className="flex flex-wrap gap-2 sm:gap-3">
           {project.links?.map((link, i) => (
             <a
               key={i}
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 bg-purple-500 hover:bg-purple-600 text-white text-sm rounded transition-colors"
+              className="px-3 sm:px-4 py-1.5 sm:py-2 bg-purple-500 hover:bg-purple-600 text-white text-xs sm:text-sm rounded transition-colors"
             >
               {link.type === 'code' ? 'Ver Codigo' : link.type === 'demo' ? 'Ver Demo' : link.type}
             </a>
