@@ -55,7 +55,7 @@ export function GitHubStats() {
               ))}
             </div>
 
-            {/* Languages */}
+            {/* Languages - GitHub Style */}
             {stats?.top_languages && Object.keys(stats.top_languages).length > 0 && (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -63,32 +63,81 @@ export function GitHubStats() {
                 transition={{ delay: 0.4 }}
                 className="bg-white dark:bg-dark-800 rounded-xl p-6 shadow-lg"
               >
-                <h3 className="text-xl font-semibold mb-4">{t('github.languages')}</h3>
-                <div className="space-y-3">
-                  {Object.entries(stats.top_languages)
-                    .slice(0, 5)
-                    .map(([lang, count], index) => {
-                      const total = Object.values(stats.top_languages).reduce((a, b) => a + b, 0)
-                      const percentage = Math.round((count / total) * 100)
+                <h3 className="text-xl font-semibold mb-6">{t('github.languages')}</h3>
 
-                      return (
-                        <div key={lang}>
-                          <div className="flex justify-between text-sm mb-1">
-                            <span>{lang}</span>
-                            <span className="text-gray-500">{percentage}%</span>
-                          </div>
-                          <div className="h-2 bg-gray-200 dark:bg-dark-700 rounded-full overflow-hidden">
-                            <motion.div
-                              initial={{ width: 0 }}
-                              animate={inView ? { width: `${percentage}%` } : {}}
-                              transition={{ delay: 0.5 + index * 0.1, duration: 0.8 }}
-                              className="h-full bg-gradient-to-r from-primary-500 to-primary-600 rounded-full"
+                {(() => {
+                  const languageColors: Record<string, string> = {
+                    Python: '#3572A5',
+                    JavaScript: '#f1e05a',
+                    TypeScript: '#3178c6',
+                    HTML: '#e34c26',
+                    CSS: '#563d7c',
+                    Java: '#b07219',
+                    'C++': '#f34b7d',
+                    C: '#555555',
+                    'C#': '#178600',
+                    Go: '#00ADD8',
+                    Rust: '#dea584',
+                    Ruby: '#701516',
+                    PHP: '#4F5D95',
+                    Swift: '#ffac45',
+                    Kotlin: '#A97BFF',
+                    Dart: '#00B4AB',
+                    Shell: '#89e051',
+                    Vue: '#41b883',
+                    Scss: '#c6538c',
+                  }
+
+                  const total = Object.values(stats.top_languages as Record<string, number>).reduce((a, b) => a + b, 0)
+                  const languages = Object.entries(stats.top_languages as Record<string, number>)
+                    .slice(0, 5)
+                    .map(([lang, count]) => ({
+                      name: lang,
+                      percentage: Math.round((count / total) * 100),
+                      color: languageColors[lang] || '#6e7681',
+                    }))
+
+                  return (
+                    <>
+                      {/* GitHub-style language bar */}
+                      <div className="h-3 w-full rounded-full overflow-hidden flex mb-6">
+                        {languages.map((lang, index) => (
+                          <motion.div
+                            key={lang.name}
+                            initial={{ width: 0 }}
+                            animate={inView ? { width: `${lang.percentage}%` } : {}}
+                            transition={{ delay: 0.5 + index * 0.1, duration: 0.8 }}
+                            className="h-full first:rounded-l-full last:rounded-r-full"
+                            style={{ backgroundColor: lang.color }}
+                            title={`${lang.name}: ${lang.percentage}%`}
+                          />
+                        ))}
+                      </div>
+
+                      {/* Language cards */}
+                      <div className="flex flex-wrap gap-3">
+                        {languages.map((lang, index) => (
+                          <motion.div
+                            key={lang.name}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={inView ? { opacity: 1, scale: 1 } : {}}
+                            transition={{ delay: 0.6 + index * 0.1, duration: 0.4 }}
+                            className="flex items-center gap-2 bg-gray-100 dark:bg-dark-700 rounded-lg px-3 py-2"
+                          >
+                            <span
+                              className="w-3 h-3 rounded-full flex-shrink-0"
+                              style={{ backgroundColor: lang.color }}
                             />
-                          </div>
-                        </div>
-                      )
-                    })}
-                </div>
+                            <span className="text-sm font-medium">{lang.name}</span>
+                            <span className="text-sm text-gray-500 dark:text-gray-400 font-semibold">
+                              {lang.percentage}%
+                            </span>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </>
+                  )
+                })()}
               </motion.div>
             )}
           </>

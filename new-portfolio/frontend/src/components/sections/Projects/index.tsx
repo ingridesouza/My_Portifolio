@@ -39,7 +39,7 @@ export function Projects() {
             <div className="animate-spin w-8 h-8 border-2 border-primary-500 border-t-transparent rounded-full mx-auto" />
           </div>
         ) : (
-          <div className="grid md:grid-cols-2 gap-6 mb-12">
+          <div className="grid md:grid-cols-2 gap-6">
             {projects?.slice(0, 4).map((project, index) => (
               <ProjectCard
                 key={project.id}
@@ -52,7 +52,9 @@ export function Projects() {
         )}
 
         {/* Terminal */}
-        <Terminal />
+        <div className="mt-32 md:mt-40 lg:mt-48">
+          <Terminal />
+        </div>
       </div>
     </section>
   )

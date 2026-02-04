@@ -22,10 +22,10 @@ export function Skills() {
 
   return (
     <section id="skills" className="section-padding" ref={ref}>
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-4xl mx-auto px-4">
         {/* Background title */}
         <div className="relative">
-          <h2 className="absolute -top-8 left-1/2 -translate-x-1/2 text-6xl md:text-8xl font-bold text-primary-500/10 dark:text-primary-500/5 whitespace-nowrap pointer-events-none">
+          <h2 className="absolute -top-8 left-1/2 -translate-x-1/2 text-5xl md:text-7xl font-bold text-primary-500/10 dark:text-primary-500/5 whitespace-nowrap pointer-events-none">
             {t('skills.title').toUpperCase()}
           </h2>
         </div>
@@ -33,7 +33,7 @@ export function Skills() {
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          className="text-3xl md:text-4xl font-bold text-center mb-12 relative z-10"
+          className="text-2xl md:text-3xl font-bold text-center mb-10 relative z-10"
         >
           {t('skills.title')}
         </motion.h2>
@@ -43,7 +43,7 @@ export function Skills() {
             <div className="animate-spin w-8 h-8 border-2 border-primary-500 border-t-transparent rounded-full mx-auto" />
           </div>
         ) : (
-          <div className="grid gap-6">
+          <div className="grid md:grid-cols-2 gap-5">
             {categories?.map((category, categoryIndex) => (
               <SkillCategoryCard
                 key={category.id}
@@ -76,24 +76,24 @@ function SkillCategoryCard({
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ delay: index * 0.1, duration: 0.5 }}
-      className="bg-white dark:bg-dark-800 rounded-xl p-6 shadow-lg"
+      className="bg-white dark:bg-dark-800 rounded-lg p-5 shadow-md"
     >
-      <h3 className="text-xl font-semibold mb-4 text-primary-500">
+      <h3 className="text-lg font-semibold mb-3 text-primary-500">
         {title}
       </h3>
 
-      <ul className="space-y-2">
+      <ul className="space-y-2.5">
         {category.skills.map((skill) => (
-          <li key={skill.id} className="flex items-center gap-3">
+          <li key={skill.id} className="flex items-center gap-2">
             {skill.icon_class && (
-              <i className={`${skill.icon_class} text-primary-500`} />
+              <i className={`${skill.icon_class} text-primary-500 text-sm`} />
             )}
-            <span className="text-gray-700 dark:text-gray-300">
+            <span className="text-sm text-gray-700 dark:text-gray-300 min-w-0 flex-shrink-0">
               {skill.name}
             </span>
             {skill.proficiency > 0 && (
-              <div className="flex-1 max-w-xs">
-                <div className="h-2 bg-gray-200 dark:bg-dark-700 rounded-full overflow-hidden">
+              <div className="flex-1 max-w-[120px] ml-auto">
+                <div className="h-1.5 bg-gray-200 dark:bg-dark-700 rounded-full overflow-hidden">
                   <motion.div
                     initial={{ width: 0 }}
                     animate={inView ? { width: `${skill.proficiency}%` } : {}}
