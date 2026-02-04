@@ -9,7 +9,8 @@
       "Bash(docker restart:*)",
       "Bash(docker start:*)",
       "Bash(curl:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(python:*)"
     ]
   }
 }
