@@ -1,0 +1,66 @@
+{
+  "nav": {
+    "skills": "Competences",
+    "experience": "Experience",
+    "education": "Formation",
+    "projects": "Projets",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Bonjour, je suis",
+    "title": "Developpeuse Back-End",
+    "subtitle": "Transformer les idees en solutions robustes avec Python, Django et APIs"
+  },
+  "about": {
+    "title": "A Propos",
+    "description": "Je suis une developpeuse Back-End passionnee par la creation de solutions efficaces et evolutives."
+  },
+  "skills": {
+    "title": "Competences",
+    "hardSkills": "Hard Skills",
+    "softSkills": "Soft Skills",
+    "tools": "Outils",
+    "certifications": "Certifications"
+  },
+  "experience": {
+    "title": "Experience",
+    "current": "Actuel"
+  },
+  "education": {
+    "title": "Formation",
+    "certifications": "Certifications"
+  },
+  "projects": {
+    "title": "Projets",
+    "featured": "Projets en Vedette",
+    "viewCode": "Voir le Code",
+    "viewDemo": "Voir la Demo",
+    "terminal": {
+      "placeholder": "Tapez 'destaques' pour voir mes projets...",
+      "welcome": "Terminal de Projets - Ingride Souza",
+      "help": "Tapez 'help' pour les commandes disponibles"
+    }
+  },
+  "github": {
+    "title": "GitHub Stats",
+    "repos": "Repositories",
+    "stars": "Etoiles",
+    "followers": "Abonnes",
+    "languages": "Langages les Plus Utilises"
+  },
+  "contact": {
+    "title": "Contact",
+    "phone": "Telephone",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "github": "GitHub"
+  },
+  "footer": {
+    "copyright": "Developpe par Ingride Souza"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Une erreur s'est produite",
+    "backToTop": "Retour en haut"
+  }
+}
