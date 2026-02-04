@@ -30,8 +30,8 @@ export function Contact() {
     {
       icon: Linkedin,
       label: t('contact.linkedin'),
-      value: 'ingride-souza',
-      href: profile?.linkedin_url || 'https://www.linkedin.com/in/ingride-souza-a21a4518a',
+      value: 'ingride-souza-a21a4518a',
+      href: profile?.linkedin_url || 'https://www.linkedin.com/in/ingride-souza-a21a4518a/',
     },
     {
       icon: Github,
@@ -43,7 +43,7 @@ export function Contact() {
       icon: Instagram,
       label: 'Instagram',
       value: '@ingridesouzadev',
-      href: profile?.instagram_url || 'https://www.instagram.com/ingridesouzadev/',
+      href: 'https://instagram.com/ingridesouzadev',
     },
   ]
 
