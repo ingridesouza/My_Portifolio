@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query'
 import { githubService } from '@/services/githubService'
 import { useInView } from 'react-intersection-observer'
 import { Star, GitFork, Users, FolderGit2 } from 'lucide-react'
+import { ContributionGraph } from '@/components/common/ContributionGraph'
 
 export function GitHubStats() {
   const { t } = useTranslation()
@@ -54,6 +55,19 @@ export function GitHubStats() {
                 </motion.div>
               ))}
             </div>
+
+            {/* Contribution Graph */}
+            {stats?.contribution_calendar?.weeks?.length > 0 && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.3 }}
+                className="bg-white dark:bg-dark-800 rounded-xl p-6 shadow-lg mb-8"
+              >
+                <h3 className="text-xl font-semibold mb-4">{t('github.contributions')}</h3>
+                <ContributionGraph data={stats.contribution_calendar} inView={inView} />
+              </motion.div>
+            )}
 
             {/* Languages - GitHub Style */}
             {stats?.top_languages && Object.keys(stats.top_languages).length > 0 && (

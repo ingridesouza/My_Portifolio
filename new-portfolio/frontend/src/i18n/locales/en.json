@@ -46,7 +46,8 @@
     "repos": "Repositories",
     "stars": "Stars",
     "followers": "Followers",
-    "languages": "Most Used Languages"
+    "languages": "Most Used Languages",
+    "contributions": "Contribution Activity"
   },
   "contact": {
     "title": "Contact",

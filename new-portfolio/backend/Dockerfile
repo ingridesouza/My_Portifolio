@@ -4,6 +4,7 @@ WORKDIR /app
 
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
+ENV DJANGO_SETTINGS_MODULE=config.settings.prod
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -19,7 +20,7 @@ RUN pip install --no-cache-dir -r prod.txt
 COPY . .
 
 # Collect static files
-RUN python manage.py collectstatic --noinput
+RUN DJANGO_SETTINGS_MODULE=config.settings.prod python manage.py collectstatic --noinput --settings=config.settings.prod
 
 # Create non-root user
 RUN adduser --disabled-password --gecos '' appuser && chown -R appuser:appuser /app
