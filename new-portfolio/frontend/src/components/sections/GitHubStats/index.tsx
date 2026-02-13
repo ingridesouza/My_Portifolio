@@ -57,7 +57,7 @@ export function GitHubStats() {
             </div>
 
             {/* Contribution Graph */}
-            {stats?.contribution_calendar?.weeks?.length > 0 && (
+            {(stats?.contribution_calendar?.weeks?.length ?? 0) > 0 && (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -65,7 +65,7 @@ export function GitHubStats() {
                 className="bg-white dark:bg-dark-800 rounded-xl p-6 shadow-lg mb-8"
               >
                 <h3 className="text-xl font-semibold mb-4">{t('github.contributions')}</h3>
-                <ContributionGraph data={stats.contribution_calendar} inView={inView} />
+                <ContributionGraph data={stats!.contribution_calendar!} inView={inView} />
               </motion.div>
             )}
 

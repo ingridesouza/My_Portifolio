@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
-import { useTheme } from '@/context/ThemeContext'
 import { useTranslation } from 'react-i18next'
 import { ThemeToggle } from '@/components/common/ThemeToggle'
 import { LanguageSelector } from '@/components/common/LanguageSelector'
@@ -16,7 +15,6 @@ const navItems = [
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const { theme } = useTheme()
   const { t } = useTranslation()
 
   return (
