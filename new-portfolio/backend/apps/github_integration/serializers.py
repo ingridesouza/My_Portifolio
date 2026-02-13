@@ -21,5 +21,6 @@ class GitHubStatsSerializer(serializers.ModelSerializer):
             'total_followers', 'total_following',
             'public_repos', 'public_gists',
             'total_contributions_last_year', 'contribution_streak',
+            'contribution_calendar',
             'top_languages', 'profile_data', 'last_synced_at'
         ]

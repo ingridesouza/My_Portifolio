@@ -18,6 +18,22 @@ export interface GitHubRepo {
   is_featured: boolean
 }
 
+export interface ContributionDay {
+  contributionCount: number
+  date: string
+  weekday: number
+  color: string
+}
+
+export interface ContributionWeek {
+  contributionDays: ContributionDay[]
+}
+
+export interface ContributionCalendar {
+  totalContributions: number
+  weeks: ContributionWeek[]
+}
+
 export interface GitHubStats {
   total_repos: number
   total_stars: number
@@ -26,6 +42,7 @@ export interface GitHubStats {
   total_following: number
   public_repos: number
   top_languages: Record<string, number>
+  contribution_calendar: ContributionCalendar | null
   profile_data: {
     name: string
     bio: string

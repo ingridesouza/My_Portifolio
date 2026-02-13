@@ -2,8 +2,11 @@ from github import Github
 from django.conf import settings
 from .models import GitHubRepo, GitHubStats
 import logging
+import requests
 
 logger = logging.getLogger(__name__)
+
+GITHUB_GRAPHQL_URL = 'https://api.github.com/graphql'
 
 
 class GitHubService:
@@ -115,8 +118,72 @@ class GitHubService:
             logger.error(f"Error syncing user stats: {e}")
             return False
 
+    def fetch_contribution_calendar(self):
+        """Fetch contribution calendar data via GraphQL API"""
+        if not self.is_configured():
+            logger.warning("GitHub integration not configured")
+            return None
+
+        query = """
+        query($username: String!) {
+            user(login: $username) {
+                contributionsCollection {
+                    contributionCalendar {
+                        totalContributions
+                        weeks {
+                            contributionDays {
+                                contributionCount
+                                date
+                                weekday
+                                color
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        """
+
+        headers = {
+            'Authorization': f'Bearer {self.token}',
+            'Content-Type': 'application/json',
+        }
+
+        try:
+            response = requests.post(
+                GITHUB_GRAPHQL_URL,
+                json={'query': query, 'variables': {'username': self.username}},
+                headers=headers
+            )
+            response.raise_for_status()
+            data = response.json()
+
+            if 'errors' in data:
+                logger.error(f"GraphQL errors: {data['errors']}")
+                return None
+
+            calendar_data = data['data']['user']['contributionsCollection']['contributionCalendar']
+            logger.info(f"Successfully fetched contribution calendar for {self.username}")
+            return calendar_data
+
+        except Exception as e:
+            logger.error(f"Error fetching contribution calendar: {e}")
+            return None
+
+    def sync_contribution_calendar(self):
+        """Sync contribution calendar to database"""
+        calendar_data = self.fetch_contribution_calendar()
+        if calendar_data:
+            stats = GitHubStats.load()
+            stats.contribution_calendar = calendar_data
+            stats.total_contributions_last_year = calendar_data.get('totalContributions', 0)
+            stats.save()
+            return True
+        return False
+
     def sync_all(self):
         """Sync both repositories and stats"""
         repos_ok = self.sync_repositories()
         stats_ok = self.sync_user_stats()
-        return repos_ok and stats_ok
+        calendar_ok = self.sync_contribution_calendar()
+        return repos_ok and stats_ok and calendar_ok

@@ -63,6 +63,9 @@ class GitHubStats(models.Model):
     total_contributions_last_year = models.PositiveIntegerField(default=0)
     contribution_streak = models.PositiveIntegerField(default=0)
 
+    # Contribution calendar data (heatmap)
+    contribution_calendar = models.JSONField(default=dict)
+
     top_languages = models.JSONField(default=dict)
     profile_data = models.JSONField(default=dict)
 
