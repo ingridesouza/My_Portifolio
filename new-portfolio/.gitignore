@@ -74,6 +74,9 @@ coverage.xml
 .pytest_cache/
 .tox/
 
+# TypeScript
+*.tsbuildinfo
+
 # Misc
 *.bak
 *.tmp
