@@ -212,8 +212,8 @@ export function Contact() {
                 >
                   <div className="w-24 h-24 rounded-full bg-gradient-to-r from-primary-400 to-primary-600 p-1 shadow-xl">
                     <div className="w-full h-full rounded-full bg-gray-200 dark:bg-dark-700 flex items-center justify-center text-3xl font-bold text-primary-500 overflow-hidden">
-                      {profile?.avatar ? (
-                        <img src={profile.avatar} alt="Avatar" className="w-full h-full object-cover" />
+                      {profile?.photo ? (
+                        <img src={profile.photo} alt="Avatar" className="w-full h-full object-cover" />
                       ) : (
                         'IS'
                       )}
@@ -230,10 +230,10 @@ export function Contact() {
               {/* Info */}
               <div className="p-6 text-center" style={{ transform: 'translateZ(20px)' }}>
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
-                  {profile?.name || 'Ingride Souza'}
+                  {profile?.full_name || 'Ingride Souza'}
                 </h3>
                 <p className="text-primary-500 font-medium mb-4">
-                  {profile?.title || 'Full Stack Developer'}
+                  {profile?.professional_title || 'Full Stack Developer'}
                 </p>
                 {/* Contact Info List */}
                 <div className="space-y-3">

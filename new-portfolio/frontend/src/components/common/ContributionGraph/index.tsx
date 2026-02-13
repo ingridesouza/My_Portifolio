@@ -91,7 +91,7 @@ export function ContributionGraph({ data, inView = true }: ContributionGraphProp
                 transition={{ delay: weekIndex * 0.01, duration: 0.2 }}
                 className="flex flex-col gap-0.5"
               >
-                {week.contributionDays.map((day, dayIndex) => (
+                {week.contributionDays.map((day) => (
                   <div
                     key={day.date}
                     className={`w-[11px] h-[11px] rounded-sm ${getContributionLevel(day.contributionCount)} transition-colors cursor-pointer hover:ring-1 hover:ring-gray-400 dark:hover:ring-gray-500`}
