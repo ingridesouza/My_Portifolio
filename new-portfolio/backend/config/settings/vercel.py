@@ -23,10 +23,11 @@ DATABASES = {
 # Remove celery_beat from installed apps (no Celery on Vercel)
 INSTALLED_APPS = [app for app in INSTALLED_APPS if app != 'django_celery_beat']
 
-# Static files
+# Static files - serve from finders without collectstatic
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+WHITENOISE_USE_FINDERS = True
 
 # Security - Vercel handles HTTPS termination
 SECURE_SSL_REDIRECT = False
