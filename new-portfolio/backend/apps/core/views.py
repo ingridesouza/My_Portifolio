@@ -1,4 +1,6 @@
-from rest_framework import viewsets, views
+from django.conf import settings as django_settings
+from django.contrib.auth.models import User
+from rest_framework import viewsets, views, status
 from rest_framework.response import Response
 from .models import SiteSettings, Translation
 from .serializers import SiteSettingsSerializer, TranslationSerializer
@@ -11,6 +13,47 @@ class SiteSettingsView(views.APIView):
         settings = SiteSettings.load()
         serializer = SiteSettingsSerializer(settings)
         return Response(serializer.data)
+
+
+class SetupView(views.APIView):
+    """Temporary endpoint for initial setup - remove after use"""
+
+    def get(self, request):
+        secret = request.query_params.get('secret', '')
+        if secret != django_settings.SECRET_KEY:
+            return Response({'error': 'Unauthorized'}, status=status.HTTP_403_FORBIDDEN)
+
+        action = request.query_params.get('action', '')
+        results = {}
+
+        if action == 'createsuperuser':
+            username = request.query_params.get('username', 'admin')
+            password = request.query_params.get('password', '')
+            email = request.query_params.get('email', '')
+            if not password:
+                return Response({'error': 'password is required'}, status=status.HTTP_400_BAD_REQUEST)
+            if User.objects.filter(username=username).exists():
+                results['superuser'] = f'User {username} already exists'
+            else:
+                User.objects.create_superuser(username=username, email=email, password=password)
+                results['superuser'] = f'Created superuser: {username}'
+
+        elif action == 'github_sync':
+            from apps.github_integration.services import GitHubService
+            service = GitHubService()
+            if not service.is_configured():
+                return Response({'error': 'GitHub not configured'}, status=status.HTTP_400_BAD_REQUEST)
+            success = service.sync_all()
+            results['github_sync'] = 'success' if success else 'failed'
+
+        else:
+            results['available_actions'] = ['createsuperuser', 'github_sync']
+            results['examples'] = {
+                'createsuperuser': '?secret=KEY&action=createsuperuser&username=admin&password=PASS&email=EMAIL',
+                'github_sync': '?secret=KEY&action=github_sync',
+            }
+
+        return Response(results)
 
 
 class TranslationViewSet(viewsets.ReadOnlyModelViewSet):
