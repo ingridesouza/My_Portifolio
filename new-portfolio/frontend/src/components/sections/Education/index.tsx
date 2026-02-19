@@ -5,7 +5,7 @@ import { educationService } from '@/services/educationService'
 import { useInView } from 'react-intersection-observer'
 import { format } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
-import { FileText } from 'lucide-react'
+import { FileText, ExternalLink, Award } from 'lucide-react'
 
 export function Education() {
   const { t } = useTranslation()
@@ -83,33 +83,78 @@ export function Education() {
         {/* Certifications */}
         {certifications && certifications.length > 0 && (
           <>
-            <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">{t('education.certifications')}</h3>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.2 }}
+              className="flex items-center gap-3 mb-5 sm:mb-6"
+            >
+              <div className="p-2 bg-primary-500/20 rounded-lg">
+                <Award className="text-primary-400" size={20} />
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold">{t('education.certifications')}</h3>
+            </motion.div>
+
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               {certifications.map((cert, index) => (
                 <motion.div
                   key={cert.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 0.3 + index * 0.1 }}
-                  className="bg-dark-800 rounded-lg p-3 sm:p-4 flex items-center gap-3 sm:gap-4"
+                  transition={{ delay: 0.3 + index * 0.08 }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="group relative bg-dark-800 rounded-xl overflow-hidden border border-dark-700/50 hover:border-primary-500/30 transition-all duration-300"
                 >
-                  <div className="p-2 sm:p-3 bg-primary-500/20 rounded-lg flex-shrink-0">
-                    <FileText className="text-primary-400" size={20} />
+                  {/* Gradient accent top */}
+                  <div className="h-1 bg-gradient-to-r from-primary-500 via-primary-400 to-primary-600" />
+
+                  <div className="p-3.5 sm:p-4">
+                    <div className="flex items-start gap-3">
+                      {/* Logo or icon */}
+                      <div className="flex-shrink-0">
+                        {cert.organization_logo ? (
+                          <img
+                            src={cert.organization_logo}
+                            alt={cert.issuing_organization}
+                            className="w-10 h-10 sm:w-11 sm:h-11 rounded-lg object-contain bg-white p-1"
+                          />
+                        ) : (
+                          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-lg bg-primary-500/15 flex items-center justify-center">
+                            <FileText className="text-primary-400" size={18} />
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Content */}
+                      <div className="flex-1 min-w-0">
+                        <h4 className="font-semibold text-sm sm:text-base text-white leading-tight mb-0.5 line-clamp-2">
+                          {cert.name}
+                        </h4>
+                        <p className="text-xs sm:text-sm text-gray-400">
+                          {cert.issuing_organization}
+                        </p>
+                        {cert.issue_date && (
+                          <p className="text-[10px] sm:text-xs text-gray-500 mt-1">
+                            {format(new Date(cert.issue_date), 'MMM yyyy', { locale: ptBR })}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Action */}
+                    {cert.credential_url && (
+                      <a
+                        href={cert.credential_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center gap-1.5 mt-3 py-1.5 sm:py-2 rounded-lg bg-primary-500/10 text-primary-400 hover:bg-primary-500/20 hover:text-primary-300 transition-colors text-xs sm:text-sm font-medium"
+                      >
+                        <ExternalLink size={13} />
+                        Ver credencial
+                      </a>
+                    )}
                   </div>
-                  <div className="flex-1 min-w-0">
-                    <h4 className="font-medium text-sm sm:text-base truncate">{cert.name}</h4>
-                    <p className="text-xs sm:text-sm text-gray-400 truncate">{cert.issuing_organization}</p>
-                  </div>
-                  {cert.credential_url && (
-                    <a
-                      href={cert.credential_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-primary-400 hover:text-primary-300 transition-colors text-sm"
-                    >
-                      Ver
-                    </a>
-                  )}
                 </motion.div>
               ))}
             </div>
