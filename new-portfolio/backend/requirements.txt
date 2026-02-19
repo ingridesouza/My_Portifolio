@@ -1,0 +1,20 @@
+# Core Django
+Django>=5.0,<5.1
+djangorestframework>=3.15.0
+django-cors-headers>=4.4.0
+django-filter>=24.3
+
+# Database
+psycopg2-binary>=2.9.9
+dj-database-url>=2.2.0
+
+# File Handling
+Pillow>=10.4.0
+
+# GitHub Integration
+PyGithub>=2.4.0
+httpx>=0.27.2
+
+# Utils
+python-decouple>=3.8
+whitenoise>=6.7.0

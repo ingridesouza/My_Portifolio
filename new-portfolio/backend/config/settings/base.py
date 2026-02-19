@@ -25,8 +25,11 @@ THIRD_PARTY_APPS = [
     'rest_framework',
     'corsheaders',
     'django_filters',
-    'django_celery_beat',
 ]
+
+# Celery Beat only when not on Vercel
+if os.environ.get('DJANGO_SETTINGS_MODULE') != 'config.settings.vercel':
+    THIRD_PARTY_APPS.append('django_celery_beat')
 
 LOCAL_APPS = [
     'apps.core',
@@ -130,16 +133,15 @@ CORS_ALLOWED_ORIGINS = [
     'http://127.0.0.1:5173',
 ]
 
-# Celery
-CELERY_BROKER_URL = config('CELERY_BROKER_URL', default='redis://localhost:6379/0')
-CELERY_RESULT_BACKEND = config('CELERY_RESULT_BACKEND', default='redis://localhost:6379/0')
-CELERY_ACCEPT_CONTENT = ['json']
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_RESULT_SERIALIZER = 'json'
-CELERY_TIMEZONE = TIME_ZONE
-
-# Celery Beat
-CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
+# Celery (only when not on Vercel)
+if os.environ.get('DJANGO_SETTINGS_MODULE') != 'config.settings.vercel':
+    CELERY_BROKER_URL = config('CELERY_BROKER_URL', default='redis://localhost:6379/0')
+    CELERY_RESULT_BACKEND = config('CELERY_RESULT_BACKEND', default='redis://localhost:6379/0')
+    CELERY_ACCEPT_CONTENT = ['json']
+    CELERY_TASK_SERIALIZER = 'json'
+    CELERY_RESULT_SERIALIZER = 'json'
+    CELERY_TIMEZONE = TIME_ZONE
+    CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
 
 # GitHub
 GITHUB_TOKEN = config('GITHUB_TOKEN', default='')
