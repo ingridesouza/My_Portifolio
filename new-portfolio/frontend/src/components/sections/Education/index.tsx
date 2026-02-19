@@ -65,11 +65,11 @@ export function Education() {
 
               {/* Skills learned */}
               {edu.skills_learned?.length > 0 && (
-                <div className="flex flex-wrap gap-2 mt-4">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-3 sm:mt-4">
                   {edu.skills_learned.map((skill) => (
                     <span
                       key={skill.id}
-                      className="px-3 py-1 text-sm bg-primary-500 text-white rounded"
+                      className="px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm bg-primary-500 text-white rounded"
                     >
                       {skill.name}
                     </span>
@@ -93,12 +93,12 @@ export function Education() {
                   transition={{ delay: 0.3 + index * 0.1 }}
                   className="bg-dark-800 rounded-lg p-3 sm:p-4 flex items-center gap-3 sm:gap-4"
                 >
-                  <div className="p-3 bg-primary-500/20 rounded-lg">
-                    <FileText className="text-primary-400" size={24} />
+                  <div className="p-2 sm:p-3 bg-primary-500/20 rounded-lg flex-shrink-0">
+                    <FileText className="text-primary-400" size={20} />
                   </div>
-                  <div className="flex-1">
-                    <h4 className="font-medium">{cert.name}</h4>
-                    <p className="text-sm text-gray-400">{cert.issuing_organization}</p>
+                  <div className="flex-1 min-w-0">
+                    <h4 className="font-medium text-sm sm:text-base truncate">{cert.name}</h4>
+                    <p className="text-xs sm:text-sm text-gray-400 truncate">{cert.issuing_organization}</p>
                   </div>
                   {cert.credential_url && (
                     <a

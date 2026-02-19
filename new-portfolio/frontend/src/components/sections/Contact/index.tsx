@@ -258,9 +258,9 @@ export function Contact() {
                       <div className={`p-2 rounded-lg bg-gradient-to-br ${item.color}`}>
                         <item.icon className="w-4 h-4 text-white" />
                       </div>
-                      <div className="flex-1 text-left">
-                        <p className="text-xs text-gray-500 dark:text-gray-400">{item.label}</p>
-                        <p className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                      <div className="flex-1 text-left min-w-0">
+                        <p className="text-[10px] sm:text-xs text-gray-500 dark:text-gray-400">{item.label}</p>
+                        <p className="text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 truncate">
                           {item.value}
                         </p>
                       </div>

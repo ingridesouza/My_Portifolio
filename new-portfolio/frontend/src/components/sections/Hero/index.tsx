@@ -82,25 +82,25 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-center lg:text-left"
           >
-            <p className="text-lg text-gray-600 dark:text-gray-400 mb-2">
+            <p className="text-sm sm:text-lg text-gray-600 dark:text-gray-400 mb-1 sm:mb-2">
               {t('hero.greeting')}
             </p>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2 sm:mb-4">
               {profile?.full_name || 'Ingride Souza'}
             </h1>
 
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-primary-500 mb-4 min-h-[2rem] sm:min-h-[2.5rem]">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-primary-500 mb-2 sm:mb-4 min-h-[1.75rem] sm:min-h-[2.5rem]">
               {typedText}
               {isTyping && <span className="terminal-cursor ml-1" />}
             </h2>
 
-            <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-lg">
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-4 sm:mb-6 max-w-lg line-clamp-3 sm:line-clamp-none">
               {profile?.bio_short || t('hero.subtitle')}
             </p>
 
-            <div className="flex items-center justify-center lg:justify-start gap-2 text-gray-500 dark:text-gray-400">
-              <MapPin size={18} />
+            <div className="flex items-center justify-center lg:justify-start gap-1.5 sm:gap-2 text-xs sm:text-sm text-gray-500 dark:text-gray-400">
+              <MapPin size={16} className="flex-shrink-0" />
               <span>{profile?.location || 'Salvador, Bahia - Brasil'}</span>
             </div>
 
@@ -109,7 +109,7 @@ export function Hero() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1 }}
-                className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 text-green-600 dark:text-green-400 rounded-full text-sm"
+                className="mt-3 sm:mt-4 inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-green-500/10 text-green-600 dark:text-green-400 rounded-full text-xs sm:text-sm"
               >
                 <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
                 Disponivel para novos projetos

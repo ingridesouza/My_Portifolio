@@ -103,21 +103,21 @@ function ExperienceCard({
           )}
           <div>
             <h3 className="font-semibold text-base sm:text-lg">{experience.company_name}</h3>
-            <p className="text-primary-500 font-medium">{experience.position}</p>
+            <p className="text-primary-500 font-medium text-sm sm:text-base">{experience.position}</p>
           </div>
         </div>
 
-        <p className="text-gray-600 dark:text-gray-400 text-sm whitespace-pre-line">
+        <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm whitespace-pre-line line-clamp-4 sm:line-clamp-none">
           {experience.description}
         </p>
 
         {/* Technologies */}
         {experience.technologies?.length > 0 && (
-          <div className="flex flex-wrap gap-2 mt-4">
+          <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-3 sm:mt-4">
             {experience.technologies.map((tech) => (
               <span
                 key={tech.id}
-                className="px-2 py-1 text-xs bg-primary-500/10 text-primary-600 dark:text-primary-400 rounded"
+                className="px-1.5 sm:px-2 py-0.5 sm:py-1 text-xs bg-primary-500/10 text-primary-600 dark:text-primary-400 rounded"
               >
                 {tech.name}
               </span>
