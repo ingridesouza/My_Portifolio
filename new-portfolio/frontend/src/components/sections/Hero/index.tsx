@@ -42,8 +42,8 @@ export function Hero() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       <ParticleBackground />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
           {/* Photo */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -51,7 +51,7 @@ export function Hero() {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="relative w-64 h-64 md:w-80 md:h-80">
+            <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80">
               {/* Aura effect */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary-500/30 to-primary-700/30 blur-xl animate-pulse-slow" />
 
@@ -86,11 +86,11 @@ export function Hero() {
               {t('hero.greeting')}
             </p>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
               {profile?.full_name || 'Ingride Souza'}
             </h1>
 
-            <h2 className="text-2xl md:text-3xl font-semibold text-primary-500 mb-4 min-h-[2.5rem]">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-primary-500 mb-4 min-h-[2rem] sm:min-h-[2.5rem]">
               {typedText}
               {isTyping && <span className="terminal-cursor ml-1" />}
             </h2>

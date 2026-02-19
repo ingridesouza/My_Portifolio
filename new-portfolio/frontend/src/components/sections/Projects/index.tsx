@@ -20,7 +20,7 @@ export function Projects() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         {/* Background title */}
         <div className="relative">
-          <h2 className="absolute -top-8 left-1/2 -translate-x-1/2 text-6xl md:text-8xl font-bold text-primary-500/10 dark:text-primary-500/5 whitespace-nowrap pointer-events-none">
+          <h2 className="absolute -top-8 left-1/2 -translate-x-1/2 text-4xl sm:text-6xl md:text-8xl font-bold text-primary-500/10 dark:text-primary-500/5 whitespace-nowrap pointer-events-none">
             {t('projects.title').toUpperCase()}
           </h2>
         </div>
@@ -28,7 +28,7 @@ export function Projects() {
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          className="text-3xl md:text-4xl font-bold text-center mb-4 relative z-10"
+          className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-4 relative z-10"
         >
           {t('projects.featured')}
         </motion.h2>
@@ -80,7 +80,7 @@ function ProjectCard({
     >
       {/* Thumbnail */}
       {project.thumbnail && (
-        <div className="relative h-44 overflow-hidden">
+        <div className="relative h-36 sm:h-44 overflow-hidden">
           <img
             src={project.thumbnail}
             alt={project.title}
@@ -93,7 +93,7 @@ function ProjectCard({
         </div>
       )}
 
-      <div className="p-5">
+      <div className="p-4 sm:p-5">
         <h3 className="text-lg font-semibold mb-2 group-hover:text-primary-500 transition-colors">
           {project.title}
         </h3>

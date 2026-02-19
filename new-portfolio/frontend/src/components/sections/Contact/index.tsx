@@ -107,54 +107,56 @@ export function Contact() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-primary-700 via-primary-500 to-primary-700 dark:from-primary-300 dark:via-primary-400 dark:to-primary-300 bg-clip-text text-transparent">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold bg-gradient-to-r from-primary-700 via-primary-500 to-primary-700 dark:from-primary-300 dark:via-primary-400 dark:to-primary-300 bg-clip-text text-transparent">
             {t('contact.title')}
           </h2>
         </motion.div>
 
         {/* 3D Floating Card Container */}
-        <div className="relative flex justify-center items-center min-h-[500px]" style={{ perspective: '1000px' }}>
+        <div className="relative flex justify-center items-center min-h-[350px] sm:min-h-[500px]" style={{ perspective: '1000px' }}>
 
-          {/* Floating Orbit Icons */}
-          {contactItems.map((item, index) => (
-            <motion.a
-              key={`orbit-${item.label}`}
-              href={item.href}
-              target={item.href.startsWith('http') ? '_blank' : undefined}
-              rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-              initial={{ opacity: 0, scale: 0 }}
-              animate={inView ? {
-                opacity: 1,
-                scale: 1,
-                x: [orbitPositions[index].x, orbitPositions[index].x + 10, orbitPositions[index].x],
-                y: [orbitPositions[index].y, orbitPositions[index].y - 15, orbitPositions[index].y],
-              } : {}}
-              transition={{
-                delay: orbitPositions[index].delay + 0.5,
-                x: { duration: 4, repeat: Infinity, ease: 'easeInOut' },
-                y: { duration: 3, repeat: Infinity, ease: 'easeInOut' },
-              }}
-              whileHover={{ scale: 1.3, zIndex: 50 }}
-              className={`absolute p-4 rounded-2xl bg-gradient-to-br ${item.color} shadow-lg cursor-pointer z-10 group`}
-              style={{
-                left: '50%',
-                top: '50%',
-                marginLeft: '-24px',
-                marginTop: '-24px',
-              }}
-            >
-              <item.icon className="w-6 h-6 text-white" />
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                whileHover={{ opacity: 1, y: 0 }}
-                className="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-xs px-2 py-1 rounded-md"
+          {/* Floating Orbit Icons - hidden on mobile */}
+          <div className="hidden md:contents">
+            {contactItems.map((item, index) => (
+              <motion.a
+                key={`orbit-${item.label}`}
+                href={item.href}
+                target={item.href.startsWith('http') ? '_blank' : undefined}
+                rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                initial={{ opacity: 0, scale: 0 }}
+                animate={inView ? {
+                  opacity: 1,
+                  scale: 1,
+                  x: [orbitPositions[index].x, orbitPositions[index].x + 10, orbitPositions[index].x],
+                  y: [orbitPositions[index].y, orbitPositions[index].y - 15, orbitPositions[index].y],
+                } : {}}
+                transition={{
+                  delay: orbitPositions[index].delay + 0.5,
+                  x: { duration: 4, repeat: Infinity, ease: 'easeInOut' },
+                  y: { duration: 3, repeat: Infinity, ease: 'easeInOut' },
+                }}
+                whileHover={{ scale: 1.3, zIndex: 50 }}
+                className={`absolute p-4 rounded-2xl bg-gradient-to-br ${item.color} shadow-lg cursor-pointer z-10 group`}
+                style={{
+                  left: '50%',
+                  top: '50%',
+                  marginLeft: '-24px',
+                  marginTop: '-24px',
+                }}
               >
-                {item.label}
-              </motion.div>
-            </motion.a>
-          ))}
+                <item.icon className="w-6 h-6 text-white" />
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  whileHover={{ opacity: 1, y: 0 }}
+                  className="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-xs px-2 py-1 rounded-md"
+                >
+                  {item.label}
+                </motion.div>
+              </motion.a>
+            ))}
+          </div>
 
           {/* Main 3D Card */}
           <motion.div
@@ -181,7 +183,7 @@ export function Contact() {
               <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/10 to-transparent opacity-50 pointer-events-none" />
 
               {/* Header with gradient */}
-              <div className="relative h-24 bg-gradient-to-r from-primary-400 via-primary-500 to-primary-700 overflow-hidden">
+              <div className="relative h-20 sm:h-24 bg-gradient-to-r from-primary-400 via-primary-500 to-primary-700 overflow-hidden">
                 <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSIyIi8+PC9nPjwvZz48L3N2Zz4=')] opacity-30" />
 
                 {/* Animated particles */}
@@ -205,12 +207,12 @@ export function Contact() {
               </div>
 
               {/* Avatar */}
-              <div className="relative -mt-12 flex justify-center" style={{ transform: 'translateZ(40px)' }}>
+              <div className="relative -mt-10 sm:-mt-12 flex justify-center" style={{ transform: 'translateZ(40px)' }}>
                 <motion.div
                   whileHover={{ scale: 1.1 }}
                   className="relative"
                 >
-                  <div className="w-24 h-24 rounded-full bg-gradient-to-r from-primary-400 to-primary-600 p-1 shadow-xl">
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-r from-primary-400 to-primary-600 p-1 shadow-xl">
                     <div className="w-full h-full rounded-full bg-gray-200 dark:bg-dark-700 flex items-center justify-center text-3xl font-bold text-primary-500 overflow-hidden">
                       {profile?.photo ? (
                         <img src={profile.photo} alt="Avatar" className="w-full h-full object-cover" />
@@ -228,15 +230,15 @@ export function Contact() {
               </div>
 
               {/* Info */}
-              <div className="p-6 text-center" style={{ transform: 'translateZ(20px)' }}>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
+              <div className="p-4 sm:p-6 text-center" style={{ transform: 'translateZ(20px)' }}>
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-1">
                   {profile?.full_name || 'Ingride Souza'}
                 </h3>
-                <p className="text-primary-500 font-medium mb-4">
+                <p className="text-primary-500 font-medium text-sm sm:text-base mb-3 sm:mb-4">
                   {profile?.professional_title || 'Full Stack Developer'}
                 </p>
                 {/* Contact Info List */}
-                <div className="space-y-3">
+                <div className="space-y-2 sm:space-y-3">
                   {contactItems.map((item) => (
                     <motion.a
                       key={item.label}
@@ -245,7 +247,7 @@ export function Contact() {
                       rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-dark-700/50 rounded-xl group cursor-pointer hover:bg-gray-100 dark:hover:bg-dark-600/50 transition-colors"
+                      className="flex items-center gap-2.5 sm:gap-3 p-2.5 sm:p-3 bg-gray-50 dark:bg-dark-700/50 rounded-xl group cursor-pointer hover:bg-gray-100 dark:hover:bg-dark-600/50 transition-colors"
                       onClick={(e: React.MouseEvent) => {
                         if (item.copyable) {
                           e.preventDefault()

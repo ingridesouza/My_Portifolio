@@ -20,7 +20,7 @@ export function Experience() {
       <div className="max-w-4xl mx-auto">
         {/* Background title */}
         <div className="relative">
-          <h2 className="absolute -top-8 left-1/2 -translate-x-1/2 text-6xl md:text-8xl font-bold text-primary-500/10 dark:text-primary-500/5 whitespace-nowrap pointer-events-none">
+          <h2 className="absolute -top-8 left-1/2 -translate-x-1/2 text-4xl sm:text-6xl md:text-8xl font-bold text-primary-500/10 dark:text-primary-500/5 whitespace-nowrap pointer-events-none">
             {t('experience.title').toUpperCase()}
           </h2>
         </div>
@@ -28,7 +28,7 @@ export function Experience() {
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          className="text-3xl md:text-4xl font-bold text-center mb-12 relative z-10"
+          className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 relative z-10"
         >
           {t('experience.title')}
         </motion.h2>
@@ -40,9 +40,9 @@ export function Experience() {
         ) : (
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-primary-500/30" />
+            <div className="absolute left-3 sm:left-8 top-0 bottom-0 w-0.5 bg-primary-500/30" />
 
-            <div className="space-y-8">
+            <div className="space-y-6 sm:space-y-8">
               {experiences?.map((exp, index) => (
                 <ExperienceCard
                   key={exp.id}
@@ -79,30 +79,30 @@ function ExperienceCard({
       initial={{ opacity: 0, x: -30 }}
       animate={inView ? { opacity: 1, x: 0 } : {}}
       transition={{ delay: index * 0.2, duration: 0.5 }}
-      className="relative pl-20"
+      className="relative pl-8 sm:pl-20"
     >
       {/* Timeline dot */}
-      <div className="absolute left-6 w-5 h-5 bg-primary-500 rounded-full border-4 border-white dark:border-dark-900" />
+      <div className="absolute left-1 sm:left-6 top-0 sm:top-auto w-4 h-4 sm:w-5 sm:h-5 bg-primary-500 rounded-full border-3 sm:border-4 border-white dark:border-dark-900" />
 
-      {/* Date */}
-      <div className="absolute left-0 top-0 text-sm text-gray-500 dark:text-gray-400 font-medium">
+      {/* Date - inline on mobile, absolute on desktop */}
+      <div className="sm:absolute sm:left-0 sm:top-0 text-xs sm:text-sm text-gray-500 dark:text-gray-400 font-medium mb-2 sm:mb-0">
         {formatDate(experience.start_date)}
-        <br />
+        {' - '}
         {experience.is_current ? t('experience.current') : experience.end_date ? formatDate(experience.end_date) : ''}
       </div>
 
       {/* Card */}
-      <div className="bg-white dark:bg-dark-800 rounded-xl p-6 shadow-lg">
-        <div className="flex items-center gap-4 mb-4">
+      <div className="bg-white dark:bg-dark-800 rounded-xl p-4 sm:p-6 shadow-lg">
+        <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
           {experience.company_logo && (
             <img
               src={experience.company_logo}
               alt={experience.company_name}
-              className="w-12 h-12 rounded-lg object-contain bg-white"
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg object-contain bg-white"
             />
           )}
           <div>
-            <h3 className="font-semibold text-lg">{experience.company_name}</h3>
+            <h3 className="font-semibold text-base sm:text-lg">{experience.company_name}</h3>
             <p className="text-primary-500 font-medium">{experience.position}</p>
           </div>
         </div>

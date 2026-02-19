@@ -28,7 +28,7 @@ export function GitHubStats() {
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          className="text-3xl md:text-4xl font-bold text-center mb-12"
+          className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12"
         >
           {t('github.title')}
         </motion.h2>
@@ -40,18 +40,18 @@ export function GitHubStats() {
         ) : (
           <>
             {/* Stats Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
               {statItems.map((item, index) => (
                 <motion.div
                   key={item.label}
                   initial={{ opacity: 0, y: 20 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-white dark:bg-dark-800 rounded-xl p-6 text-center shadow-lg"
+                  className="bg-white dark:bg-dark-800 rounded-xl p-4 sm:p-6 text-center shadow-lg"
                 >
-                  <item.icon className="w-8 h-8 text-primary-500 mx-auto mb-2" />
-                  <div className="text-3xl font-bold mb-1">{item.value}</div>
-                  <div className="text-sm text-gray-500 dark:text-gray-400">{item.label}</div>
+                  <item.icon className="w-6 h-6 sm:w-8 sm:h-8 text-primary-500 mx-auto mb-1.5 sm:mb-2" />
+                  <div className="text-2xl sm:text-3xl font-bold mb-1">{item.value}</div>
+                  <div className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">{item.label}</div>
                 </motion.div>
               ))}
             </div>
@@ -62,9 +62,9 @@ export function GitHubStats() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.3 }}
-                className="bg-white dark:bg-dark-800 rounded-xl p-6 shadow-lg mb-8"
+                className="bg-white dark:bg-dark-800 rounded-xl p-4 sm:p-6 shadow-lg mb-6 sm:mb-8"
               >
-                <h3 className="text-xl font-semibold mb-4">{t('github.contributions')}</h3>
+                <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">{t('github.contributions')}</h3>
                 <ContributionGraph data={stats!.contribution_calendar!} inView={inView} />
               </motion.div>
             )}
@@ -75,9 +75,9 @@ export function GitHubStats() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.4 }}
-                className="bg-white dark:bg-dark-800 rounded-xl p-6 shadow-lg"
+                className="bg-white dark:bg-dark-800 rounded-xl p-4 sm:p-6 shadow-lg"
               >
-                <h3 className="text-xl font-semibold mb-6">{t('github.languages')}</h3>
+                <h3 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6">{t('github.languages')}</h3>
 
                 {(() => {
                   const languageColors: Record<string, string> = {
@@ -114,7 +114,7 @@ export function GitHubStats() {
                   return (
                     <>
                       {/* GitHub-style language bar */}
-                      <div className="h-3 w-full rounded-full overflow-hidden flex mb-6">
+                      <div className="h-2.5 sm:h-3 w-full rounded-full overflow-hidden flex mb-4 sm:mb-6">
                         {languages.map((lang, index) => (
                           <motion.div
                             key={lang.name}
@@ -129,21 +129,21 @@ export function GitHubStats() {
                       </div>
 
                       {/* Language cards */}
-                      <div className="flex flex-wrap gap-3">
+                      <div className="flex flex-wrap gap-2 sm:gap-3">
                         {languages.map((lang, index) => (
                           <motion.div
                             key={lang.name}
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={inView ? { opacity: 1, scale: 1 } : {}}
                             transition={{ delay: 0.6 + index * 0.1, duration: 0.4 }}
-                            className="flex items-center gap-2 bg-gray-100 dark:bg-dark-700 rounded-lg px-3 py-2"
+                            className="flex items-center gap-1.5 sm:gap-2 bg-gray-100 dark:bg-dark-700 rounded-lg px-2.5 py-1.5 sm:px-3 sm:py-2"
                           >
                             <span
                               className="w-3 h-3 rounded-full flex-shrink-0"
                               style={{ backgroundColor: lang.color }}
                             />
-                            <span className="text-sm font-medium">{lang.name}</span>
-                            <span className="text-sm text-gray-500 dark:text-gray-400 font-semibold">
+                            <span className="text-xs sm:text-sm font-medium">{lang.name}</span>
+                            <span className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 font-semibold">
                               {lang.percentage}%
                             </span>
                           </motion.div>

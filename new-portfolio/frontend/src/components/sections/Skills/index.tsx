@@ -25,7 +25,7 @@ export function Skills() {
       <div className="max-w-4xl mx-auto px-4">
         {/* Background title */}
         <div className="relative">
-          <h2 className="absolute -top-8 left-1/2 -translate-x-1/2 text-5xl md:text-7xl font-bold text-primary-500/10 dark:text-primary-500/5 whitespace-nowrap pointer-events-none">
+          <h2 className="absolute -top-8 left-1/2 -translate-x-1/2 text-3xl sm:text-5xl md:text-7xl font-bold text-primary-500/10 dark:text-primary-500/5 whitespace-nowrap pointer-events-none">
             {t('skills.title').toUpperCase()}
           </h2>
         </div>
@@ -33,7 +33,7 @@ export function Skills() {
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          className="text-2xl md:text-3xl font-bold text-center mb-10 relative z-10"
+          className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-8 sm:mb-10 relative z-10"
         >
           {t('skills.title')}
         </motion.h2>
@@ -43,7 +43,7 @@ export function Skills() {
             <div className="animate-spin w-8 h-8 border-2 border-primary-500 border-t-transparent rounded-full mx-auto" />
           </div>
         ) : (
-          <div className="grid md:grid-cols-2 gap-5">
+          <div className="grid md:grid-cols-2 gap-4 sm:gap-5">
             {categories?.map((category, categoryIndex) => (
               <SkillCategoryCard
                 key={category.id}
@@ -76,7 +76,7 @@ function SkillCategoryCard({
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ delay: index * 0.1, duration: 0.5 }}
-      className="bg-white dark:bg-dark-800 rounded-lg p-5 shadow-md"
+      className="bg-white dark:bg-dark-800 rounded-lg p-4 sm:p-5 shadow-md"
     >
       <h3 className="text-lg font-semibold mb-3 text-primary-500">
         {title}

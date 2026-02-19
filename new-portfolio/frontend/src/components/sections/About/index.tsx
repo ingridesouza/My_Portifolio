@@ -41,7 +41,7 @@ export function About() {
       <div className="max-w-4xl mx-auto">
         {/* Background title */}
         <div className="relative">
-          <h2 className="absolute -top-8 left-1/2 -translate-x-1/2 text-6xl md:text-8xl font-bold text-primary-500/10 dark:text-primary-500/5 whitespace-nowrap pointer-events-none">
+          <h2 className="absolute -top-8 left-1/2 -translate-x-1/2 text-4xl sm:text-6xl md:text-8xl font-bold text-primary-500/10 dark:text-primary-500/5 whitespace-nowrap pointer-events-none">
             {t('about.title').toUpperCase()}
           </h2>
         </div>
@@ -50,7 +50,7 @@ export function About() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="text-3xl md:text-4xl font-bold text-center mb-12 relative z-10"
+          className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 relative z-10"
         >
           {t('about.title')}
         </motion.h2>
@@ -68,7 +68,7 @@ export function About() {
               {/* Main Photo */}
               <motion.div
                 whileHover={{ scale: 1.02 }}
-                className="w-64 h-64 md:w-72 md:h-72 rounded-2xl overflow-hidden shadow-xl cursor-pointer"
+                className="w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 rounded-2xl overflow-hidden shadow-xl cursor-pointer"
                 onClick={() => setSelectedPhoto(MAIN_PHOTO.src)}
               >
                 <img
@@ -108,7 +108,7 @@ export function About() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-6"
+              className="text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-6"
             >
               {profile?.bio_full || t('about.description')}
             </motion.p>
