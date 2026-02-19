@@ -46,11 +46,24 @@ class SetupView(views.APIView):
             success = service.sync_all()
             results['github_sync'] = 'success' if success else 'failed'
 
+        elif action == 'seed':
+            from io import StringIO
+            from django.core.management import call_command
+            out = StringIO()
+            try:
+                call_command('seed_data', stdout=out)
+                results['seed'] = 'success'
+                results['output'] = out.getvalue()
+            except Exception as e:
+                return Response({'error': str(e), 'output': out.getvalue()},
+                                status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
         else:
-            results['available_actions'] = ['createsuperuser', 'github_sync']
+            results['available_actions'] = ['createsuperuser', 'github_sync', 'seed']
             results['examples'] = {
                 'createsuperuser': '?secret=KEY&action=createsuperuser&username=admin&password=PASS&email=EMAIL',
                 'github_sync': '?secret=KEY&action=github_sync',
+                'seed': '?secret=KEY&action=seed',
             }
 
         return Response(results)
