@@ -5,7 +5,7 @@ import { educationService } from '@/services/educationService'
 import { useInView } from 'react-intersection-observer'
 import { format } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
-import { FileText, ExternalLink, Award } from 'lucide-react'
+import { FileText, ExternalLink, Award, Download } from 'lucide-react'
 
 export function Education() {
   const { t } = useTranslation()
@@ -47,7 +47,7 @@ export function Education() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="bg-dark-800 rounded-xl p-4 sm:p-6"
+              className="group bg-dark-800 rounded-xl p-4 sm:p-6"
             >
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-4 mb-2">
                 <div>
@@ -55,7 +55,19 @@ export function Education() {
                     {edu.degree_type}
                   </span>
                   <h3 className="text-lg sm:text-xl font-semibold">{edu.degree_name}</h3>
-                  <p className="text-sm sm:text-base text-gray-400">{edu.institution}</p>
+                  {edu.institution_url ? (
+                    <a
+                      href={edu.institution_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm sm:text-base text-gray-400 hover:text-primary-400 transition-colors inline-flex items-center gap-1"
+                    >
+                      {edu.institution}
+                      <ExternalLink size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </a>
+                  ) : (
+                    <p className="text-sm sm:text-base text-gray-400">{edu.institution}</p>
+                  )}
                 </div>
                 <span className="text-xs sm:text-sm text-gray-500 sm:text-right sm:flex-shrink-0">
                   {format(new Date(edu.start_date), 'MMM yyyy', { locale: ptBR })} -{' '}
@@ -143,15 +155,18 @@ export function Education() {
                     </div>
 
                     {/* Action */}
-                    {cert.credential_url && (
+                    {(cert.credential_url || cert.certificate_file) && (
                       <a
-                        href={cert.credential_url}
+                        href={cert.credential_url || cert.certificate_file}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center justify-center gap-1.5 mt-3 py-1.5 sm:py-2 rounded-lg bg-primary-500/10 text-primary-400 hover:bg-primary-500/20 hover:text-primary-300 transition-colors text-xs sm:text-sm font-medium"
                       >
-                        <ExternalLink size={13} />
-                        Ver credencial
+                        {cert.credential_url ? (
+                          <><ExternalLink size={13} /> Ver credencial</>
+                        ) : (
+                          <><Download size={13} /> Ver certificado</>
+                        )}
                       </a>
                     )}
                   </div>
