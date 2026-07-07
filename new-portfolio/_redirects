@@ -1,0 +1,3 @@
+_redirects name=_redirects
+# Redirecionar URL do Netlify para domínio oficial
+https://ingridesouza-portifolio.netlify.app/* https://ingridesouza.com/:splat 301
